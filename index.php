@@ -54,7 +54,7 @@
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white; font-size: 15px;">IPT Modules</a>
                 
-                <div class="dropdown-menu navbar-light" aria-labelledby="navbarDropdown" id="dropNav">
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="dropNav">
                 
                 <a class="dropdown-item" href="action" >Placement $ Application</a>
                 <div class="dropdown-divider"></div>    

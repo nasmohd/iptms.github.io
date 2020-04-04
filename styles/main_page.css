@@ -45,7 +45,11 @@ li{
     background-color: #306FA0;
 }
 
-ul li div #dropNav{
-    color: white;
+ul li #dropNav{
+    border-color: black;
     background-color: #333333;
+}
+
+ul li #dropNav a{
+    color: white;
 }
