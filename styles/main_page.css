@@ -1,5 +1,5 @@
 #div_nav{ /* div_nav styles contents of the navigation  */
-    position: relative;
+/*    position: relative;*/
     height: 90px;
     background-color: #306FA0;
 }
@@ -20,7 +20,7 @@
     position: relative;
     margin-top: 20px;
     text-decoration: none;
-    color: white;
+/*    color: white;*/
     font-size: 20px;
 }
 
@@ -35,7 +35,17 @@ li{
     font-size: 15px;
 }
 
+
 #navTop{
     position: relative;
     margin-top: 15px;
+}
+
+#navColor{
+    background-color: #306FA0;
+}
+
+ul li div #dropNav{
+    color: white;
+    background-color: #333333;
 }
