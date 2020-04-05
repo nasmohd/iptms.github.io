@@ -36,9 +36,9 @@
         
             <div class="col">
             <nav class="navbar navbar-expand-lg navbar-dark" id="navTop">
-                
+                <img src="img/logo7.png" class="img-fluid" style="width: 55px; height: 50px;"/>
                 <a class="navbar-brand" href="#" style="color:white; position:relative; margin-left: 10px;"> 
-                    <img src="img/logo7.png" class="img-fluid" style="width: 55px; height: 50px;"/>
+                    
                     Management System</a>
                 
                 <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" 
