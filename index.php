@@ -34,7 +34,7 @@
     
 <!--    <div class="container-fluid" id="div_nav"> -->
         
-    <div class="container-fluid" id="div_nav">
+<div class="container-fluid" id="div_nav">
     <div class="row">
             
             <div class="col d-flex justify-content-center" style="position:relative;" id="home_link">
@@ -57,7 +57,7 @@
         
         <div class="col-lg-4" id="loginForm">
             
-            <form>
+            <form method="post" action="student/index.php">
             <div class="form-group">
                 <div class="row d-flex justify-content-center">
                 <div class="col-lg-10 mt-5">
@@ -65,15 +65,30 @@
                     
                     </div>
                 
-                <div class="col-lg-10 mt-4">
+                <div class="col-lg-10 mt-3">
                     <input type="password" class="form-control input-sm" id="input" placeholder="Password">
                     
                     </div>
                 
                     
-                <div class="col-lg-10 mt-4">
+                <div class="col-lg-10 mt-3">
                       <button type="submit" id="input" class="btn col-12" style="background-color: #306FA0; color:white"> LOG IN</button>
                     
+                    </div>
+                    
+                <div class="col-lg-10">
+                    <div class="row " id="loginlinks" style="color:#306FA0;" >
+                        <div class="col-lg-12 mt-3">
+                        <a href="#" class="float-right"> Sign Up (Create Account) </a>
+                        </div>
+                        
+                        <div class="col-lg-12 ">
+                        <a href="#" class="float-right"> Forgot Password </a>
+                        </div>
+                        
+                        
+                        
+                    </div>
                     </div>
                 </div>
             </div>
@@ -83,6 +98,33 @@
         <div class="col-lg-4"></div>
 </div>
 </div> 
+    
+<div class="container">
+    <div class="row"> 
+
+<!-- #306FA0 -->
+
+<ul class="nav nav-pills mb-3 nav-tabs" id="pills-tab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Student</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
+  </li>
+</ul>
+<!--
+<div class="tab-content" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">...</div>
+  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
+  <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
+</div>
+-->
+    
+    </div>
+    </div>
 
 <!-- End of the container-fluid class -->
     

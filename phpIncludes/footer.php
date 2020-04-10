@@ -1,5 +1,7 @@
-    <footer class="footer-black aa-footer" style="background-color: #306FA0; color: white; position: absolute; bottom: 0; width:100%;">
-      <div class="container py-2">
+    <footer class="footer-black aa-footer" 
+            style="background-color: #306FA0; color: white; position: absolute; bottom: 0; width:100%; font-size:13px;">
+     
+    <div class="container py-2">
         <div class="row text-center">
 
 
