@@ -1,5 +1,5 @@
 <?php
-    include 'dbh.php';
+    include 'DBconnection.php';
 
 ?>
 
@@ -33,14 +33,18 @@
 <body>      
     <div class="container-fluid" id="div_nav"> 
         <div class="row">
+            
+            <div class="col" style="position:relative;" id="home_link">
             <img src="img/logo7.png" class="img-fluid" style="width: 55px; height: 50px;"/>
-        
+            <a class="" href="#" style="color:white; position:relative;"> 
+                    Management System</a> </div>
+            
+            
+            <div class="row">
             <div class="col">
             <nav class="navbar navbar-expand-lg navbar-dark" id="navTop">
 <!--                <img src="img/logo7.png" class="img-fluid" style="width: 55px; height: 50px;"/>-->
-                <a class="navbar-brand" href="#" style="color:white; position:relative; margin-left: 10px;"> 
-                    
-                    Management System</a>
+                
                 
                 <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" 
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
@@ -86,18 +90,31 @@
                     </ul>
                 </div>
                 </nav>
-            </div>
-        </div> </div>
+            </div></div>
+        </div>
     
-    <br/> <br/>
+    <br/> <br/> <br/> <br/> <br/> <br/>
+    
     <div class="row">
     <div class="col">
-        <form method="post" action=""
-        
-        
-        
-        </div>
-    </div>
+        <form class="form-login d-flex justify-content-center" method="post" action="phpIncludes/login.inc.php">
+            <div class="form-group">
+            <label for="text"> Registration Number </label>
+                <input type="text" class="form-control" placeholder="Registration Number" name="regNo" 
+                       value="170210225935">
+            
+            <br/>
+            <label for="password">Password</label>
+                <input type="password" class="form-control" placeholder="Password" name="pwd" value="12345">
+                <button type="submit" class="btn btn-primary" id="submitButton"
+                        style="background-color: #306FA0;"> LOG IN </button>
+                
+            </div>
+            </form>
+       </div>
+    </div> </div>
+    
+    
 
 <!--
     <div class="container">
@@ -135,4 +152,6 @@
 
     
     </body>
+    
+    
 </html>

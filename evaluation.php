@@ -1,5 +1,5 @@
 <?php
-    include 'dbh.php';
+    include 'DBconnection.php';
 
 ?>
 
@@ -33,14 +33,18 @@
 <body>      
     <div class="container-fluid" id="div_nav"> 
         <div class="row">
+            
+            <div class="col" style="position:relative;" id="home_link">
             <img src="img/logo7.png" class="img-fluid" style="width: 55px; height: 50px;"/>
-        
+            <a class="" href="#" style="color:white; position:relative;"> 
+                    Management System</a> </div>
+            
+            
+            <div class="row">
             <div class="col">
             <nav class="navbar navbar-expand-lg navbar-dark" id="navTop">
 <!--                <img src="img/logo7.png" class="img-fluid" style="width: 55px; height: 50px;"/>-->
-                <a class="navbar-brand" href="#" style="color:white; position:relative; margin-left: 10px;"> 
-                    
-                    Management System</a>
+                
                 
                 <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" 
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
@@ -86,18 +90,29 @@
                     </ul>
                 </div>
                 </nav>
-            </div>
+            </div></div>
         </div> </div>
-    
-    <br/> <br/>
-    <div class="row">
-    <div class="col">
-        <form method="post" action=""
+<!--
+            <div class="col">         
+        <ul class="nav" id="nav_links"> 
+        <li class="nav-item"> 
+        <a class="nav-link active" href="#">Home</a></li> 
         
         
+        <li class="nav-item"> 
+        <a class="nav-link active" href="#">IPT Modules</a></li> 
         
-        </div>
-    </div>
+            
+        <li class="nav-item">
+        <a class="nav-link" href="#">About Us</a> </li> 
+            
+            
+        <li class="nav-item"> 
+        <a class="nav-link" href="#">Contacts</a> </li> 
+        </ul> </div> 
+-->
+        
+        
 
 <!--
     <div class="container">

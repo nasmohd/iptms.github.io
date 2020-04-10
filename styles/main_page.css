@@ -27,7 +27,6 @@
 li{
     position: relative;
     margin-left: 20px;
-    
 }
 
 #navText{
@@ -39,7 +38,7 @@ li{
 #navTop{
     position: relative;
     margin-top: 15px;
-    margin-left: 120px;
+/*    margin-left: 120px;*/
 }
 
 #navColor{
@@ -53,4 +52,33 @@ ul li #dropNav{
 
 ul li #dropNav a{
     color: white;
+}
+
+ul li #dropNav a:hover{
+    color: black;
+}
+
+#home_link{
+    position: relative;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+/*
+#loginForm{
+    border:3px solid rgba(48, 111, 160, 0.4);
+    border-radius: 25px;
+}
+*/
+
+/*
+footer{
+    position: absolute;
+    bottom: 0;
+    width:100%;
+}
+*/
+
+#input{
+    font-size: 15px;
 }

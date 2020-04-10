@@ -1,6 +1,6 @@
 <?php
 
-include '../dbh.php';
+include '../DBconnection.php';
 
 $regNo = $_POST['regNo'];
 $pwd = $_POST ['pwd'];
@@ -15,9 +15,9 @@ if (in_array($regNo, $row)){
     //in_array() is a function which accepts a value to be tested as
     //the first parameter and an array to be tested in second parameter
     
-    
 //    echo $row['StudentPassword']; //display the password
-    $url1 = "http://localhost/UNI_3rd_year/front_page.php";
+    
+    $url1 = "http://localhost/UNI_3rd_year/welcome.php";
     header('Location: '.$url1);
     exit();
 }

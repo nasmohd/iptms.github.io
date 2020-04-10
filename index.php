@@ -1,5 +1,5 @@
 <?php
-    include 'dbh.php';
+    include 'DBconnection.php';
 
 ?>
 
@@ -30,113 +30,68 @@
     </head>
 
 
-<body>      
-    <div class="container-fluid" id="div_nav"> 
-        <div class="row">
-        
-            <div class="col">
-            <nav class="navbar navbar-expand-lg navbar-dark" id="navTop">
-                <img src="img/logo7.png" class="img-fluid" style="width: 55px; height: 50px;"/>
-                <a class="navbar-brand" href="#" style="color:white; position:relative; margin-left: 10px;"> 
-                    
-                    Management System</a>
-                
-                <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" 
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
-                        aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                
-                </button>
-                
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                
-            <ul class="navbar-nav mr-auto" id="navColor">
-                <li class="nav-item active">
-                <a class="nav-link" href="#" id="navText">Home
-                    <span class="sr-only">(current)</span>
-                    </a></li>
-                
-                <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" 
-                   style="color:white; font-size: 15px;">IPT Modules</a>
-                
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="dropNav">
-                
-                <a class="dropdown-item" href="action" >Placement $ Application</a>
-                <div class="dropdown-divider"></div>
-                
-                <a class="dropdown-item" href="action2">Reporting $ Arrival</a>
-                <div class="dropdown-divider"></div>
-                    
-                <a class="dropdown-item" href="action2">Logbook Entry $ Assessment</a>
-                <div class="dropdown-divider"></div>
-                
-                <a class="dropdown-item" href="action2">Evaluation $ Review</a>
-                
-                    </div></li>
-                
-                
-                <li class="nav-item">
-                <a class="nav-link" href="#" id="navText">About Us</a></li>
-                
-                <li class="nav-item">
-                <a class="nav-link" href="#" id="navText">Contacts</a></li>  
-                    </ul>
-                </div>
-                </nav>
-            </div>
-        </div> </div>
-<!--
-            <div class="col">         
-        <ul class="nav" id="nav_links"> 
-        <li class="nav-item"> 
-        <a class="nav-link active" href="#">Home</a></li> 
-        
-        
-        <li class="nav-item"> 
-        <a class="nav-link active" href="#">IPT Modules</a></li> 
-        
-            
-        <li class="nav-item">
-        <a class="nav-link" href="#">About Us</a> </li> 
-            
-            
-        <li class="nav-item"> 
-        <a class="nav-link" href="#">Contacts</a> </li> 
-        </ul> </div> 
--->
-        
-        
-
-<!--
-    <div class="container">
+<body>   
     
-        <br/> <br/> <br/>
+<!--    <div class="container-fluid" id="div_nav"> -->
+        
+    <div class="container-fluid" id="div_nav">
     <div class="row">
-        <div class="col-md-4">
-        <form method="post" action="phpInc/login.inc.php">
-            <div class="form-group">
-
-            <label for="text">Registration Number</label>
             
-            <input type="text" class="form-control" placeholder="Registration Number" name="regNo"
-                   value="170210225935"> <br/> <br/>
-
-
-            <label for="password">Password</label>
+            <div class="col d-flex justify-content-center" style="position:relative;" id="home_link">
             
-            <input type="password" class="form-control" placeholder="Password" name="pwd" value="12345">
-
-            <button type="submit" class="btn btn-primary col-2" id="submitButton"> LOG IN </button>
-
-        </div>
-        </form>
-
+            <a class="" href="#" style="color:white; position:relative;">
+                <img src="img/logo7.png" class="img-fluid" style="width: 55px; height: 50px;"/>
+                    Management System</a> </div>
+            
+            
+                    
+            
         </div></div>
-    </div> 
--->
+    
+    <br/> <br/> 
+ 
 
+<div class="container mt-5" >
+    <div class="row">
+        <div class="col-lg-4"></div>
+        
+        <div class="col-lg-4" id="loginForm">
+            
+            <form>
+            <div class="form-group">
+                <div class="row d-flex justify-content-center">
+                <div class="col-lg-10 mt-5">
+                    <input type="text" class="form-control" id="input" aria-describedby="emailHelp" placeholder="Registration Number">
+                    
+                    </div>
+                
+                <div class="col-lg-10 mt-4">
+                    <input type="password" class="form-control input-sm" id="input" placeholder="Password">
+                    
+                    </div>
+                
+                    
+                <div class="col-lg-10 mt-4">
+                      <button type="submit" id="input" class="btn col-12" style="background-color: #306FA0; color:white"> LOG IN</button>
+                    
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+        
+        <div class="col-lg-4"></div>
+</div>
+</div> 
+
+<!-- End of the container-fluid class -->
+    
+    
+<!--    Footer -->
+<?php 
+    include "phpIncludes/footer.php";
+
+    ?>
 
     <script src="js/popper.min.js"></script>
     <script src="js/jquery-3.2.1.min.js"></script>
@@ -145,4 +100,6 @@
 
     
     </body>
+    
+    
 </html>
