@@ -17,7 +17,9 @@ if (in_array($regNo, $row)){
     
 //    echo $row['StudentPassword']; //display the password
     
-    $url1 = "http://localhost/UNI_3rd_year/welcome.php";
+    
+    $url1 = "http://localhost/UNI_3rd_year/student/index.php";
+//    $url1 = "http://localhost/UNI_3rd_year/welcome.php";
     header('Location: '.$url1);
     exit();
 }

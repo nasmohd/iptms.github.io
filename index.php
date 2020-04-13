@@ -54,26 +54,23 @@
 <div class="container mt-5" >
     <div class="row">
         <div class="col-lg-4"></div>
-        
         <div class="col-lg-4" id="loginForm">
             
-            <form method="post" action="student/index.php">
+            <form method="post" action="phpIncludes/login.inc.php">
             <div class="form-group">
                 <div class="row d-flex justify-content-center">
                 <div class="col-lg-10 mt-5">
-                    <input type="text" class="form-control" id="input" aria-describedby="emailHelp" placeholder="Registration Number">
+                    <input type="text" class="form-control" id="input" aria-describedby="emailHelp" name="regNo" placeholder="Registration Number">
                     
                     </div>
                 
                 <div class="col-lg-10 mt-3">
-                    <input type="password" class="form-control input-sm" id="input" placeholder="Password">
-                    
+                    <input type="password" class="form-control input-sm" id="input" name="pwd" placeholder="Password">
                     </div>
                 
                     
                 <div class="col-lg-10 mt-3">
                       <button type="submit" id="input" class="btn col-12" style="background-color: #306FA0; color:white"> LOG IN</button>
-                    
                     </div>
                     
                 <div class="col-lg-10">
@@ -85,18 +82,15 @@
                         <div class="col-lg-12 ">
                         <a href="#" class="float-right"> Forgot Password </a>
                         </div>
-                        
-                        
-                        
+                            
                     </div>
-                    </div>
+                </div>
                 </div>
             </div>
             </form>
-        </div>
-        
+        </div>        
         <div class="col-lg-4"></div>
-</div>
+    </div>
 </div> 
     
 <div class="container">
