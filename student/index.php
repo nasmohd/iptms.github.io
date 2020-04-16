@@ -5,7 +5,6 @@
 
 
 <!DOCTYPE html>
-
 <html lang="en-US">
 <head>
     <meta charset="utf-8">
@@ -25,8 +24,20 @@
     
     <!-- css file from Bootstrap that will be used -->
     <link rel="stylesheet" href="../styles/main_page.css" type="text/css">
+    <link rel="stylesheet" href="studentcss.css" type="text/css">
 
-    <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<!--    <link href="../plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">-->
+    <link rel="stylesheet" href="../plugins/fontawesome-free-5.13.0-web/css/fontawesome.min.css" type="text/css">
+    <link rel="stylesheet" href="../plugins/fontawesome-free-5.13.0-web/css/all.css" type="text/css">
+    
+    <script src="../plugins/fontawesome-free-5.13.0-web/js/fontawesome.js" type="text/javascript"></script>
+    <script src="../plugins/fontawesome-free-5.13.0-web/js/solid.js" type="text/javascript"></script>
+    
+<!--    CDN -->
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    
     </head>
 
 
@@ -113,41 +124,94 @@
             </form>
        </div>
     </div> </div>
+
     
+<!-- Sidebar Content -->
+<div class="wrapper">
+    <!-- Sidebar -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Bootstrap Sidebar</h3>
+        </div>
 
-<!--
-    <div class="container">
+        <ul class="list-unstyled components">
+            <p>Dummy Heading</p>
+            <li class="active">
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <li>
+                        <a href="#">Home 1</a>
+                    </li>
+                    <li>
+                        <a href="#">Home 2</a>
+                    </li>
+                    <li>
+                        <a href="#">Home 3</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">About</a>
+            </li>
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li>
+                        <a href="#">Page 1</a>
+                    </li>
+                    <li>
+                        <a href="#">Page 2</a>
+                    </li>
+                    <li>
+                        <a href="#">Page 3</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Portfolio</a>
+            </li>
+            <li>
+                <a href="#">Contact</a>
+            </li>
+        </ul>
+    </nav>
     
-        <br/> <br/> <br/>
-    <div class="row">
-        <div class="col-md-4">
-        <form method="post" action="phpInc/login.inc.php">
-            <div class="form-group">
+    <!-- Page Content -->
+<div id="content">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
 
-            <label for="text">Registration Number</label>
-            
-            <input type="text" class="form-control" placeholder="Registration Number" name="regNo"
-                   value="170210225935"> <br/> <br/>
-
-
-            <label for="password">Password</label>
-            
-            <input type="password" class="form-control" placeholder="Password" name="pwd" value="12345">
-
-            <button type="submit" class="btn btn-primary col-2" id="submitButton"> LOG IN </button>
+            <button type="button" id="sidebarCollapse" class="btn btn-info" style="background-color: #306FA0">
+                <i class="fas fa-bars" style="color: white"></i>
+                
+<!--                <span>Toggle Sidebar</span>-->
+            </button>
+            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-align-justify"></i>
+            </button>
 
         </div>
-        </form>
+    </nav>
+</div>
+    
+    
 
-        </div></div>
-    </div> 
--->
-
+</div>
 
     <script src="../js/popper.min.js"></script>
+    <script src="../js/popper.js"></script>
     <script src="../js/jquery-3.2.1.min.js"></script>
     <!-- Optional jQuery file that will be used -->
     <script src="../js/bootstrap.min.js"></script>
+    
+<!--    For the navbar -->
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').toggleClass('active');
+        });
+    });
+    </script>
 
     
     </body>

@@ -5,19 +5,21 @@
 
 
 <!DOCTYPE html>
-
 <html lang="en-US">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="A website for simplified Information Management during IPT sessions for Students and Supervisors"/>
+    <meta name="author" content="Nassor Mohamed Suleiman">
+    <meta name="keywords" content="IPT sessions, Management System">
     
     <title> IPT Management System  </title>
     
-    <!-- Add a tab icon -->
+    <!-- Add tab icon -->
     <link rel="icon" href="img/logo.png">
     
-    <meta name="description" content="A convenient website designed specifically to ease Information Management during various IPT procedures for Students and Supervisors"/>
+    
     
     <link rel="stylesheet" href="css/bootstrap.min.css">    
     
@@ -43,11 +45,7 @@
                 <img src="img/logo7.png" class="img-fluid" style="width: 55px; height: 50px;"/>
                     Management System</a> </div>
             
-            
-                    
-            
         </div></div>
-    
     <br/> <br/> 
  
 
@@ -74,7 +72,7 @@
                     </div>
                     
                 <div class="col-lg-10">
-                    <div class="row " id="loginlinks" style="color:#306FA0;" >
+                    <div class="row" id="loginlinks" style="color:#306FA0;" >
                         <div class="col-lg-12 mt-3">
                         <a href="#" class="float-right"> Sign Up (Create Account) </a>
                         </div>

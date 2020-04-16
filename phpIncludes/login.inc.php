@@ -5,15 +5,18 @@ include '../DBconnection.php';
 $regNo = $_POST['regNo'];
 $pwd = $_POST ['pwd'];
 
-$sqlQuery1 = "SELECT RegNo, StudentPassword FROM student_info";
+$sqlQuery1 = "SELECT * FROM student_info WHERE RegNo = '$regNo' AND StudentPassword = '$pwd'";
 
-$result = $conn -> query($sqlQuery1);
-//$row = $result -> fetch_assoc();
+$result = $conn -> query($sqlQuery1);  //Runs the SQL query on the database
+$row = $result -> fetch_assoc();       //Fetches results from the database
+
+echo $row['StudentID'];
+
 //echo $row['RegNo'];
 
-while ($row = $result -> fetch_assoc()){
-    echo $row['RegNo'];
-}
+//while ($row = $result -> fetch_assoc()){
+//    echo $row['RegNo'];
+//}
 
 
 
