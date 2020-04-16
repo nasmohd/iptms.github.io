@@ -68,7 +68,7 @@
                 
                     
                 <div class="col-lg-10 mt-3">
-                      <button type="submit" id="input" class="btn col-12" style="background-color: #306FA0; color:white"> LOG IN</button>
+                      <button type="submit" id="input" class="btn col-12" style="background-color: #306FA0; color:white" name="login"> LOG IN</button>
                     </div>
                     
                 <div class="col-lg-10">

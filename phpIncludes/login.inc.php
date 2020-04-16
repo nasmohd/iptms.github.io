@@ -2,15 +2,24 @@
 
 include '../DBconnection.php';
 
-$regNo = $_POST['regNo'];
-$pwd = $_POST ['pwd'];
+if (isset($_POST['login']) && !empty($_POST['regNo']) && !empty($_POST['pwd'])){
 
-$sqlQuery1 = "SELECT * FROM student_info WHERE RegNo = '$regNo' AND StudentPassword = '$pwd'";
+    $regNo = $_POST['regNo'];
+    $pwd = $_POST ['pwd'];
 
-$result = $conn -> query($sqlQuery1);  //Runs the SQL query on the database
-$row = $result -> fetch_assoc();       //Fetches results from the database
+    $sqlQuery1 = "SELECT * FROM student_info WHERE RegNo = '$regNo' AND StudentPassword = '$pwd'";
 
-echo $row['StudentID'];
+    $result = $conn -> query($sqlQuery1);  //Runs the SQL query on the database
+    $row = $result -> fetch_assoc();       //Fetches results from the database
+
+    echo $row['StudentID'];
+    
+} else{
+    echo "Reg No or Password field is empty";
+
+}
+
+
 
 //echo $row['RegNo'];
 
