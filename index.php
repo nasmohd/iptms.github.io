@@ -49,17 +49,50 @@
     <br/> <br/> 
  
 
-<div class="container mt-5" >
+<div class="container mt-2" >
     <div class="row">
         <div class="col-lg-4"></div>
         <div class="col-lg-4" id="loginForm">
             
             <form method="post" action="phpIncludes/login.inc.php">
-            <div class="form-group">
+            <div class="form-group"> <!-- style="border:3px solid rgba(48, 111, 160, 0.4)" -->
+                
+                                
                 <div class="row d-flex justify-content-center">
+                    
+<!--
+                    <div class="col-lg-10">
+                    <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12" style="background-color: pink;"> 
+                        <div class="row">
+                <ul class="nav nav-pills nav-tabs" id="pills-tab" role="tablist">
+<div class="col-lg-4 d-flex justify-content-center" style="background-color: yellow;">        
+  <li class="nav-item" style="margin-left:-2px;">
+    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Student</a>
+  </li></div>
+                    
+<div class="col-lg-4 d-flex justify-content-center">           
+  <li class="nav-item" style="margin-left:-2px;">
+    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">
+        <span style="text-align: center;">Institute</span> <br/>Supervisor </a>
+  </li></div>
+                    
+<div class="col-lg-4 d-flex justify-content-center">
+  <li class="nav-item" style="margin-left:-2px;">
+    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Industrial <br/>Supervisor</a>
+                        </li></div>
+</ul>    </div></div>  
+                </div> 
+                    </div>
+-->
+                    
+                    
+                    
+                    
+                    
+                    
                 <div class="col-lg-10 mt-5">
                     <input type="text" class="form-control" id="input" aria-describedby="emailHelp" name="regNo" placeholder="Registration Number">
-                    
                     </div>
                 
                 <div class="col-lg-10 mt-3">
@@ -68,7 +101,7 @@
                 
                     
                 <div class="col-lg-10 mt-3">
-                      <button type="submit" id="input" class="btn col-12" style="background-color: #306FA0; color:white" name="login"> LOG IN</button>
+                    <button type="submit" id="input" class="btn col-12" style="background-color: #306FA0; color:white" name="login"> LOG IN</button>
                     </div>
                     
                 <div class="col-lg-10">
@@ -77,7 +110,7 @@
                         <a href="#" class="float-right"> Sign Up (Create Account) </a>
                         </div>
                         
-                        <div class="col-lg-12 ">
+                        <div class="col-lg-12 mb-5">
                         <a href="#" class="float-right"> Forgot Password </a>
                         </div>
                             
@@ -96,17 +129,22 @@
 
 <!-- #306FA0 -->
 
+<!--
 <ul class="nav nav-pills mb-3 nav-tabs" id="pills-tab" role="tablist">
   <li class="nav-item">
     <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Student</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
+    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">
+        Institute Supervisor </a>
+      
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
+    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Industrial Supervisor</a>
   </li>
 </ul>
+-->
+        
 <!--
 <div class="tab-content" id="pills-tabContent">
   <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">...</div>
