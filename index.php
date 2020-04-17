@@ -49,10 +49,11 @@
     <br/> <br/> 
  
 
-<div class="container mt-2" >
+<div class="container mt-2">
     <div class="row">
-        <div class="col-lg-4"></div>
-        <div class="col-lg-4" id="loginForm">
+<!--        <div class="col-lg-4"></div>-->
+        
+        <div class="col-lg-4 col-8 ml-auto mr-auto" id="loginForm">
             
             <form method="post" action="phpIncludes/login.inc.php">
             <div class="form-group"> <!-- style="border:3px solid rgba(48, 111, 160, 0.4)" -->
@@ -85,10 +86,7 @@
                 </div> 
                     </div>
 -->
-                    
-                    
-                    
-                    
+                
                     
                     
                 <div class="col-lg-10 mt-5">
@@ -120,7 +118,7 @@
             </div>
             </form>
         </div>        
-        <div class="col-lg-4"></div>
+<!--        <div class="col-lg-4"></div>-->
     </div>
 </div> 
     
