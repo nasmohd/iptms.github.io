@@ -53,7 +53,7 @@
     <div class="row">
 <!--        <div class="col-lg-4"></div>-->
         
-        <div class="col-lg-4 col-8 ml-auto mr-auto" id="loginForm">
+        <div class="col-lg-4 col-9 ml-auto mr-auto" id="loginForm">
             
             <form method="post" action="phpIncludes/login.inc.php">
             <div class="form-group"> <!-- style="border:3px solid rgba(48, 111, 160, 0.4)" -->
@@ -89,16 +89,16 @@
                 
                     
                     
-                <div class="col-lg-10 mt-5">
+                <div class="col-lg-10 col-12 mt-5">
                     <input type="text" class="form-control" id="input" aria-describedby="emailHelp" name="regNo" placeholder="Registration Number">
                     </div>
                 
-                <div class="col-lg-10 mt-3">
+                <div class="col-lg-10 col-12 mt-3">
                     <input type="password" class="form-control input-sm" id="input" name="pwd" placeholder="Password">
                     </div>
                 
                     
-                <div class="col-lg-10 mt-3">
+                <div class="col-lg-10 col-12 mt-3">
                     <button type="submit" id="input" class="btn col-12" style="background-color: #306FA0; color:white" name="login"> LOG IN</button>
                     </div>
                     
