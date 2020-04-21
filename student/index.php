@@ -18,7 +18,8 @@
     
     <meta name="description" content="A convenient website designed specifically to ease Information Management during various IPT procedures for Students and Supervisors"/>
     
-    <link rel="stylesheet" href="../css/bootstrap.min.css">    
+    <link rel="stylesheet" href="../css/bootstrap.min.css">   
+    
     
 <!--    <link rel="stylesheet" href="bootstrap-4.1.3-dist/css/bootstrap.css" type="text/css">-->
     
@@ -27,19 +28,30 @@
     <link rel="stylesheet" href="studentcss.css" type="text/css">
 
 <!--    <link href="../plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">-->
+<!--
     <link rel="stylesheet" href="../plugins/fontawesome-free-5.13.0-web/css/fontawesome.min.css" type="text/css">
     <link rel="stylesheet" href="../plugins/fontawesome-free-5.13.0-web/css/all.css" type="text/css">
+-->
+<!--    <link rel="stylesheet" href="font-awesome.css">-->
     
+    <link rel="stylesheet" href="font-awesome.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    
+<!--
     <script src="../plugins/fontawesome-free-5.13.0-web/js/fontawesome.js" type="text/javascript"></script>
     <script src="../plugins/fontawesome-free-5.13.0-web/js/solid.js" type="text/javascript"></script>
+-->
     
 <!--    CDN -->
     <!-- Font Awesome JS -->
+<!--
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+-->
     
     </head>
-
+    
+<!--    <i class="fa fa-male"></i>-->
 
 <body>      
     <div class="container-fluid" id="div_nav"> 
@@ -50,12 +62,11 @@
             <a class="" href="#" style="color:white; position:relative;"> 
                     Management System</a> </div>
             
-            
+<!--
             <div class="row">
             <div class="col">
             <nav class="navbar navbar-expand-lg navbar-dark" id="navTop">
-<!--                <img src="img/logo7.png" class="img-fluid" style="width: 55px; height: 50px;"/>-->
-                
+
                 
                 <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" 
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
@@ -102,28 +113,12 @@
                 </div>
                 </nav>
             </div></div>
+-->
         </div>
+        
     
-    <br/> <br/> <br/> <br/> <br/> <br/>
-    
-    <div class="row">
-    <div class="col">
-        <form class="form-login d-flex justify-content-center" method="post" action="phpIncludes/login.inc.php">
-            <div class="form-group">
-            <label for="text"> Registration Number </label>
-                <input type="text" class="form-control" placeholder="Registration Number" name="regNo" 
-                       value="170210225935">
-            
-            <br/>
-            <label for="password">Password</label>
-                <input type="password" class="form-control" placeholder="Password" name="pwd" value="12345">
-                <button type="submit" class="btn btn-primary" id="submitButton"
-                        style="background-color: #306FA0;"> LOG IN </button>
-                
-            </div>
-            </form>
-       </div>
-    </div> </div>
+<!-- Log in was here -->
+    </div>
 
     
 <!-- Sidebar Content -->
@@ -137,7 +132,9 @@
         <ul class="list-unstyled components">
             <p>Dummy Heading</p>
             <li class="active">
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+                <a href="#homeSubmenu" aria-expanded="false" >Home</a>
+<!--                data-toggle="collapse" attribute in <a> tag and class="dropdown-toggle"  -->
+<!--
                 <ul class="collapse list-unstyled" id="homeSubmenu">
                     <li>
                         <a href="#">Home 1</a>
@@ -149,29 +146,31 @@
                         <a href="#">Home 3</a>
                     </li>
                 </ul>
+-->
             </li>
+
             <li>
-                <a href="#">About</a>
-            </li>
-            <li>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">IPT Modules</a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
                     <li>
-                        <a href="#">Page 1</a>
+                        <a href="#">Placement &amp; Application</a>
                     </li>
                     <li>
-                        <a href="#">Page 2</a>
+                        <a href="#">Reporting &amp; Arrival</a>
                     </li>
                     <li>
-                        <a href="#">Page 3</a>
+                        <a href="#">Logbook Entry &amp; Assessment</a>
+                    </li>
+                    <li>
+                        <a href="#">Evaluation &amp; Review</a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="#">Portfolio</a>
+                <a href="#">About Us</a>
             </li>
             <li>
-                <a href="#">Contact</a>
+                <a href="#">Contacts</a>
             </li>
         </ul>
     </nav>
@@ -181,8 +180,8 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
 
-            <button type="button" id="sidebarCollapse" class="btn btn-info" style="background-color: #306FA0">
-                <i class="fas fa-bars" style="color: white"></i>
+            <button type="button" id="sidebarCollapse" class="btn btn-info" style="margin-left: -10px; background-color: #306FA0">
+                <i class="fa fa-bars tooltips" title="Edit" style="color: white"></i>
                 
 <!--                <span>Toggle Sidebar</span>-->
             </button>
@@ -194,10 +193,9 @@
     </nav>
 </div>
     
-    
-
 </div>
 
+    
     <script src="../js/popper.min.js"></script>
     <script src="../js/popper.js"></script>
     <script src="../js/jquery-3.2.1.min.js"></script>

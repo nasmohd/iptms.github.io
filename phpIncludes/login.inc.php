@@ -12,7 +12,11 @@ if (isset($_POST['login']) && !empty($_POST['regNo']) && !empty($_POST['pwd'])){
     $result = $conn -> query($sqlQuery1);  //Runs the SQL query on the database
     $row = $result -> fetch_assoc();       //Fetches results from the database
 
-    echo $row['StudentID'];
+//    echo $row['RegNo'];
+    $_SESSION['loginid'] = $row['StudentID'];
+    
+    $url1 = "localhost/UNI_3rd_year/student/index.php";
+    header ('Location: '.$url1);
     
 } else{
     echo "Reg No or Password field is empty";
