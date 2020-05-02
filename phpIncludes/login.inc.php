@@ -15,7 +15,7 @@ if (isset($_POST['login']) && !empty($_POST['regNo']) && !empty($_POST['pwd'])){
 //    echo $row['RegNo'];
     $_SESSION['loginid'] = $row['StudentID'];
     
-    $url1 = "localhost/UNI_3rd_year/student/index.php";
+    $url1 = "../student/index.php";
     header ('Location: '.$url1);
     
 } else{

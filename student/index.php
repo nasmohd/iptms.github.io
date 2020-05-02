@@ -44,20 +44,23 @@
     
 <!--    CDN -->
     <!-- Font Awesome JS -->
-<!--
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
--->
     
     </head>
     
 <!--    <i class="fa fa-male"></i>-->
 
 <body>      
-    <div class="container-fluid" id="div_nav"> 
+    <div class="container-fluid" id="div_nav"> <!-- div_nav sets the header's attributes -->
         <div class="row">
             
-            <div class="col" style="position:relative;" id="home_link">
+            <div class="col float-left" style="position:relative;" id="home_link">
+                        <button type="button" id="sidebarCollapse" class="btn btn-info" style="margin-left: 20px; background-color: #333333">
+                <i class="fa fa-bars" title="Edit" style="color: white"></i>
+                
+<!--                <span>Toggle Sidebar</span>-->
+            </button>
             <img src="../img/logo7.png" class="img-fluid" style="width: 55px; height: 50px;"/>
             <a class="" href="#" style="color:white; position:relative;"> 
                     Management System</a> </div>
@@ -180,14 +183,18 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
 
-            <button type="button" id="sidebarCollapse" class="btn btn-info" style="margin-left: -10px; background-color: #306FA0">
-                <i class="fa fa-bars tooltips" title="Edit" style="color: white"></i>
+<!--
+            <button type="button" id="sidebarCollapse" class="btn btn-info" style="margin-left: -10px; background-color: #333333">
+                <i class="fa fa-bars" title="Edit" style="color: white"></i>
                 
-<!--                <span>Toggle Sidebar</span>-->
+                <span>Toggle Sidebar</span>
             </button>
+-->
+<!--
             <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-align-justify"></i>
             </button>
+-->
 
         </div>
     </nav>
