@@ -17,6 +17,13 @@
     <link rel="icon" href="../img/logo.png">
     
     <meta name="description" content="A convenient website designed specifically to ease Information Management during various IPT procedures for Students and Supervisors"/>
+
+    
+    <!-- CDN for dropdown menu, delete later if offline version found -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     
     <link rel="stylesheet" href="../css/bootstrap.min.css">   
     
@@ -44,8 +51,8 @@
     
 <!--    CDN -->
     <!-- Font Awesome JS -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <!-- <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script> -->
+    <!-- <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script> -->
     
     </head>
     
@@ -55,15 +62,22 @@
     <div class="container-fluid" id="div_nav"> <!-- div_nav sets the header's attributes -->
         <div class="row">
             
+        <!-- div tag below is for the navigation button to toggle the navigation for this particular page -->
             <div class="col float-left" style="position:relative;" id="home_link">
-                        <button type="button" id="sidebarCollapse" class="btn btn-info" style="margin-left: 20px; background-color: #333333">
+                        <button type="button" id="sidebarCollapse" class="btn btn-info" 
+                        style="margin-left: 20px; background-color: #333333">
                 <i class="fa fa-bars" title="Edit" style="color: white"></i>
                 
 <!--                <span>Toggle Sidebar</span>-->
             </button>
             <img src="../img/logo7.png" class="img-fluid" style="width: 55px; height: 50px;"/>
             <a class="" href="#" style="color:white; position:relative;"> 
-                    Management System</a> </div>
+                    Management System</a> 
+                </div>
+
+                <div class="col-lg-1 col-1 float-right mt-1" >
+                <img src="../img/profile.png" class="img-fluid"/>
+</div>
             
 <!--
             <div class="row">
@@ -119,6 +133,20 @@
 -->
         </div>
         
+        <!-- <div class="row"> -->
+        <!-- <div class="dropdown"> -->
+ <!-- <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> Dropdown Button </button> -->
+ <!-- <div class="dropdown-menu"> -->
+ <!-- <a class="dropdown-item" href="#">Link 1</a> -->
+ <!-- <a class="dropdown-item" href="#">Link 2</a> -->
+ <!-- <a class="dropdown-item" href="#">Link 3</a> -->
+ 
+ <!-- </div> -->
+ 
+ 
+ </div>
+
+</div>
     
 <!-- Log in was here -->
     </div>
