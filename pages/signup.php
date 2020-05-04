@@ -17,7 +17,7 @@
     <title> IPT Management System  </title>
     
     <!-- Add tab icon -->
-    <link rel="icon" href="img/logo.png">
+    <link rel="icon" href="../img/logo.png">
     
     
     
@@ -49,7 +49,7 @@
     <br/> <br/> 
  
 
-<div class="container mt-5">
+<div class="container">
     <div class="row">
 <!--        <div class="col-lg-4"></div>-->
         
@@ -86,18 +86,65 @@
                 </div> 
                     </div>
 -->
+<!--
                 <div class="col-lg-9 col-11 text-center mb-2" style="font-size: 25px; font-style: italic;">
                     <p> SIGN UP </p>
 
                 </div>
-                    
-                    
+-->            
+                                
                 <div class="col-lg-10 col-12">
-                    <input type="text" class="form-control" id="input" aria-describedby="emailHelp" name="regNo" placeholder="Registration Number">
+                    <div class="row">
+                    <div class="col-6">
+                    <input type="text" class="form-control" id="input" aria-describedby="emailHelp" name="firstname" placeholder="First Name">
+                            </div>
+                    
+                    <div class="col-6">
+                    <input type="text" class="form-control" id="input" aria-describedby="emailHelp" name="lastname" placeholder="Last Name">
+                            </div>
+                    
+                        </div>
                     </div>
                 
                 <div class="col-lg-10 col-12 mt-3">
-                    <input type="password" class="form-control input-sm" id="input" name="pwd" placeholder="Password">
+                    <div class="row">
+                    <div class="col-6">
+                    <input type="text" class="form-control" id="input" aria-describedby="emailHelp" name="regNo" placeholder="Registration No">
+                            </div>
+                    
+                    <div class="col-6">
+                    <input type="text" class="form-control" id="input" aria-describedby="emailHelp" name="regNo" placeholder="Course">
+                            </div>
+                        
+<!--
+                    <div class="col-6 dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Course <b class ="caret"></b> </a>
+                        <ul class="dropdown-menu">
+                        <li><a href="#">COE</a> </li>
+                        <li><a href="#">IT</a> </li>
+                        <li><a href="#">MFT</a> </li>
+                        </ul>
+                        
+                            </div>            
+-->
+                        </div>
+                    </div>
+                
+                                
+                <div class="col-lg-10 col-12 mt-3">
+                    <input type="text" class="form-control" id="input" aria-describedby="emailHelp" name="email" placeholder="Email Address">
+                    </div>
+                    
+                <div class="col-lg-10 col-12 mt-3">
+                    <input type="text" class="form-control" id="input" aria-describedby="emailHelp" name="regNo" placeholder="Phone Number">
+                    </div>
+                
+                <div class="col-lg-10 col-12 mt-3">
+                    <input type="password" class="form-control input-sm" id="input" name="pwd" placeholder="Login Password">
+                    </div>
+                
+                <div class="col-lg-10 col-12 mt-3">
+                    <input type="password" class="form-control input-sm" id="input" name="pwd" placeholder="Confirm Password">
                     </div>
                 
                     
@@ -105,6 +152,7 @@
                     <button type="submit" id="input" class="btn col-12" style="background-color: #306FA0; color:white" name="login"> SIGN UP</button>
                     </div>
                     
+<!--
                 <div class="col-lg-10">
                     <div class="row" id="loginlinks" style="color:#306FA0;" >
                         <div class="col-lg-12 mt-3">
@@ -117,6 +165,7 @@
                             
                     </div>
                 </div>
+-->
                 </div>
             </div>
             </form>
