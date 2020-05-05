@@ -1,5 +1,5 @@
 <?php
-    include '../DBconnection.php';
+    include 'DBconnection.php';
 
 ?>
 
@@ -17,16 +17,16 @@
     <title> IPT Management System  </title>
     
     <!-- Add tab icon -->
-    <link rel="icon" href="../img/logo.png">
+    <link rel="icon" href="img/logo.png">
     
     
     
-    <link rel="stylesheet" href="../css/bootstrap.min.css">    
+    <link rel="stylesheet" href="css/bootstrap.min.css">    
     
 <!--    <link rel="stylesheet" href="bootstrap-4.1.3-dist/css/bootstrap.css" type="text/css">-->
     
     <!-- css file from Bootstrap that will be used -->
-    <link rel="stylesheet" href="../styles/main_page.css" type="text/css">
+    <link rel="stylesheet" href="styles/main_page.css" type="text/css">
 
     <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     </head>
@@ -42,20 +42,20 @@
             <div class="col d-flex justify-content-center" style="position:relative;" id="home_link">
             
             <a class="" href="#" style="color:white; position:relative;">
-                <img src="../img/logo7.png" class="img-fluid" style="width: 55px; height: 50px;"/>
+                <img src="img/logo7.png" class="img-fluid" style="width: 55px; height: 50px;"/>
                     Management System</a> </div>
             
         </div></div>
-<!--    <br/> <br/> -->
+    <br/> <br/> 
  
 
-<div class="container mt-5"> 
+<div class="container mt-5">
     <div class="row">
 <!--        <div class="col-lg-4"></div>-->
         
         <div class="col-lg-4 col-9 ml-auto mr-auto" id="loginForm">
             
-            <form method="post" action="../phpIncludes/signup.inc.php">
+            <form method="post" action="phpIncludes/login.inc.php">
             <div class="form-group"> <!-- style="border:3px solid rgba(48, 111, 160, 0.4)" -->
                 
                                 
@@ -86,77 +86,24 @@
                 </div> 
                     </div>
 -->
-<!--
-                <div class="col-lg-9 col-11 text-center mb-2" style="font-size: 25px; font-style: italic;">
-                    <p> SIGN UP </p>
-
-                </div>
--->            
-                                
-                <div class="col-lg-10 col-12">
-                    <div class="row">
-                    <div class="col-6">
-                    <input type="text" class="form-control" id="input" aria-describedby="emailHelp" name="firstname" placeholder="First Name">
-                            </div>
-                    
-                    <div class="col-6">
-                    <input type="text" class="form-control" id="input" aria-describedby="emailHelp" name="lastname" placeholder="Last Name">
-                            </div>
-                    
-                        </div>
+                                                     
+                <div class="col-lg-10 col-12 mt-5">
+                    <input type="text" class="form-control" id="input" aria-describedby="emailHelp" name="regNo" placeholder="Registration Number">
                     </div>
                 
                 <div class="col-lg-10 col-12 mt-3">
-                    <div class="row">
-                    <div class="col-6">
-                    <input type="text" class="form-control" id="input" aria-describedby="emailHelp" name="regNo" placeholder="Registration No">
-                            </div>
-                    
-                    <div class="col-6">
-                    <input type="text" class="form-control" id="input" aria-describedby="emailHelp" name="regNo" placeholder="Course">
-                            </div>
-                        
-<!--
-                    <div class="col-6 dropdown">
-                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Course <b class ="caret"></b> </a>
-                        <ul class="dropdown-menu">
-                        <li><a href="#">COE</a> </li>
-                        <li><a href="#">IT</a> </li>
-                        <li><a href="#">MFT</a> </li>
-                        </ul>
-                        
-                            </div>            
--->
-                        </div>
-                    </div>
-                
-                                
-                <div class="col-lg-10 col-12 mt-3">
-                    <input type="text" class="form-control" id="input" aria-describedby="emailHelp" name="email" placeholder="Email Address">
-                    </div>
-                    
-                <div class="col-lg-10 col-12 mt-3">
-                    <input type="text" class="form-control" id="input" aria-describedby="emailHelp" name="regNo" placeholder="Phone Number">
-                    </div>
-                
-                <div class="col-lg-10 col-12 mt-3">
-                    <input type="password" class="form-control input-sm" id="input" name="pwd" placeholder="Login Password">
-                    </div>
-                
-                <div class="col-lg-10 col-12 mt-3">
-                    <input type="password" class="form-control input-sm" id="input" name="pwd" placeholder="Confirm Password">
+                    <input type="password" class="form-control input-sm" id="input" name="pwd" placeholder="Password">
                     </div>
                 
                     
                 <div class="col-lg-10 col-12 mt-3">
-                    <button type="submit" id="input" class="btn col-12" style="background-color: #306FA0; color:white" name="login"> SIGN UP</button>
+                    <button type="submit" id="input" class="btn col-12" style="background-color: #306FA0; color:white" name="login"> LOG IN</button>
                     </div>
-
-<!--
+                    
                 <div class="col-lg-10">
                     <div class="row" id="loginlinks" style="color:#306FA0;" >
                         <div class="col-lg-12 mt-3">
-                        <a href="#" class="float-right"> Sign Up (Create Account) </a>
+                        <a href="pages/signup.php" class="float-right"> Sign Up (Create Account) </a>
                         </div>
                         
                         <div class="col-lg-12 mb-5">
@@ -165,7 +112,6 @@
                             
                     </div>
                 </div>
--->
                 </div>
             </div>
             </form>
@@ -211,14 +157,14 @@
     
 <!--    Footer -->    
 <?php 
-    include "../phpIncludes/footer.php";
+    include "phpIncludes/footer.php";
 
     ?>
 
-    <script src="../js/popper.min.js"></script>
-    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
     <!-- Optional jQuery file that will be used -->
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 
     
     </body>
