@@ -53,7 +53,7 @@
     <div class="row">
 <!--        <div class="col-lg-4"></div>-->
         
-        <div class="col-lg-4 col-9 ml-auto mr-auto" id="loginForm">
+        <div class="col-lg-4 col-9 ml-auto mr-auto mb-3" id="loginForm">
             
             <form method="post" action="../phpIncludes/signup.inc.php">
             <div class="form-group"> <!-- style="border:3px solid rgba(48, 111, 160, 0.4)" -->
@@ -151,7 +151,8 @@
                 <div class="col-lg-10 col-12 mt-3">
                     <button type="submit" id="input" class="btn col-12" style="background-color: #306FA0; color:white" name="login"> SIGN UP</button>
                     </div>
-
+                    
+                
 <!--
                 <div class="col-lg-10">
                     <div class="row" id="loginlinks" style="color:#306FA0;" >
