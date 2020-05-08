@@ -63,7 +63,7 @@
         <div class="row">
             
         <!-- div tag below is for the navigation button to toggle the navigation for this particular page -->
-            <div class="col float-left" style="position:relative;" id="home_link">
+            <div class="col-9 float-left" style="position:relative;" id="home_link">
                         <button type="button" id="sidebarCollapse" class="btn btn-info" 
                         style="margin-left: 20px; background-color: #333333">
                 <i class="fa fa-bars" title="Edit" style="color: white"></i>
@@ -75,7 +75,7 @@
                     Management System</a> 
                 </div>
 
-                <div class="col-lg-1 col-1 float-right mt-1" >
+                <div class="col-lg-1 col-md-3 col-3 float-right mt-1 ml-auto" >
                 <img src="../img/profile.png" class="img-fluid"/>
 </div>
             
