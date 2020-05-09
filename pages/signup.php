@@ -49,15 +49,15 @@
 <!--    <br/> <br/> -->
  
 
-<div class="container mt-5"> 
+<div class="container mt-4"> 
     <div class="row">
 <!--        <div class="col-lg-4"></div>-->
         
         <div class="col-lg-4 col-9 ml-auto mr-auto mb-3" id="loginForm">
             
             <form method="post" action="../phpIncludes/signup.inc.php">
-            <div class="form-group"> <!-- style="border:3px solid rgba(48, 111, 160, 0.4)" -->
-                
+            <div class="col-lg-12 col-12 form-group ml-auto mr-auto" style="border: 2px solid rgba(48, 111, 160, 0.6); border-radius: 10px;"> <!-- style="border:3px solid rgba(48, 111, 160, 0.4)" -->
+<!--                #306FA0-->
                                 
                 <div class="row d-flex justify-content-center">
                     
@@ -93,7 +93,7 @@
                 </div>
 -->            
                                 
-                <div class="col-lg-10 col-12">
+                <div class="col-lg-11 col-12 mt-4">
                     <div class="row">
                     <div class="col-6">
                     <input type="text" class="form-control" id="input" aria-describedby="emailHelp" name="firstname" placeholder="First Name">
@@ -106,10 +106,10 @@
                         </div>
                     </div>
                 
-                <div class="col-lg-10 col-12 mt-3">
+                <div class="col-lg-11 col-12 mt-3">
                     <div class="row">
                     <div class="col-6">
-                    <input type="text" class="form-control" id="input" aria-describedby="emailHelp" name="regNo" placeholder="Registration No">
+                    <input type="text" class="form-control" id="input" aria-describedby="emailHelp" name="regNo" placeholder="Reg. Number">
                             </div>
                     
                     <div class="col-6">
@@ -131,24 +131,24 @@
                     </div>
                 
                                 
-                <div class="col-lg-10 col-12 mt-3">
+                <div class="col-lg-11 col-12 mt-3">
                     <input type="text" class="form-control" id="input" aria-describedby="emailHelp" name="email" placeholder="Email Address">
                     </div>
                     
-                <div class="col-lg-10 col-12 mt-3">
+                <div class="col-lg-11 col-12 mt-3">
                     <input type="text" class="form-control" id="input" aria-describedby="emailHelp" name="regNo" placeholder="Phone Number">
                     </div>
                 
-                <div class="col-lg-10 col-12 mt-3">
+                <div class="col-lg-11 col-12 mt-3">
                     <input type="password" class="form-control input-sm" id="input" name="pwd" placeholder="Login Password">
                     </div>
                 
-                <div class="col-lg-10 col-12 mt-3">
+                <div class="col-lg-11 col-12 mt-3">
                     <input type="password" class="form-control input-sm" id="input" name="pwd" placeholder="Confirm Password">
                     </div>
                 
                     
-                <div class="col-lg-10 col-12 mt-3">
+                <div class="col-lg-11 col-12 mt-3 mb-4">
                     <button type="submit" id="input" class="btn col-12" style="background-color: #306FA0; color:white" name="login"> SIGN UP</button>
                     </div>
                     
