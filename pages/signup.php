@@ -53,7 +53,7 @@
     <div class="row">
 <!--        <div class="col-lg-4"></div>-->
         
-        <div class="col-lg-4 col-9 ml-auto mr-auto mb-3" id="loginForm">
+        <div class="col-lg-4 col-11 ml-auto mr-auto mb-3" id="loginForm">
             
             <form method="post" action="../phpIncludes/signup.inc.php">
             <div class="col-lg-12 col-12 form-group ml-auto mr-auto" style="border: 2px solid rgba(48, 111, 160, 0.6); border-radius: 10px;"> <!-- style="border:3px solid rgba(48, 111, 160, 0.4)" -->
