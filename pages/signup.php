@@ -113,7 +113,7 @@
                             </div>
                     
                     <div class="col-6">
-                    <input type="text" class="form-control" id="input" aria-describedby="emailHelp" name="regNo" placeholder="Course">
+                    <input type="text" class="form-control" id="input" aria-describedby="emailHelp" name="course" placeholder="Course">
                             </div>
                         
 <!--
@@ -136,7 +136,7 @@
                     </div>
                     
                 <div class="col-lg-11 col-12 mt-3">
-                    <input type="text" class="form-control" id="input" aria-describedby="emailHelp" name="regNo" placeholder="Phone Number">
+                    <input type="text" class="form-control" id="input" aria-describedby="emailHelp" name="phonenumber" placeholder="Phone Number">
                     </div>
                 
                 <div class="col-lg-11 col-12 mt-3">

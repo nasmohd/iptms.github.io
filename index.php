@@ -94,11 +94,39 @@
                 <div class="col-lg-10 col-12 mt-3">
                     <input type="password" class="form-control input-sm" id="input" name="pwd" placeholder="Password">
                     </div>
-                
+                    
+                <div class="col-lg-10 col-12 mt-2" id="WrongPassword" style="color: red; visibility: hidden; display:none; font-size:14px;">
+                    <p> Incorrect Registration Number or Password </p>
+                    </div>
                     
                 <div class="col-lg-10 col-12 mt-3">
-                    <button type="submit" id="input" class="btn col-12" style="background-color: #306FA0; color:white" name="login"> LOG IN</button>
+                    <button type="submit" id="input1" class="btn col-12" style="background-color: #306FA0; color:white" name="login"> LOG IN</button>
                     </div>
+                
+                <?php
+                    $requestUrl = $_SERVER ['REQUEST_URI'];
+                    $urlComponents = explode ('/', $requestUrl);
+                     
+                    $dot = explode ('.', $urlComponents[2]);
+                    $dot_len = count($dot);
+                    
+                    if ($dot_len > 1){
+                        $lenurl = strlen($dot[1]);
+                        $last = $lenurl - 1;
+                    
+                        if (($lenurl >3) && ($dot[1][$last] == '?')){
+                        echo "<script>
+                            document.getElementById('WrongPassword').style.display = 'block';
+                            document.getElementById('WrongPassword').style.visibility = 'visible';
+                            document.getElementById('input1').style.marginTop = '-30px';
+                            </script>";
+                    }
+                    }
+                    
+                    
+                    
+                    ?>
+                
                     
                 <div class="col-lg-10">
                     <div class="row" id="loginlinks" style="color:#306FA0;" >
