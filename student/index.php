@@ -71,13 +71,12 @@
 <!--                <span>Toggle Sidebar</span>-->
             </button>
             <img src="../img/logo7.png" class="img-fluid" style="width: 55px; height: 50px;"/>
-            <a class="" href="#" style="color:white; position:relative;"> 
-                    Management System</a> 
-                </div>
+            <a class="" href="#" style="color:white; position:relative;">Management System</a> 
+            </div>
 
                 <div class="col-lg-1 col-md-3 col-3 float-right mt-1 ml-auto" >
                 <img src="../img/profile.png" class="img-fluid"/>
-</div>
+                </div>
             
 <!--
             <div class="row">
@@ -143,18 +142,17 @@
  
  <!-- </div> -->
  
- 
- </div>
+    </div>
 
-</div>
+<!--</div>-->
     
 <!-- Log in was here -->
-    </div>
+<!--    </div>-->
 
     
 <!-- Sidebar Content -->
+<!--
 <div class="wrapper">
-    <!-- Sidebar -->
     <nav id="sidebar">
         <div class="sidebar-header">
             <h3>Bootstrap Sidebar</h3>
@@ -164,6 +162,7 @@
             <p>Dummy Heading</p>
             <li class="active">
                 <a href="#homeSubmenu" aria-expanded="false" >Home</a>
+-->
 <!--                data-toggle="collapse" attribute in <a> tag and class="dropdown-toggle"  -->
 <!--
                 <ul class="collapse list-unstyled" id="homeSubmenu">
@@ -178,22 +177,26 @@
                     </li>
                 </ul>
 -->
+                
+                
+<!--                From here -->
+<!--
             </li>
 
             <li>
                 <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">IPT Modules</a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
                     <li>
-                        <a href="#">Placement &amp; Application</a>
+                        <a href="../pages/placement.php">Placement &amp; Application</a>
                     </li>
                     <li>
-                        <a href="#">Reporting &amp; Arrival</a>
+                        <a href="../pages/reporting.php">Reporting &amp; Arrival</a>
                     </li>
                     <li>
-                        <a href="#">Logbook Entry &amp; Assessment</a>
+                        <a href="../pages/logbook.php">Logbook Entry &amp; Assessment</a>
                     </li>
                     <li>
-                        <a href="#">Evaluation &amp; Review</a>
+                        <a href="../pages/evaluation.php">Evaluation &amp; Review</a>
                     </li>
                 </ul>
             </li>
@@ -205,12 +208,17 @@
             </li>
         </ul>
     </nav>
+-->
     
     <!-- Page Content -->
+<!--    this down -->
+<!--
 <div id="content">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-
+-->
+<!-- To here -->
+    
 <!--
             <button type="button" id="sidebarCollapse" class="btn btn-info" style="margin-left: -10px; background-color: #333333">
                 <i class="fa fa-bars" title="Edit" style="color: white"></i>
@@ -224,11 +232,13 @@
             </button>
 -->
 
+<!--
         </div>
     </nav>
 </div>
     
 </div>
+-->
 
     
     <script src="../js/popper.min.js"></script>
@@ -237,7 +247,9 @@
     <!-- Optional jQuery file that will be used -->
     <script src="../js/bootstrap.min.js"></script>
     
+    
 <!--    For the navbar -->
+<!--
     <script type="text/javascript">
     $(document).ready(function () {
         $('#sidebarCollapse').on('click', function () {
@@ -245,9 +257,8 @@
         });
     });
     </script>
+-->
 
     
     </body>
-    
-    
 </html>
