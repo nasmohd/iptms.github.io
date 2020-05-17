@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include '../DBconnection.php';
 
 if (isset($_POST['login']) && !empty($_POST['regNo']) && !empty($_POST['pwd'])){
@@ -18,7 +18,9 @@ if (isset($_POST['login']) && !empty($_POST['regNo']) && !empty($_POST['pwd'])){
 
     if (($row['RegistrationNumber'] == $regNo) && ($row['StudentPassword']) == $pwd){
         
-        $_SESSION ['UserID'] = $row['StudentID'];
+//        $_SESSION ['UserID'] = $row['StudentID']; //Create session for when the user has successfully logged in
+        $_SESSION ['FirstName'] = $row['FirstName'];
+        $_SESSION ['LastName'] = $row ['LastName'];
         
         $url1 = "../student/index.php";
         header ('Location: '.$url1);
