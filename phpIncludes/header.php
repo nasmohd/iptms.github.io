@@ -63,30 +63,69 @@
 <body>      
     <div class="container-fluid" id="div_nav"> <!-- div_nav sets the header's attributes -->
         <div class="row">
-            
+<!--            style="background-color: cyan"-->
         <!-- div tag below is for the navigation button to toggle the navigation for this particular page -->
-            <div class="col-lg-9 col-6 float-left" style="position:relative; background-color: green;" id="home_link">
+            <div class="col-lg-9 col-6" id="home_link">
+<!--
+                <div class="row">
+                    <div class="col-3">
+                        <button type="button" id="sidebarCollapse" class="btn btn-info" style="margin-left: 20px; background-color: #333333">
+                            <i class="fa fa-bars" title="Edit" style="color: white"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="col-5">
+                        <img src="../img/logo7.png" class="img-fluid" style="width: 55px; height: 50px;"/>
+                    </div>
+                    
+                    <div class="col-4" style="background-color: purple;">
+                        <a class="" href="#" style="color:white;">Management System</a> 
+                    </div>
+            
+                </div>
+-->
                 <button type="button" id="sidebarCollapse" class="btn btn-info" style="margin-left: 20px; background-color: #333333">
                     <i class="fa fa-bars" title="Edit" style="color: white"></i>
                 
 <!--                <span>Toggle Sidebar</span>-->
                 </button>
-                    
                 <img src="../img/logo7.png" class="img-fluid" style="width: 55px; height: 50px;"/>
-                <a class="" href="#" style="color:white; position:relative;">Management System</a> 
+                <a class="" href="#" style="color:white;">Management System</a>
+                
             </div>
 
-            <div class="col-lg-2 col-3 float-right mt-2 ml-auto" style="position: relative; background-color: yellow; font-size: 13px;"> 
+            <div class="col-lg-3 col-6 mt-2 ml-auto">
+                <div class="col-lg-12" style="background-color: yellow;">
+                
+                
+                </div>
+                <?php
+                    if (isset($_SESSION['UserID'])){
+                        echo "<p class='mt-4' style='color:white;'>Logged in as:<br/>".$_SESSION['FirstName']." ".$_SESSION['LastName']."</p>";
+                        
+                        echo "<form method='post' action='logout.inc.php'>
+                        <button class='btn btn-primary'> LOG OUT </button> </form>";
+                        
+                    }
+                
+                ?>
+            
+            
+            </div>
+            
+            
+<!--
+            <div class="col-lg-2 col-3 float-right mt-2 ml-auto" style="background-color: yellow; font-size: 13px;"> 
                 <?php
                     echo "<p class='mt-4'>Logged in as: ".$_SESSION['FirstName']." ".$_SESSION['LastName']."</p>";
                 
                 ?>
-                
             </div>
             
             <div class="col-lg-1 col-md-3 col-3 float-right mt-1 ml-auto">
                 <img src="../img/profile.png" class="img-fluid"/>
             </div> 
+-->
         </div> 
     </div>
     
