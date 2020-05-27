@@ -29,6 +29,15 @@
     <link rel="stylesheet" href="styles/main_page.css" type="text/css">
 
     <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+    
+<!--    CDN LINKS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    
+    
     </head>
 
 
@@ -38,30 +47,34 @@
         
 <div class="container-fluid" id="div_nav">
     <div class="row">
-            
-            <div class="col d-flex justify-content-center" style="position:relative;" id="home_link">
-            
+        <div class="col d-flex justify-content-center" style="position:relative;" id="home_link">
             <a class="" href="#" style="color:white; position:relative;">
                 <img src="img/logo7.png" class="img-fluid" style="width: 55px; height: 50px;"/>
-                    Management System</a> </div>
+                    Management System
+            </a> 
+        </div>
             
-        </div></div>
+    </div>
+</div>
     <br/> <br/> 
  
 
 <div class="container">
     <div class="row">
 <!--        <div class="col-lg-4"></div>-->        
-        <div class="col-lg-7 col-12 ml-auto mr-auto">
-        <div class="col-lg-7 col-9 mr-auto ml-auto" style="color:white; background-color: #306FA0; height: 60px; border-top-left-radius: 8px; border-top-right-radius: 8px;">
+<!--        <div class="col-lg-7 col-12 ml-auto mr-auto">-->
+        <div class="col-lg-4 col-10 mr-auto ml-auto" style="color:white; background-color: #306FA0; height: 60px; border-top-left-radius: 8px; border-top-right-radius: 8px;">
             <div class="text-center pt-3" style="font-size: 17px;">
                 <p> STUDENT LOG IN </p>
                     
             </div>
                         
         </div>
+    </div>
+    
+    <div class="row">
         
-        <div class="col-lg-7 col-9 ml-auto mr-auto" id="loginForm"
+        <div class="col-lg-4 col-10 ml-auto mr-auto" id="loginForm"
              style="border: 2px solid rgba(48, 111, 160, 0.6); border-bottom-left-radius: 8px;
                     border-bottom-right-radius: 8px;">
             
@@ -134,20 +147,41 @@
                             </script>";
                     }
                     }
-                    
-                    
-                    
                     ?>
-                
                     
                 <div class="col-lg-10">
                     <div class="row" id="loginlinks" style="color:#306FA0;" >
                         <div class="col-lg-12 mt-3">
-                        <a href="pages/signup.php" class="float-right"> Sign Up (Create Account) </a>
+                            <ul class="nav float-right">
+                                <li class="nav-item dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" id="lnk" data-toggle="dropdown" style="margin-right:-13px;"> Log in as a different user </a>
+                                    
+                                    <div class="dropdown-menu" style="background-color: #CEE1F0">
+                                        <a href="#" class="dropdown-item"> Industrial Supervisor </a>
+                                        <a href="#" class="dropdown-item"> Institute Supervisor </a>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
                         
-                        <div class="col-lg-12 mb-3">
-                        <a href="#" class="float-right"> Forgot Password </a>
+                        <style>
+                            
+                            
+                            .nav:hover{
+                                text-decoration: underline;
+                            }
+                            
+                            .dropdown-toggle::after {
+                                margin-left: 0px;
+                            }
+                        </style>
+                        
+                        <div class="col-lg-12 mb-0">
+                            <a href="pages/signup.php" class="float-right" id="lnk" style="margin-top:-8px;"> Sign Up (Create Account) </a>
+                        </div>
+                        
+                        <div class="col-lg-12 mb-3" id="lnk">
+                            <a href="#" id="lnk" class="float-right"> Forgot Password </a>
                         </div>
                             
                     </div>
@@ -156,7 +190,7 @@
             </div>
             </form>
         </div> 
-            </div>
+<!--            </div>-->
 <!--        <div class="col-lg-4"></div>-->
     </div>
 </div> 
@@ -194,7 +228,7 @@
     </div>
 
 <!-- End of the container-fluid class -->
-    
+<!--    <script src="js/bootstrap.min.js" type="text/javascript"></script>-->
     
 <!--    Footer -->    
 <?php 

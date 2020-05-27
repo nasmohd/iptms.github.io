@@ -25,7 +25,7 @@ body {
     position: relative;
     margin-top: 20px;
     text-decoration: none;
-/*    color: white;*/
+    color: white;
     font-size: 20px;
 }
 
@@ -56,7 +56,7 @@ ul li #dropNav{
 }
 
 ul li #dropNav a{
-    color: white;
+/*    color: white;*/
 }
 
 ul li #dropNav a:hover{
@@ -88,9 +88,20 @@ footer{
     font-size: 15px;
 }
 
-#loginlinks div a{
+#loginlinks div #lnk{
     color:#306FA0;
     font-size: 14px;
+}
+
+
+#loginlinks div a{
+    color:black;
+    font-size: 14px;
+}
+
+#loginlinks div .dropdown-item:hover{
+    background-color: #306FA0;
+    color: #FFFFFF;
 }
 
 /* Navbar styling */
@@ -113,6 +124,7 @@ a[data-toggle="collapse"] {
     position: relative;
 }
 
+/*
 .dropdown-toggle::after {
     display: block;
     position: absolute;
@@ -120,5 +132,6 @@ a[data-toggle="collapse"] {
     right: 20px;
     transform: translateY(-50%);
 }
+*/
 
 
