@@ -3,8 +3,7 @@
     <div class="row">
         <div class="col-12">
 -->
-<footer class="footer-black aa-footer mt-4" 
-            style="background-color: #306FA0; color: white; height: 83px; bottom: 0; width:100%; font-size:15px;">
+<footer class="footer-black aa-footer" id="footr">
      
     <div class="container">
         <div class="row text-center">

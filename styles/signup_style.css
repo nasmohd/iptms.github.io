@@ -95,14 +95,13 @@ footer{
 
 
 #loginlinks div a{
-    color:white;
+    color:black;
     font-size: 14px;
 }
 
 #loginlinks div .dropdown-item:hover{
-    background-color: lightgrey; 
-/*    Login as another user  */
-    color: #000000;
+    background-color: #306FA0;
+    color: #FFFFFF;
 }
 
 /* Navbar styling */
@@ -152,7 +151,7 @@ a[data-toggle="collapse"] {
 */
 /*    margin-top: 20px;*/
 
-@media (max-height:615px){
+@media (max-height:610px){
     #footr{
         background-color: #306FA0; 
         color: white; 
@@ -163,7 +162,7 @@ a[data-toggle="collapse"] {
     }
 }
 
-@media (min-height:616px){
+@media (min-height:611px){
     #footr{
         clear: both;
         border: 1px groove #aaaaaa;

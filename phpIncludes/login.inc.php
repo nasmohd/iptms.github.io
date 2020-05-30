@@ -18,11 +18,11 @@ if (isset($_POST['login']) && !empty($_POST['regNo']) && !empty($_POST['pwd'])){
 
     if (($row['RegistrationNumber'] == $regNo) && ($row['StudentPassword']) == $pwd){
         
-//        $_SESSION ['UserID'] = $row['StudentID']; //Create session for when the user has successfully logged in
+        $_SESSION ['StudentID'] = $row['StudentID'];
         $_SESSION ['FirstName'] = $row['FirstName'];
         $_SESSION ['LastName'] = $row ['LastName'];
         
-        $url1 = "../student/index.php";
+        $url1 = "../student/main/index.php";
         header ('Location: '.$url1);
     }
     
