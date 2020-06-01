@@ -125,6 +125,15 @@ a[data-toggle="collapse"] {
     position: relative;
 }
 
+#footr2{
+    background-color: #306FA0; 
+    color: white; 
+    height: 80px; 
+/*    bottom: 0; */
+    width:100%; 
+    font-size:15px;
+}
+
 /*#footr{*/    
 /*    From the web  */
 /*

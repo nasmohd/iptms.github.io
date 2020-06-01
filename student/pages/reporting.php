@@ -1,10 +1,22 @@
 <?php
     include '../phpIncludes/header.php';
     
+    
+
+
+
+    $weekly = "SELECT weekEntry FROM logbook_weekly WHERE userID = 1";
+    $res = $conn -> query ($weekly);
+    $row3 = $res -> fetch_assoc();
+    $output = $row3['weekEntry'];
+
+//    echo $row3['weekEntry'];
+    echo nl2br($output);
+
 
 ?>
 
-
+    
 
 <!--
 <!DOCTYPE html>

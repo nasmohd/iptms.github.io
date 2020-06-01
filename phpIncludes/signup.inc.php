@@ -1,21 +1,20 @@
 <?php
+    include '../DBconnection.php';
 
-include '../DBconnection.php';
+    $FirstName = $_POST['firstname'];
+    $LastName = $_POST['lastname'];
+    $RegNo = $_POST['regNo'];
+    $course = $_POST['course'];
+    $email = $_POST['email'];
+    $phoneNumber = $_POST['phonenumber'];
+    $password = $_POST['pwd'];
 
-$FirstName = $_POST['firstname'];
-$LastName = $_POST['lastname'];
-$RegNo = $_POST['regNo'];
-$course = $_POST['course'];
-$email = $_POST['email'];
-$phoneNumber = $_POST['phonenumber'];
-$password = $_POST['pwd'];
+    $sqlInsert = "INSERT INTO student_info (FirstName, LastName, RegistrationNumber, course, EmailAddress, PhoneNumber, StudentPassword) VALUES ('$FirstName', '$LastName', '$RegNo', '$course', '$email', '$phoneNumber', '$password')";
+    $result2 = $conn -> query ($sqlInsert);
 
-$sqlInsert = "INSERT INTO student_info (FirstName, LastName, RegistrationNumber, course, EmailAddress, PhoneNumber, StudentPassword) VALUES ('$FirstName', '$LastName', '$RegNo', '$course', '$email', '$phoneNumber', '$password')";
-$result2 = $conn -> query ($sqlInsert);
-
-$url2 = "http://localhost/UNI_3rd_year/index.php";
-header('Location: '.$url2);
-exit();
+    $url2 = "http://localhost/UNI_3rd_year/index.php";
+    header('Location: '.$url2);
+    exit();
 
 
 //firstname
