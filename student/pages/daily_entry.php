@@ -3,7 +3,7 @@
 
 ?>
 
-
+<!--<div id="content">-->
 <div class="container-fluid">
     <div class="row mt-4">
         <div class="col-lg-10 col-12 ml-auto mr-auto" style="border: 2px solid #306FA0; border-radius:10px;">
@@ -16,12 +16,12 @@
                     </div>
                     
                     <div class="col-lg-3 ml-auto">
-                        <label class="" for="exampleFormControlTextarea1">Date the week Starts: </label>
+                        <label class="" for="exampleFormControlTextarea1">Date the week Starts (MON): </label>
                         <input placeholder="DATE" type="text" name="startDate" class="form-control" onfocus="(this.type='date')">
                     </div>
                     
                     <div class="col-lg-3 mr-auto">
-                        <label class="" for="exampleFormControlTextarea1">Date the week Ends: </label>
+                        <label class="" for="exampleFormControlTextarea1">Date the week Ends (FRI or SAT): </label>
                         <input placeholder="DATE" type="text" name="endDate" class="form-control" onfocus="(this.type='date')">
                     </div>
                     
@@ -68,7 +68,7 @@
                     </div>
                                         
                     <div class="col-lg-2 mt-2">
-                        <button type="submit" class="btn font-weight-bold" name="daily_upload" style="width:100%; background-color: #306FA0; color: white;">
+                        <button type="submit" class="btn btn-success font-weight-bold" name="daily_upload" style="width:100%; color: white;">
                             UPLOAD </button>
                     </div>
                     
@@ -90,14 +90,18 @@
         </div>
     </div>    
 </div>
+<!--</div>-->
+<!--</div>-->
 
 <?php
     include '../phpIncludes/footer2.php';
 
 ?>
 
+<!--
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+-->
 <!--
     <script src="js/popper.min.js"></script>
     <script src="js/jquery-3.2.1.min.js"></script>

@@ -3,13 +3,7 @@
 //    include 'phpIncludes/header.php';
 
 ?>
-        <div id="content">
-<!--    Content of this page go in here-->
 
-        </div>
-    </div>
-<!--    div end for id = "wrapper"  -->
-    <div class="overlay"></div>
 
 
 <!-- USE THE CODE BELOW CONTINUING FROM HERE ON
@@ -186,36 +180,14 @@
     <script src="../../js/jquery-3.2.1.min.js"></script>
     <!-- Optional jQuery file that will be used -->
     <script src="../../js/bootstrap.min.js"></script>
-    
-    <script type="text/javascript">
+
+        <script type="text/javascript">
     $(document).ready(function () {
         $('#sidebarCollapse').on('click', function () {
             $('#sidebar').toggleClass('active');
         });
     });
     </script>
-    
-<!--
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#sidebar").mCustomScrollbar({
-                theme: "minimal"
-            });
-
-            $('#dismiss, .overlay').on('click', function () {
-                $('#sidebar').removeClass('active');
-                $('.overlay').removeClass('active');
-            });
-
-            $('#sidebarCollapse').on('click', function () {
-                $('#sidebar').addClass('active');
-                $('.overlay').addClass('active');
-                $('.collapse.in').toggleClass('in');
-                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-            });
-        });
-    </script>
--->
     
 <!--    <script src="../js/popper.min.js"></script>-->
 <!--    <script src="../js/popper.js"></script>-->

@@ -1,14 +1,15 @@
 <?php
 session_start();
-include '../DBconnection.php';
+include '../../DBconnection.php';
 
-if (isset($_POST['login']) && !empty($_POST['regNo']) && !empty($_POST['pwd'])){
+if (isset($_POST['login']) && !empty($_POST['ins_username']) && !empty($_POST['pwd'])){
 
-    $regNo = $_POST['regNo'];
+    $ins_username = $_POST['ins_username'];
     $pwd = $_POST ['pwd'];
+//    echo $regNo;
 
 //    $sqlQuery1 = "SELECT * FROM student_info WHERE RegistrationNumber = '$regNo' AND StudentPassword = '$pwd'";
-    $sqlQuery1 = "SELECT * FROM student_info WHERE RegistrationNumber = '$regNo'";
+    $sqlQuery1 = "SELECT * FROM institute_supervisor_info WHERE username = '$ins_username'";
 
     $result = $conn -> query($sqlQuery1);  //Runs the SQL query on the database
     $row = $result -> fetch_assoc();       //Fetches results from the database
@@ -16,21 +17,21 @@ if (isset($_POST['login']) && !empty($_POST['regNo']) && !empty($_POST['pwd'])){
 //    echo $row['RegNo'];
 //    $_SESSION['loginid'] = $row['StudentID'];
 
-    if (($row['RegistrationNumber'] == $regNo) && ($row['StudentPassword']) == $pwd){
+    if (($row['username'] == $ins_username) && ($row['password']) == $pwd){
         
-        $_SESSION ['StudentID'] = $row['StudentID'];
-        $_SESSION ['FirstName'] = $row['FirstName'];
-        $_SESSION ['LastName'] = $row ['LastName'];
+        $_SESSION ['InstituteSup_ID'] = $row['institute_sup_ID'];
+        $_SESSION ['FirstName'] = $row['firstName'];
+        $_SESSION ['LastName'] = $row ['lastName'];
 //        $_SESSION ['UserProfile'] = $row['ProfilePicture'];
         
 //        echo $row['ProfilePicture'];
-        $url1 = "../student/main/index.php";
+        $url1 = "../main/index.php";
         header ('Location: '.$url1);
     }
     
     else{
         $url2 = "../index.php";
-        header ('Location: '.$url2.'?');
+//        header ('Location: '.$url2.'?');
         
         echo "<script>
             document.getElementById('WrongPassword').style.display = 'block';

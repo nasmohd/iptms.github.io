@@ -58,7 +58,7 @@
         <div class='col-6 ml-auto mr-auto mb-2' style='border: 2px solid #333333; border-radius: 10px;  box-shadow: 0px 6px 6px 0px gray;' id='place_style' onclick='co_page()'>
             <div class='row'>
                 <div class='col-lg-10 col-10 mt-1' style='border-bottom-color: #333333' id='co_name'>
-                        <a href='company_details.php' class='mt-2 font-weight-bold text-uppercase' style='font-size: 19px; color: #306FA0;'> Company Name: ".$co_res['IPTplace_name']."</a>  
+                        <a href='../main/index.php' class='mt-2 font-weight-bold text-uppercase' style='font-size: 19px; color: #306FA0;'> Company Name: ".$co_res['IPTplace_name']."</a>  
                 </div>  
                 
                 <div class='dropdown ml-auto col-lg-1 col-1 mt-1 mr-3'>

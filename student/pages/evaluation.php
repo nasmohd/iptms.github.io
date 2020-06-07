@@ -1,9 +1,8 @@
 <?php
     include '../phpIncludes/header.php';
 
-
-
 ?>
+
 
 <div class="container-fluid mt-2">
     <form method="post" action="../phpIncludes/search_ipt.inc.php">
@@ -74,11 +73,16 @@
             </div>
         </div>
     </div>
+    
+    <div class="row mt-5">
+    
+    
+    </div>
+    
 </div>
 
     <script src="js/popper.min.js"></script>
     <script src="js/jquery-3.2.1.min.js"></script>
-    <!-- Optional jQuery file that will be used -->
     <script src="js/bootstrap.min.js"></script>
 
     

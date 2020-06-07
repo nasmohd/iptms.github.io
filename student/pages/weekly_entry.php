@@ -10,10 +10,19 @@
             
             <form method="post">
                 <div class="row" style="font-size:14px;">
-                    <div class="col-lg-2 col-4 mt-2">
+                    <div class="col-lg-2 col-4">
                         <label for="exampleFormControlTextarea1">Week Number: </label>
-                        <input placeholder="Week 1 to 10" type="number" id="weekinput" class="form-control" style=" border: 2px solid #306FA0">
-                        
+                        <input placeholder="Week 1 to 10" name="weekNumber" type="text" id="weekinput" class="form-control" style=" border: 1px solid #306FA0">  
+                    </div>
+                    
+                    <div class="col-lg-3 ml-auto">
+                        <label class="" for="exampleFormControlTextarea1">Date the week Starts (MON): </label>
+                        <input placeholder="DATE" type="text" name="startDate" class="form-control" onfocus="(this.type='date')">
+                    </div>
+                    
+                    <div class="col-lg-3 mr-auto">
+                        <label class="" for="exampleFormControlTextarea1">Date the week Ends (FRI or SAT): </label>
+                        <input placeholder="DATE" type="text" name="endDate" class="form-control" onfocus="(this.type='date')">
                     </div>
                     
                     <style>
@@ -24,13 +33,7 @@
                     
                     </style>
                     
-                    <div class="col-lg-3 col-6 mt-2 ml-auto mb-3">
-                        <label class="" for="exampleFormControlTextarea1">Select Date: </label>
-                        <input placeholder="DATE" type="text" class="form-control" style="border: 2px solid #306FA0" onfocus="(this.type='date')">
-                        
-                    </div>
-                    
-                    <div class="col-lg-12 col-12">
+                    <div class="col-lg-10 mt-3">
                         <div class="form-group">
 <!--                    <label for="exampleFormControlTextarea1">Logbook Entry: </label>-->
                             
@@ -38,9 +41,11 @@
                         </div>
                     </div>
                     
+<!--
                     <div class="col-lg-2 col-3 ml-auto mr-auto">
                         <button type="submit" class="btn btn-primary"> Submit </button>
                     </div>
+-->
                 
                 
                 </div>

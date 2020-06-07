@@ -104,7 +104,7 @@
                 <div class="row">
                     <div class="col-6">
                         <?php
-                            if (isset($_SESSION['StudentID'])){
+                            if (isset($_SESSION['IndustrialSup_ID'])){
                             
                             echo "<p class='mt-4' style='color:white; font-size:13px;'>Logged in as:<br/>".$_SESSION['FirstName']." ".$_SESSION['LastName']."</p>";}
                         ?>
@@ -113,9 +113,9 @@
                     
                     <div class="col-6 mt-4">
                         <?php
-                            if (isset($_SESSION['StudentID'])){
+                            if (isset($_SESSION['IndustrialSup_ID'])){
                             
-                            echo "<form method='post' action='../../phpIncludes/logout.inc.php'>
+                            echo "<form method='post' action='../phpIncludes/logout.inc.php'>
                             <button class='btn btn-primary'> LOG OUT </button> </form>"; }
                         ?>
                     </div>
@@ -249,33 +249,14 @@
 <!--  Navigation on top of the pages -->
 <div class="container-fluid" id="navig">
     <div class="row" >
-        <div class="col-3 text-center mt-2">
-            <a href="../pages/placement.php"> Placement </a>
+        <div class="col-6 text-center mt-2">
+            <a href="../pages/placement.php"> Locate </a>
         </div>
-        
-        <div class="col-3 text-center mt-2">
-            <a class="mt-5" href="../pages/reporting.php"> Reporting </a>
-        
-        </div>
-        
-        <div class="col-3 text-center mt-2">
-            <a href="../pages/logbook.php"> Logbook </a>
-<!--
-            <ul class="nav">
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"> Logbook </a>           
-                    <div class="dropdown-menu" style="background-color: #306FA0" id="drp">
-                        <a href="../pages/daily_entry.php" class="dropdown-item"> Daily Entry </a>
-                        <a href="../pages/weekly_entry.php" class="dropdown-item"> Weekly Entry </a>
-                    </div>
-                </li>
-            </ul>
--->
+                
+        <div class="col-6 text-center mt-2">
+            <a href="../pages/logbook_review.php"> Logbook </a>
         </div>
 
-        <div class="col-3 text-center mt-2">
-            <a href="../pages/evaluation.php"> Evaluation </a>
-        </div>
     </div>
     <hr>
     

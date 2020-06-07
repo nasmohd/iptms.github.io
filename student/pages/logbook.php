@@ -3,56 +3,149 @@
 
 ?>
 
-
+<!--<div id="content">-->
 <div class="container-fluid">
     <div class="row mt-4">
-        <div class="col-lg-10 col-12 ml-auto mr-auto">
+        <div class="col-lg-9 col-12 ml-auto mr-auto" style="border: 1px solid #306FA0; border-radius:10px;">
             
-            <form method="post">
-                <div class="row" style="font-size:14px;">
-                    <div class="col-lg-2 col-4 mt-2">
+            <form method="post" action="../phpIncludes/logbook_submission.inc.php">
+                <div class="row mt-3" style="font-size:14px;" id="dayinput">
+                    <div class="col-lg-2 col-4">
                         <label for="exampleFormControlTextarea1">Week Number: </label>
-                        <input placeholder="Week 1 to 10" type="number" id="weekinput" class="form-control" style=" border: 2px solid #306FA0">
-                        
+                        <input placeholder="Week 1 to 10" name="weekNumber" type="text" id="weekinput" class="form-control" style=" border: 1px solid #306FA0">  
+                    </div>
+                    
+                    <div class="col-lg-3 ml-auto">
+                        <label class="" for="exampleFormControlTextarea1">Date the week starts (Mon): </label>
+                        <input placeholder="DATE" type="text" name="startDate" class="form-control" onfocus="(this.type='date')">
+                    </div>
+                    
+                    <div class="col-lg-3 mr-auto">
+                        <label class="" for="exampleFormControlTextarea1">Date the week ends (Fri or Sat): </label>
+                        <input placeholder="DATE" type="text" name="endDate" class="form-control" onfocus="(this.type='date')">
                     </div>
                     
                     <style>
-                        #weekinput{
+                        #dayinput div input{
                             font-size: 14px;
+                            border: 1px solid #306FA0
                         }
                         
-                    
+                        #dayinput div textarea{
+                            font-size: 14px;
+                            border: 1px solid #306FA0; resize:none;
+                        }
                     </style>
-                    
-                    <div class="col-lg-3 col-6 mt-2 ml-auto mb-3">
-                        <label class="" for="exampleFormControlTextarea1">Select Date: </label>
-                        <input placeholder="DATE" type="text" class="form-control" style="border: 2px solid #306FA0" onfocus="(this.type='date')">
-                        
+
+                    <div class="col-lg-10 mt-3">
+                        <textarea placeholder="Monday Entry" name="monEntry" class="form-control" id="exampleFormControlTextarea1" rows="1" maxlength="250"></textarea>
                     </div>
                     
-                    <div class="col-lg-12 col-12">
-                        <div class="form-group">
-<!--                    <label for="exampleFormControlTextarea1">Logbook Entry: </label>-->
-                            
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" style="border: 2px solid #306FA0; resize:none;"></textarea>
+<!--
+                    <div class="col-lg-3 col-6 mr-auto">
+                        <input placeholder="DATE" type="text" name="monDate" class="form-control" onfocus="(this.type='date')">
+                    </div>
+--> 
+                    <div class="col-lg-10 mt-2">
+                        <textarea placeholder="Tuesday Entry" name="tueEntry" class="form-control" id="exampleFormControlTextarea1" rows="1" maxlength="250"></textarea>
+                    </div>
+                    
+                    <div class="col-lg-10 mt-2">
+                        <textarea placeholder="Wednesday Entry" name="wedEntry" class="form-control" id="exampleFormControlTextarea1" rows="1" maxlength="250"></textarea>
+                    </div>
+                    
+                    <div class="col-lg-10 mt-2">
+                        <textarea placeholder="Thursday Entry" name="thurEntry" class="form-control" id="exampleFormControlTextarea1" rows="1" maxlength="250"></textarea>
+                    </div>
+                    
+                    <div class="col-lg-10 mt-2">
+                        <textarea placeholder="Friday Entry" name="friEntry" class="form-control" id="exampleFormControlTextarea1" rows="1" maxlength="250"></textarea>
+                    </div>
+                    
+                    <div class="col-lg-10 mt-2">
+                        <!--  change col-lg-10 to col-lg-8                  -->
+                        <textarea placeholder="Saturday Entry" name="satEntry" class="form-control" id="exampleFormControlTextarea1" rows="1" maxlength="250"></textarea>
+                    </div>                    
+                                                
+                    <div class="col-lg-2 mt-2 text-center">
+                        <button type="submit" class="btn col-lg-8" name="daily_upload" style="width:100%; color: white; background-color: #4D87B4">
+                            UPLOAD </button> <!-- Work on the data-toggle attributes -->
+                    </div>
+                    
+                    <div class="col-lg-4 mt-2">
+                        <a href="#" onclick="weekly_visible"> Click Here for Week Entry ><span> </span></a>
+                    
+                    </div>
+                    
+                    <div class="col-lg-12 font-weight-light">
+                        <hr>
+                    </div>
+                    
+                    <div class="col-lg-10 mb-3">
+                        <textarea placeholder="Week Entry" name="week_entry" class="form-control" id="exampleFormControlTextarea1" rows="8" maxlength="1000"></textarea>
+                    </div>
+                    
+                    <div class="col-lg-10 mb-3">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroupFileAddon01">Upload image</span>
+                          </div>
+                          <div class="custom-file">
+                            <input name="week_img" type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                          </div>
                         </div>
                     </div>
                     
-                    <div class="col-lg-2 col-3 ml-auto mr-auto">
-                        <button type="submit" class="btn btn-primary"> Submit </button>
+                    <script> //Gets the file name only
+                        $('#inputGroupFile01').on('change',function(){
+                            //get the file name
+                            var fileName = $(this).val();
+//                            inputNode.value = fileInput.value.replace("C:\\fakepath\\", "");
+                            //replace the "Choose a file" label
+                            $(this).next('.custom-file-label').html(fileName);
+                        })
+                    </script>
+                    
+                    <div class="col-lg-10 mb-3">
+                        <span title="YOU CAN ONLY VIEW NOT EDIT">
+                            <textarea placeholder="Industrial Supervisor's Comments (Read Only)" name="field_supComments" class="form-control" id="exampleFormControlTextarea1" rows="2" readonly></textarea>
+                        </span>
                     </div>
-                
-                
+                    
+                    <div class="col-lg-2 text-center">
+                        <label>Verification Status: </label>
+                        <span title="Field/Industrial Supervisor">
+                            <textarea id="industrial_verify" name="isupComments" class="col-lg-5" id="exampleFormControlTextarea1" rows="1" style="background-color: #E54128; text-align:center; color:white; vertical-align: middle; border: 1px solid #306FA0; border-radius:8px;" readonly >FS</textarea>
+                        </span>
+                        
+                        <span title="Institute Supervisor">
+                            <textarea id="institute_verify" name="isupComments" class="col-lg-5" id="exampleFormControlTextarea1" rows="1" style="background-color: #E54128; text-align:center; color:white; vertical-align: middle; border: 1px solid #306FA0; border-radius:8px;" readonly>IS</textarea>
+                        </span>
+                    </div>
+<!--
+                    <div class="col-lg-2 mt-1 ml-auto mr-auto">
+                        <button type="submit" class="btn btn-danger" name="daily_upload">
+                        UPLOAD </button>
+                    </div>
+-->
                 </div>
-
             </form>
         </div>
     </div>    
 </div>
-    
+<!--</div>-->
+<!--</div>-->
 
+<?php
+    include '../phpIncludes/footer2.php';
+
+?>
+
+<!--
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+-->
 <!--
     <script src="js/popper.min.js"></script>
     <script src="js/jquery-3.2.1.min.js"></script>
