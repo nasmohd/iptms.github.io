@@ -1,97 +1,164 @@
 <?php
     include '../phpIncludes/header.php';
-    
-    
-
 
 ?>
 
-    
-
-<!--
-<!DOCTYPE html>
-
-<html lang="en-US">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <title> IPT Management System  </title>
-    
-    
-    <link rel="icon" href="img/logo.png">
-    
-    <meta name="description" content="A convenient website designed specifically to ease Information Management during various IPT procedures for Students and Supervisors"/>
-    
-    <link rel="stylesheet" href="css/bootstrap.min.css">    
-    
-    
-    <link rel="stylesheet" href="styles/main_page.css" type="text/css">
-
-    <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    </head>
-
-
-<body>      
--->
-
-<!--
-            <div class="col">         
-        <ul class="nav" id="nav_links"> 
-        <li class="nav-item"> 
-        <a class="nav-link active" href="#">Home</a></li> 
-        
-        
-        <li class="nav-item"> 
-        <a class="nav-link active" href="#">IPT Modules</a></li> 
-        
-            
-        <li class="nav-item">
-        <a class="nav-link" href="#">About Us</a> </li> 
-            
-            
-        <li class="nav-item"> 
-        <a class="nav-link" href="#">Contacts</a> </li> 
-        </ul> </div> 
--->
-        
-        
-
-<!--
-    <div class="container">
-    
-        <br/> <br/> <br/>
-    <div class="row">
-        <div class="col-md-4">
-        <form method="post" action="phpInc/login.inc.php">
-            <div class="form-group">
-
-            <label for="text">Registration Number</label>
-            
-            <input type="text" class="form-control" placeholder="Registration Number" name="regNo"
-                   value="170210225935"> <br/> <br/>
-
-
-            <label for="password">Password</label>
-            
-            <input type="password" class="form-control" placeholder="Password" name="pwd" value="12345">
-
-            <button type="submit" class="btn btn-primary col-2" id="submitButton"> LOG IN </button>
-
+<!--<div id="content">-->
+<div class="container-fluid">
+    <div class="row mt-4">
+        <div class="col-lg-7 col-12 mr-auto ml-auto" style="color:white; background-color: #306FA0; height: 60px; border-top-left-radius: 8px; border-top-right-radius: 8px;">
+            <div class="text-center pt-3" style="font-size: 17px;">
+                <p> NOTIFY THE INSTITUTE ON YOUR IPT LOCATION </p>                 
+            </div>              
         </div>
-        </form>
+        
+        
+        <div class="col-lg-7 col-12 ml-auto mr-auto" style="border: 2px solid rgba(48, 111, 160, 0.6); border-bottom-left-radius: 8px;
+                    border-bottom-right-radius: 8px;" id='location_details'>
+            <form method="post" action="phpIncludes/">
+                <div class="form-group">
+                    <div class="row d-flex justify-content-center">
+                        
+                        <div class="col-lg-5 col-12 mt-4">
+                            <label class='' for='exampleFormControlTextarea1' id='label-text'>IPT session starts on: </label>
+                            <span title='Description on IPT location'>
+                                <input type='date' class="form-control" id="input" aria-describedby="emailHelp" name="regNo" placeholder="Location Description" value="">
+                            </span>
+                        </div>
+                        
+                        <div class="col-lg-5 col-12 mt-4">
+                            <label class='' for='exampleFormControlTextarea1' id='label-text'>IPT session ends on: </label>
+                            <span title='Description on IPT location'>
+                                <input type='date' class="form-control" id="input" aria-describedby="emailHelp" name="regNo" placeholder="Location Description" value="">
+                            </span>
+                        </div>
+                        
+                        <div class="col-lg-10 col-12 mt-2">
+                            <span title='Company Name'>
+                                <textarea type="text" class="form-control" id="input" aria-describedby="emailHelp" name="regNo" placeholder="Company Name" value="" rows="1" maxlength="100"></textarea>
+                            </span>
+                        </div>
+                        
+                        <div class="col-lg-10 col-12 mt-2">
+                            <span title='Company Address'>
+                                <textarea type="text" class="form-control" id="input" aria-describedby="emailHelp" name="regNo" placeholder="Company Address" value="" rows="1" maxlength="200"></textarea>
+                            </span>
+                        </div>
+                        
+                        <div class="col-lg-5 col-12 mt-2">
+                            <span title='Supervisor name'>
+                                <textarea type="text" class="form-control" id="input" aria-describedby="emailHelp" name="regNo" placeholder='Supervisor name' value="" rows="1" maxlength="100"></textarea>
+                            </span>
+                        </div>
+                        
+                        <div class="col-lg-5 col-12 mt-2">
+                            <span title='Supervisor Phone Number'>
+                                <input type="number" class="form-control" id="input" aria-describedby="emailHelp" name="regNo" placeholder="Phone Number" value="" rows="1" maxlength="15">
+                            </span>
+                        </div>
+                        
+                        <div class="col-lg-10 col-12 mt-2">
+                            <span title='Description on IPT location'>
+                                <textarea type="text" class="form-control" id="input" aria-describedby="emailHelp" name="regNo" placeholder="Location Description" value="" rows="3" maxlength="1000"></textarea>
+                            </span>
+                        </div>
+                        
+                        <div class="col-lg-10">
+                        <hr>
+                        </div>
+                        
+                        <div class="col-lg-10 col-12">
+                            <div id="map">
+                                <span title='EXACT MAP LOCATION'>
+                                    <textarea type="text" class="form-control" id="input" aria-describedby="emailHelp" name="regNo" placeholder="Location Description" value="" rows="1" maxlength="1000"></textarea>
+                                </span>
+                            </div>
+                            
+                            <script>
+                                // Initialize and add the map
+                                function initMap() {
+                                  // The location of Uluru
+                                  var uluru = {lat: -25.344, lng: 131.036};
+                                  // The map, centered at Uluru
+                                  var map = new google.maps.Map(
+                                      document.getElementById('map'), {zoom: 4, center: uluru});
+                                  // The marker, positioned at Uluru
+                                  var marker = new google.maps.Marker({position: uluru, map: map});
+                                }
+                            </script>
+                        </div>
+                        
+                        <style>
+                            #map{
+                                width: 100%;
+                                height: 400px;
+                                background-color: grey;
+                            }
+                        
+                        
+                        </style>
+            
+                    </div>
+                </div>
+                
+                <style>
+                    textarea {resize: none;}
+                    .form-group div #label-text {font-size: 14px;}
+                
+                </style>
+                
+            </form>
+        </div>
+    </div>    
+</div>
 
-        </div></div>
-    </div> 
+<style>
+    #location_details{
+/*
+        background-image: url(../../img/DIT_logo.png);
+        opacity: 0.6
+*/
+    }
+
+
+</style>
+
+<!--</div>-->
+<!--</div>-->
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
+
+<?php
+    include '../phpIncludes/footer2.php';
+
+?>
+
+<!--
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 -->
-
-
+<!--
     <script src="js/popper.min.js"></script>
     <script src="js/jquery-3.2.1.min.js"></script>
-    <!-- Optional jQuery file that will be used -->
+
     <script src="js/bootstrap.min.js"></script>
+-->
 
     
     </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

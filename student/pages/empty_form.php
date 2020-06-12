@@ -34,12 +34,12 @@
                     
                     <div class='col-lg-3 ml-auto'>
                         <label class='' for='exampleFormControlTextarea1'>Date week starts (Mon): </label>
-                        <input placeholder='DATE' type='text' name='startDate' class='form-control' onfocus='(this.type='date')'>
+                        <input placeholder='DATE' type='text' name='startDate' class='form-control' onfocus='(this.type='date')' readonly>
                     </div>
                     
                     <div class='col-lg-3 mr-auto'>
                         <label class='' for='exampleFormControlTextarea1'>Date week ends (Fri or Sat): </label>
-                        <input placeholder='DATE' type='text' name='endDate' class='form-control' onfocus='(this.type='date')'>
+                        <input placeholder='DATE' type='text' name='endDate' class='form-control' onfocus='(this.type='date')' readonly>
                     </div>
                     
                     <style>
@@ -55,27 +55,27 @@
                     </style>
 
                     <div class='col-lg-10 mt-3'>
-                        <textarea placeholder='Monday Entry' name='monEntry' class='form-control' id='exampleFormControlTextarea1' rows='1' maxlength='250'></textarea>
+                        <textarea placeholder='Monday Entry' name='monEntry' class='form-control' id='exampleFormControlTextarea1' rows='1' maxlength='250' readonly></textarea>
                     </div>
 
                     <div class='col-lg-10 mt-2'>
-                        <textarea placeholder='Tuesday Entry' name='tueEntry' class='form-control' id='exampleFormControlTextarea1' rows='1' maxlength='250'></textarea>
+                        <textarea placeholder='Tuesday Entry' name='tueEntry' class='form-control' id='exampleFormControlTextarea1' rows='1' maxlength='250' readonly></textarea>
                     </div>
                     
                     <div class='col-lg-10 mt-2'>
-                        <textarea placeholder='Wednesday Entry' name='wedEntry' class='form-control' id='exampleFormControlTextarea1' rows='1' maxlength='250'></textarea>
+                        <textarea placeholder='Wednesday Entry' name='wedEntry' class='form-control' id='exampleFormControlTextarea1' rows='1' maxlength='250' readonly></textarea>
                     </div>
                     
                     <div class='col-lg-10 mt-2'>
-                        <textarea placeholder='Thursday Entry' name='thurEntry' class='form-control' id='exampleFormControlTextarea1' rows='1' maxlength='250'></textarea>
+                        <textarea placeholder='Thursday Entry' name='thurEntry' class='form-control' id='exampleFormControlTextarea1' rows='1' maxlength='250' readonly></textarea>
                     </div>
                     
                     <div class='col-lg-10 mt-2'>
-                        <textarea placeholder='Friday Entry' name='friEntry' class='form-control' id='exampleFormControlTextarea1' rows='1' maxlength='250'></textarea>
+                        <textarea placeholder='Friday Entry' name='friEntry' class='form-control' id='exampleFormControlTextarea1' rows='1' maxlength='250' readonly></textarea>
                     </div>
                     
                     <div class='col-lg-10 mt-2'>
-                        <textarea placeholder='Saturday Entry' name='satEntry' class='form-control' id='exampleFormControlTextarea1' rows='1' maxlength='250'></textarea>
+                        <textarea placeholder='Saturday Entry' name='satEntry' class='form-control' id='exampleFormControlTextarea1' rows='1' maxlength='250' readonly></textarea>
                     </div>                    
                                                 
                     <div class='col-lg-2 mt-2 text-center'>
@@ -94,7 +94,7 @@
                     </div>
                     
                     <div class='col-lg-10 mb-3'>
-                        <textarea placeholder='Week Entry' name='week_entry' class='form-control' id='exampleFormControlTextarea1' rows='8' maxlength='1000'></textarea>
+                        <textarea placeholder='Week Entry' name='week_entry' class='form-control' id='exampleFormControlTextarea1' rows='8' maxlength='1000' readonly></textarea>
                     </div>
                     
                     <div class='col-lg-10 mb-3'>
@@ -103,7 +103,7 @@
                             <span class='input-group-text' id='inputGroupFileAddon01'>Upload image</span>
                           </div>
                           <div class='custom-file'>
-                            <input name='week_img' type='file' class='custom-file-input' id='inputGroupFile01' aria-describedby='inputGroupFileAddon01'>
+                            <input name='week_img' type='file' class='custom-file-input' id='inputGroupFile01' aria-describedby='inputGroupFileAddon01' readonly>
                             <label class='custom-file-label' for='inputGroupFile01'>Choose file</label>
                           </div>
                         </div>

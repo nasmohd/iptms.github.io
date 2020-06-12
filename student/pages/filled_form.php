@@ -56,28 +56,39 @@
                     </style>
 
                     <div class='col-lg-10 mt-3'>
-                        <textarea placeholder='Monday Entry' name='monEntry' class='form-control' id='exampleFormControlTextarea1' rows='1' maxlength='250'>".$getRow['monEntry']."</textarea>
+                        <span title='MONDAY'>
+                            <textarea placeholder='Monday Entry' name='monEntry' class='form-control' id='exampleFormControlTextarea1' rows='1' maxlength='250'>".$getRow['monEntry']."</textarea>
+                        <span>
                     </div>
 
                     <div class='col-lg-10 mt-2'>
-                        <textarea placeholder='Tuesday Entry' name='tueEntry' class='form-control' id='exampleFormControlTextarea1' rows='1' maxlength='250'>".$getRow['tueEntry']."</textarea>
+                        <span title='TUESDAY'>
+                            <textarea placeholder='Tuesday Entry' name='tueEntry' class='form-control' id='exampleFormControlTextarea1' rows='1' maxlength='250'>".$getRow['tueEntry']."</textarea>
+                        </span>
                     </div>
                     
                     <div class='col-lg-10 mt-2'>
-                        <textarea placeholder='Wednesday Entry' name='wedEntry' class='form-control' id='exampleFormControlTextarea1' rows='1' maxlength='250'>".$getRow['wedEntry']."</textarea>
+                        <span title='WEDNESDAY'>
+                            <textarea placeholder='Wednesday Entry' name='wedEntry' class='form-control' id='exampleFormControlTextarea1' rows='1' maxlength='250'>".$getRow['wedEntry']."</textarea>
+                        </span>
                     </div>
                     
                     <div class='col-lg-10 mt-2'>
-                        <textarea placeholder='Thursday Entry' name='thurEntry' class='form-control' id='exampleFormControlTextarea1' rows='1' maxlength='250'>".$getRow['thurEntry']."</textarea>
+                        <span title='THURSDAY'>
+                            <textarea placeholder='Thursday Entry' name='thurEntry' class='form-control' id='exampleFormControlTextarea1' rows='1' maxlength='250'>".$getRow['thurEntry']."</textarea>
+                        </span>
                     </div>
                     
                     <div class='col-lg-10 mt-2'>
-                        <textarea placeholder='Friday Entry' name='friEntry' class='form-control' id='exampleFormControlTextarea1' rows='1' maxlength='250'>".$getRow['friEntry']."</textarea>
+                        <span title='FRIDAY'>
+                            <textarea placeholder='Friday Entry' name='friEntry' class='form-control' id='exampleFormControlTextarea1' rows='1' maxlength='250'>".$getRow['friEntry']."</textarea>
+                        </span>
                     </div>
                     
                     <div class='col-lg-10 mt-2'>
-                        <!--  change col-lg-10 to col-lg-8                  -->
-                        <textarea placeholder='Saturday Entry' name='satEntry' class='form-control' id='exampleFormControlTextarea1' rows='1' maxlength='250'>".$getRow['satEntry']."</textarea>
+                        <span title='SATURDAY'>
+                            <textarea placeholder='Saturday Entry' name='satEntry' class='form-control' id='exampleFormControlTextarea1' rows='1' maxlength='250'>".$getRow['satEntry']."</textarea>
+                        </span>
                     </div>                    
                                                 
                     <div class='col-lg-2 mt-2 text-center'>
@@ -102,7 +113,9 @@
                     </div>
                     
                     <div class='col-lg-10 mb-3'>
-                        <textarea placeholder='Week Entry' name='week_entry' class='form-control' id='exampleFormControlTextarea1' rows='8' maxlength='1000'>".$getRow['week_Entry']."</textarea>
+                        <span title='WEEK ENTRY (PLEASE BE BRIEF AND CLEAR)'>
+                            <textarea placeholder='Week Entry' name='week_entry' class='form-control' id='exampleFormControlTextarea1' rows='8' maxlength='1000'>".$getRow['week_Entry']."</textarea>
+                        </span>
                     </div>
                     
                     <div class='col-lg-10 mb-3'>
@@ -125,7 +138,7 @@
                     </script>
                     
                     <div class='col-lg-10 mb-5'>
-                        <span title='YOU CAN ONLY VIEW NOT EDIT'>
+                        <span title='YOU CAN ONLY VIEW NOT EDIT'>    
                             <textarea placeholder='Industrial Supervisor Comments (Read Only)' name='field_supComments' class='form-control' id='exampleFormControlTextarea1' rows='2' readonly>".$getRow['indSup_comments']."</textarea>
                         </span>
                     </div>";
