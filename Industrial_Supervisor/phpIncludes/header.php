@@ -250,11 +250,11 @@
 <div class="container-fluid" id="navig">
     <div class="row" >
         <div class="col-6 text-center mt-2">
-            <a href="../pages/placement.php"> Locate </a>
+            <a href="../pages/placement.php"> Locate Students </a>
         </div>
                 
         <div class="col-6 text-center mt-2">
-            <a href="../pages/logbook_review.php"> Logbook </a>
+            <a href="../pages/logbook_review.php"> Logbook Review </a>
         </div>
 
     </div>

@@ -102,7 +102,7 @@
             <div class="col-lg-3 col-5 ml-auto">
 <!--                <p class="mt-4" style="color:white; font-size: 14px;"> Logged in as: <br/> </p>-->
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-6" >
                         <?php
                             if (isset($_SESSION['StudentID'])){
                             
@@ -249,16 +249,16 @@
 <!--  Navigation on top of the pages -->
 <div class="container-fluid" id="navig">
     <div class="row" >
-        <div class="col-3 text-center mt-2">
+        <div class="col-4 text-center mt-2">
             <a href="../pages/placement.php"> Placement </a>
         </div>
         
-        <div class="col-3 text-center mt-2">
+        <div class="col-4 text-center mt-2">
             <a class="mt-5" href="../pages/reporting.php"> Reporting </a>
         
         </div>
         
-        <div class="col-3 text-center mt-2">
+        <div class="col-4 text-center mt-2">
             <a href="../pages/logbook.php"> Logbook </a>
 <!--
             <ul class="nav">
@@ -273,9 +273,11 @@
 -->
         </div>
 
+<!--
         <div class="col-3 text-center mt-2">
             <a href="../pages/evaluation.php"> Evaluation </a>
         </div>
+-->
     </div>
     <hr>
     

@@ -31,7 +31,7 @@ if (isset($_POST['login']) && !empty($_POST['ind_username']) && !empty($_POST['p
     
     else{
         $url2 = "../index.php";
-//        header ('Location: '.$url2.'?');
+        header ('Location: '.$url2.'?');
         
         echo "<script>
             document.getElementById('WrongPassword').style.display = 'block';

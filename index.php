@@ -112,11 +112,11 @@
                     
                 <div class="col-lg-10 col-12 mt-5">
                     <input type="text" class="form-control" id="input" aria-describedby="emailHelp" name="regNo" placeholder="Registration Number" value="170210225935">
-                    </div>
+                </div>
                 
                 <div class="col-lg-10 col-12 mt-3">
                     <input type="password" class="form-control input-sm" id="input" name="pwd" placeholder="Password" value="cl">
-                    </div>
+                </div>
                     <!-- delete the value attribute here and above -->
                     
                     

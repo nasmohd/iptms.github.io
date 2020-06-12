@@ -81,21 +81,21 @@
 
                     <div class="col-lg-10 col-12 mt-5">
                         <input type="text" class="form-control" id="input" aria-describedby="emailHelp" name="ind_username" placeholder="Username" value="albinstein879">
-                        </div>
+                    </div>
 
                     <div class="col-lg-10 col-12 mt-3">
                         <input type="password" class="form-control input-sm" id="input" name="pwd" placeholder="Password" value="1234">
-                        </div>
+                    </div>
                         <!-- delete the value attribute here and above -->
 
 
                     <div class="col-lg-10 col-12 mt-2" id="WrongPassword" style="color: red; visibility: hidden; display:none; font-size:14px;">
                         <p> Incorrect Registration Number or Password </p>
-                        </div>
+                    </div>
 
                     <div class="col-lg-10 col-12 mt-2" id="AccntLogout" style="color: green; visibility: hidden; display:none; font-size:14px;">
                         <p> Logged out Successfully </p>
-                        </div>
+                    </div>
 
                     <div class="col-lg-10 col-12 mt-3">
                         <button type="submit" id="input1" class="btn col-12" style="background-color: #306FA0; color:white" name="login"> LOG IN</button>
@@ -106,7 +106,7 @@
                         $requestUrl = $_SERVER ['REQUEST_URI'];
                         $urlComponents = explode ('/', $requestUrl);
 
-                        $dot = explode ('.', $urlComponents[2]);
+                        $dot = explode ('.', $urlComponents[3]);
                         $dot_len = count($dot);
 
                         if ($dot_len > 1){
@@ -128,7 +128,7 @@
                         $requestUrl2 = $_SERVER ['REQUEST_URI'];
                         $urlComponents2 = explode ('/', $requestUrl2);
 
-                        $dot2 = explode ('.', $urlComponents2[2]);
+                        $dot2 = explode ('.', $urlComponents2[3]);
                         $dot_len2 = count($dot2);
 
                         if ($dot_len2 > 1){

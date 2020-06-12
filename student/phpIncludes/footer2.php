@@ -3,13 +3,6 @@
     <div class="row">
         <div class="col-12">
 -->
-<script>
-    $(function(){
-      $('[data-toggle="tooltip]').tooltip()
-      })
-
-</script>
-
 
 <footer class="footer-black aa-footer mt-5" id="footr2">
      
@@ -36,10 +29,9 @@
 
 </style>
     
-
     <script src="../../js/popper.js"></script>
     <script src="../../js/popper.min.js"></script>
-    <script src="../../js/jquery-3.2.1.min.js"></script>
+<!--    <script src="../../js/jquery-3.2.1.min.js"></script>-->
     <script src="../../js/bootstrap.js"></script>
 <!--
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script> 
