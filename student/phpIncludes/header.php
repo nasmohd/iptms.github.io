@@ -71,8 +71,8 @@
         <div class="row">
 <!--            style="background-color: cyan"-->
         <!-- div tag below is for the navigation button to toggle the navigation for this particular page -->
-            <div class="col-lg-4 col-7" id="home_link">
-                <div class="row">
+            <div class="col-lg-2 col-12 ml-auto mr-auto mt-3">
+<!--
                     <div class="col-2">
                         <nav class="navbar navbar-expand-lg navbar-light">
                             <div class="container-fluid">
@@ -82,45 +82,46 @@
                                 </button>
                             </div>
                         </nav>
-<!--
-                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                            <button type="button" id="sidebarCollapse" class="btn btn-info" style=" background-color: #333333">
-                                <i class="fa fa-bars" title="Edit" style="color: white"></i>
-                            </button>
-                        </nav>                
--->
-                    </div>
-                    
-                    <div class="col-8 ml-2 mr-auto">
-                        <img src="../../img/logo7.png" class="img-fluid" style="width: 55px; height: 50px;"/>
-                        <a class="" href="#" style="color:white; font-size:13.5px; font-decoration: none;">Management System</a>
-                    </div>                    
-                </div>  
-            </div>
 
+                    </div>
+-->
+                    
+<!--                <div class="ml-auto mr-auto">-->
+                    <img src="../../img/logo7.png" class="img-fluid" style="width: 55px; height: 50px;"/>
+                    <a class="" href="../../phpIncludes/logout.inc.php" style="color:white; font-size:13.5px; font-decoration: none;">Management System</a>
+<!--                </div>                    -->
+            </div>  
+<!--            </div>-->
+        </div> 
+    </div>
             
-            <div class="col-lg-3 col-5 ml-auto">
-<!--                <p class="mt-4" style="color:white; font-size: 14px;"> Logged in as: <br/> </p>-->
+<!--
+            <div class="col-lg-5 col-5 ml-auto" >
                 <div class="row">
-                    <div class="col-6" >
+                    
+                    <div class="col-6 ml-auto mt-2">
                         <?php
                             if (isset($_SESSION['StudentID'])){
-                            
-                            echo "<p class='mt-4' style='color:white; font-size:13px;'>Logged in as:<br/>".$_SESSION['FirstName']." ".$_SESSION['LastName']."</p>";}
+                                echo "<img class='img-fluid' id='user_img' src='../profile_pictures/".$_SESSION['ProfilePic_Name']."'>
+                                <a href='../../phpIncludes/logout.inc.php' style='font-size: 14px; color:white;'>".$_SESSION['FirstName']." ".$_SESSION['LastName']."</a>
+                                
+                                ";   
+                            }
                         ?>
                     </div>
                     
+                    <style>
+                        #user_img{
+                            height: 90px;
+                            width: 80px;
+                        }
                     
-                    <div class="col-6 mt-4">
-                        <?php
-                            if (isset($_SESSION['StudentID'])){
-                            
-                            echo "<form method='post' action='../../phpIncludes/logout.inc.php'>
-                            <button class='btn btn-primary'> LOG OUT </button> </form>"; }
-                        ?>
-                    </div>
+                    
+                    </style>
+
                 </div>
             </div>          
+-->
             
 <!--
             <div class="col-lg-2 col-3 float-right mt-2 ml-auto" style="background-color: yellow; font-size: 13px;"> 
@@ -131,8 +132,7 @@
                 <img src="../img/profile.png" class="img-fluid"/>
             </div> 
 -->
-        </div> 
-    </div>
+
 
 <!-- UNDELETE THIS
 <div class="wrapper">
