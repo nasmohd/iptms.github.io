@@ -67,11 +67,12 @@
 
 <body>
     
-    <div class="container-fluid" id="div_nav"> <!-- div_nav sets the header's attributes -->
+    <div class="container-fluid header" id="div_nav"> <!-- replace div_nav with myHeader -->
+        <button class="openbtn mt-3" onclick="openNav()">&#9776;</button><!-- div_nav sets the header's attributes -->
         <div class="row">
 <!--            style="background-color: cyan"-->
         <!-- div tag below is for the navigation button to toggle the navigation for this particular page -->
-            <div class="col-lg-2 col-12 ml-auto mr-auto mt-3">
+            <div class="col-lg-2 col-3 ml-auto mr-auto mt-3">
 <!--
                     <div class="col-2">
                         <nav class="navbar navbar-expand-lg navbar-light">
@@ -247,56 +248,127 @@
     </style>
 -->
 <!--  Navigation on top of the pages -->
-<div class="container-fluid" id="navig">
-    <div class="row" >
-        <div class="col-4 text-center mt-2">
-            <a href="../pages/placement.php"> Placement </a>
-        </div>
-        
-        <div class="col-4 text-center mt-2">
-            <a class="mt-5" href="../pages/reporting.php"> Reporting </a>
-        
-        </div>
-        
-        <div class="col-4 text-center mt-2">
-            <a href="../pages/logbook.php"> Logbook </a>
-<!--
-            <ul class="nav">
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"> Logbook </a>           
-                    <div class="dropdown-menu" style="background-color: #306FA0" id="drp">
-                        <a href="../pages/daily_entry.php" class="dropdown-item"> Daily Entry </a>
-                        <a href="../pages/weekly_entry.php" class="dropdown-item"> Weekly Entry </a>
-                    </div>
-                </li>
-            </ul>
--->
-        </div>
+<div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#">User Info</a>
+    <a href="../pages/placement.php">Placement</a>
+    <a href="../pages/reporting.php">Reporting</a>
+    <a href="../pages/logbook.php">Logbook</a>
+    <a href="#">Contact us</a>
+</div>
 
-<!--
-        <div class="col-3 text-center mt-2">
-            <a href="../pages/evaluation.php"> Evaluation </a>
-        </div>
--->
-    </div>
-    <hr>
+<div id="main">
+<!--    <button class="openbtn mt-3" onclick="openNav()">&#9776;</button>-->
     
     <style>
-        #navig{
-            background-color: #333333;
-        }
+    .sidebar {
+        height: 100%; /* 100% Full-height */
+        width: 200px; /* 0 width - change this with JavaScript */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Stay on top */
+        top: 0;
+        left: 0;
+        background-color: #333333; /* Black*/
+        overflow-x: hidden; /* Disable horizontal scroll */
+        padding-top: 60px; /* Place content 60px from the top */
+        transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+    }
+
+/* The sidebar links */
+    .sidebar a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 15px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+
+/* When you mouse over the navigation links, change their color */
+    .sidebar a:hover {
+        color: #f1f1f1;
+    }
+
+/* Position and style the close button (top right corner) */
+    .sidebar .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+
+/* The button used to open the sidebar */
+    .openbtn {
+        position: fixed;
+        font-size: 20px;
+        cursor: pointer;
+        background-color: #111;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+    }
+
+    .openbtn:hover {
+        background-color: #444;
+    }
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+    #main {
+        transition: margin-left .5s; /* If you want a transition effect */
+        padding: 20px;
+    }
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+    @media screen and (max-height: 450px) {
+        .sidebar {padding-top: 15px;}
+        .sidebar a {font-size: 14px;}
+    }
+    
         
-        #navig div a{
-            color: #FFFFFF;
-            font-size: 13px;
-        } 
+/*    Style the header */
+
         
-        #drp a:hover{
-            color: black;
-        }
         
     </style>
-</div>
+    
+    
+<script>
+function openNav() {
+    document.getElementById("mySidebar").style.width = "200px";
+//    document.getElementById("main").style.marginLeft = "250px";
+}
+
+/* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+function closeNav() {
+    document.getElementById("mySidebar").style.width = "0";
+//    document.getElementById("main").style.marginLeft = "0";
+}
+    
+    
+////Header customization
+//// When the user scrolls the page, execute myFunction
+//window.onscroll = function() {myFunction()};
+//
+//// Get the header
+//var header = document.getElementById("div_nav");
+//
+//// Get the offset position of the navbar
+//var sticky = header.offsetTop;
+//
+//// Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+//function myFunction() {
+//  if (window.pageYOffset > sticky) {
+//    header.classList.add("sticky");
+//  } else {
+//    header.classList.remove("sticky");
+//  }
+//}
+    
+</script>
+    
+    
+
     
     
     

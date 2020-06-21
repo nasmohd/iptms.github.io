@@ -123,13 +123,13 @@
                     </div>
                     
                     <div class='col-lg-2 text-center'>
-                        <label>Verification Status: </label>
+                        <label style='font-size:13px;'>Verification Status: </label>
                         <span title='Field/Industrial Supervisor'>
-                            <textarea id='industrial_verify' name='isupComments' class='col-lg-5' id='exampleFormControlTextarea1' rows='1' style='background-color: #E54128; text-align:center; color:white; vertical-align: middle; border: 1px solid #306FA0; border-radius:8px;' readonly >FS</textarea>
+                            <textarea id='industrial_verify' name='isupComments' class='col-lg-5' id='exampleFormControlTextarea1' rows='1' style='background-color: #E54128; text-align:center; color:white; vertical-align: middle; border: 1px solid #306FA0; border-radius:8px; font-size: 13px;' readonly >FS</textarea>
                         </span>
                         
                         <span title='Institute Supervisor'>
-                            <textarea id='institute_verify' name='isupComments' class='col-lg-5' id='exampleFormControlTextarea1' rows='1' style='background-color: #E54128; text-align:center; color:white; vertical-align: middle; border: 1px solid #306FA0; border-radius:8px;' readonly>IS</textarea>
+                            <textarea id='institute_verify' name='isupComments' class='col-lg-5' id='exampleFormControlTextarea1' rows='1' style='background-color: #E54128; text-align:center; color:white; vertical-align: middle; border: 1px solid #306FA0; border-radius:8px; font-size: 13px;' readonly>IS</textarea>
                         </span>
                     </div>
                 </div>

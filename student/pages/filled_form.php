@@ -146,25 +146,25 @@
                     if ($getRow['indSup_verifystatus'] == 1){
                         echo "
                         <div class='col-lg-2 text-center'>
-                        <label>Verification Status: </label>
+                        <label style='font-size:13px;'>Verification Status: </label>
                         <span title='Field/Industrial Supervisor'>
-                            <textarea id='industrial_verify' name='ind_sup_status' class='col-lg-5' id='exampleFormControlTextarea1' rows='1' style='background-color: #28A745; text-align:center; color:white; vertical-align: middle; border: 1px solid #306FA0; border-radius:8px;' readonly >FS</textarea>
+                            <textarea id='industrial_verify' name='ind_sup_status' class='col-lg-5' id='exampleFormControlTextarea1' rows='1' style='background-color: #28A745; text-align:center; color:white; vertical-align: middle; border: 1px solid #306FA0; border-radius:8px; font-size: 13px;' readonly >FS</textarea>
                         </span>";
                     }
                     
                     if ($getRow['indSup_verifystatus'] == 0){
                         echo "
                         <div class='col-lg-2 text-center'>
-                        <label>Verification Status: </label>
+                        <label style='font-size:13px;'>Verification Status: </label>
                         <span title='Field/Industrial Supervisor'>
-                            <textarea id='industrial_verify' name='ind_sup_status' class='col-lg-5' id='exampleFormControlTextarea1' rows='1' style='background-color: #E54128; text-align:center; color:white; vertical-align: middle; border: 1px solid #306FA0; border-radius:8px;' readonly >FS</textarea>
+                            <textarea id='industrial_verify' name='ind_sup_status' class='col-lg-5' id='exampleFormControlTextarea1' rows='1' style='background-color: #E54128; text-align:center; color:white; vertical-align: middle; border: 1px solid #306FA0; border-radius:8px; font-size: 13px;' readonly >FS</textarea>
                         </span>";
                     }
                         
                     if ($getRow['instSup_verifystatus'] == 1){
                         echo "
                         <span title='Institute Supervisor'>
-                            <textarea id='institute_verify' name='inst_sup_status' class='col-lg-5' id='exampleFormControlTextarea1' rows='1' style='background-color: #28A745; text-align:center; color:white; vertical-align: middle; border: 1px solid #306FA0; border-radius:8px;' readonly>IS</textarea>
+                            <textarea id='institute_verify' name='inst_sup_status' class='col-lg-5' id='exampleFormControlTextarea1' rows='1' style='background-color: #28A745; text-align:center; color:white; vertical-align: middle; border: 1px solid #306FA0; border-radius:8px; font-size: 13px;' readonly>IS</textarea>
                         </span>
                     </div>";
                     }
@@ -172,7 +172,7 @@
                     if ($getRow['instSup_verifystatus'] == 0){
                         echo "
                         <span title='Institute Supervisor'>
-                            <textarea id='institute_verify' name='inst_sup_status' class='col-lg-5' id='exampleFormControlTextarea1' rows='1' style='background-color: #E54128; text-align:center; color:white; vertical-align: middle; border: 1px solid #306FA0; border-radius:8px;' readonly>IS</textarea>
+                            <textarea id='institute_verify' name='inst_sup_status' class='col-lg-5' id='exampleFormControlTextarea1' rows='1' style='background-color: #E54128; text-align:center; color:white; vertical-align: middle; border: 1px solid #306FA0; border-radius:8px; font-size: 13px;' readonly>IS</textarea>
                         </span>
                     </div>";
                     }

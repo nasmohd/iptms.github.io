@@ -4,7 +4,7 @@ body {
 }
 
 #div_nav{ /* div_nav styles contents of the navigation  */
-/*    position: relative;*/
+/*    -webkit-position: sticky;*/
     height: 80px;
     background-color: #306FA0;
 }
