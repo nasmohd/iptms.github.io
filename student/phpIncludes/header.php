@@ -249,12 +249,17 @@
 -->
 <!--  Navigation on top of the pages -->
 <div id="mySidebar" class="sidebar">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="#">User Info</a>
-    <a href="../pages/placement.php">Placement</a>
-    <a href="../pages/reporting.php">Reporting</a>
-    <a href="../pages/logbook.php">Logbook</a>
-    <a href="#">Contact us</a>
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" style='background-color:transparent'>&times;</a>
+    
+    <a class="mt-5" href="#"><span style="font-size: 20px;">&#128104;</span> Profile</a>
+<!--    <div style="background-color:white;"><hr> </div>-->
+    <a class='' href="../main/index.php"><span style="font-size: 20px;">&#8962;</span> <span id='sidebar_txt' class="ml-2">Home</span></a>
+    <a href="../pages/placement.php"><span style="font-size: 20px;">&#x1F3E2;</span> <span id='sidebar_txt' class="ml-1">Placement</span></a>
+    <a href="../pages/reporting.php"><span style="font-size: 20px;">&#9873;</span> <span id='sidebar_txt' class="ml-2">Reporting</span></a>
+    <a href="../pages/logbook.php"><span style="font-size: 20px;">&#128366;</span><span id='sidebar_txt' class="ml-1">Logbook</span></a>
+    <a href="#"><span style="font-size: 20px;">&#9742;</span> <span id='sidebar_txt' class="ml-1">Contacts</span></a>
+    
+    <a href="#" id='settings_btn'><span style="font-size: 20px;">&#9881;</span> <span id='sidebar_txt' class="ml-2">Settings</span></a>
 </div>
 
 <div id="main">
@@ -268,7 +273,7 @@
         z-index: 1; /* Stay on top */
         top: 0;
         left: 0;
-        background-color: #333333; /* Black*/
+        background-color: #112637; /* Black*/
         overflow-x: hidden; /* Disable horizontal scroll */
         padding-top: 60px; /* Place content 60px from the top */
         transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
@@ -279,15 +284,42 @@
         padding: 8px 8px 8px 32px;
         text-decoration: none;
         font-size: 15px;
-        color: #818181;
+        color: #919191;
         display: block;
         transition: 0.3s;
     }
+        
+/*
+    .sidebar a:link, a:visited{
+        background-color: #EEEEEE;
+        color: black;
+    }
+*/
+        
+/* setting at the bottom of the sidebar
+    .sidebar #settings_btn{
+        position: absolute;
+        bottom: 0;
+    }
+*/
+        
+/*
+        .sidebar a #sidebar_txt{
+            
+        }
+*/
 
 /* When you mouse over the navigation links, change their color */
     .sidebar a:hover {
         color: #f1f1f1;
+        background-color: #306FA0;
+    }    
+        
+/*
+    .sidebar a:last-child:hover {
+        background-color: transparent;
     }
+*/
 
 /* Position and style the close button (top right corner) */
     .sidebar .closebtn {
