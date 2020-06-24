@@ -5,213 +5,171 @@
 
 ?>
 
-
 <!DOCTYPE html>
-<html lang="en-US">
+<html>
+
 <head>
-   <!-- Start of the head tag -->
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <title> IPT Management System  </title>
-    
-    <!-- Add a tab icon -->
+
+    <title>IPT Management System</title>
     <link rel="icon" href="../../img/logo.png">
-    
-    <meta name="description" content="A convenient website designed specifically to ease Information Management during various IPT procedures for Students and Supervisors"/>
 
-    
-    <!-- CDN for dropdown menu, delete later if offline version found -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="../styles/sidebar.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
-    <!--   -->
-    <link rel="stylesheet" href="../../css/bootstrap.min.css">   
-    <link rel="stylesheet" href="../plugins/plugins/fontawesome-free/css/all.min.css">
-    
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    
-    <!-- Theme style -->
-    <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
- 
- 
-    <!-- Google Font: Source Sans Pro -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 
-    <!-- css file from Bootstrap that will be used -->
-    <link rel="stylesheet" href="../../styles/main_page.css" type="text/css">
-    <link rel="stylesheet" href="../studentcss.css" type="text/css">
-    <link rel="stylesheet" href="../../css/bootstrap.css">
-    </head> 
-    <!-- End of the head tag -->
+</head>
 
 <body>
-    <!-- Start of the body tag -->
- 
-    <div class="container-fluid header" id="div_nav"> <!-- replace div_nav with myHeader -->
-        <button class="openbtn mt-3 ml-5" onclick="openNav()" style="background-color: transparent;">&#9776;</button><!-- div_nav sets the header's attributes -->
-        <div class="row">
+    <div class="wrapper">
+        <!-- Sidebar code starts here  -->
+        <nav id="sidebar">
+           
+           <!-- arrow to dismiss the sidebar -->
+            <div id="dismiss"> 
+                <i class="fas fa-arrow-left"></i>
+            </div>
 
-            <div class="col-lg-2 col-3 ml-auto mr-auto mt-3">
-                <img src="../../img/logo7.png" class="img-fluid" style="width: 55px; height: 50px;"/>
-                <a class="" href="../../phpIncludes/logout.inc.php" style="color:white; font-size:13.5px; font-decoration: none;">Management System</a>
-            </div>  
+<!--
+            <div class="sidebar-header">
+                <h3>Bootstrap Sidebar</h3>
+            </div>
+-->
 
-        </div> 
-    </div>
+            <ul class="list-unstyled components mt-5">
+<!--                <p>Logged User</p>-->
+               
+                <li style="margin-top: 20vh;">
+                   <hr>
+                    <a href="../main/index.php"><span class="ml-3">
+                    <i class="nav-icon fas fa-user"></i></span>
+                    <span class="ml-1" id="sidebar_lnk">Nassor Mohamed</span>
+                    </a>      
+                </li>
+                <hr>
+                
+                <li class="active" >
+                    <a href="../main/index.php"><span class="ml-3">
+                    <i class="nav-icon fas fa-tachometer-alt"></i></span>
+                    <span class="ml-1" id="sidebar_lnk">Dashboard</span>
+                    </a>
+                </li>
+                   
+                <li>
+                    <a href="../pages/placement.php"><span class="ml-3">
+                    <i class="nav-icon fas fa-building"></i></span>
+                    <span class="ml-2" id="sidebar_lnk">Placement</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../pages/reporting.php"><span class="ml-3">
+                    <i class="nav-icon fas fa-flag"></i></span>
+                    <span class="ml-2" id="sidebar_lnk">Reporting</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="../pages/logbook.php"><span class="ml-3">
+                    <i class="nav-icon fas fa-book"></i></span>
+                    <span class="ml-2" id="sidebar_lnk">Logbook</span>
+                    </a>
+                </li>
+                    
+                <li>
+                    <a href="#"><span class="ml-3">
+                    <i class="nav-icon fas fa-list-alt"></i></span>
+                    <span class="ml-2" id="sidebar_lnk">Tasks</span>
+                    </a>
+                </li>
+                   
+                <li>
+                    <a href="#"><span class="ml-3">
+                    <i class="mr-1 nav-icon fas fa-file"></i></span>
+                    <span class="ml-2" id="sidebar_lnk">Library</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="#"><span class="ml-3">
+                    <i class="nav-icon fas fa-phone" style="transform: rotate(90deg);"></i></span>
+                    <span class="ml-2" id="sidebar_lnk">Contacts</span>
+                    </a>
+                </li>
+                    
+                <li>
+                    <a href="#"><span class="ml-3">
+                    <i class="nav-icon fas fa-cog"></i></span>
+                    <span class="ml-2" id="sidebar_lnk">Settings</span>
+                    </a>
+                </li>
+                   
+                <li style="color: green;">
+<!--                   <div class="dropdown-divider" style="color:black;"></div>-->
+                    <a href="../../phpIncludes/logout.inc.php"><span class="ml-3">
+                    <i class="nav-icon fas fa-sign-out-alt"></i></span>
+                    <span class="ml-2" id="sidebar_lnk" style="font-weight:bold;">Logout</span>
+                    </a>
+                </li>
+            </ul>
+        
+        </nav>
+
+        <!-- All the Page Contents go inside here  -->
+    <div class="content">
+        <div id="content2">
+            <nav class="navbar navbar-expand-lg" id="my_nav">
+                <div class="container-fluid">
+                    <div class="col-lg-1 col-2">
+                        <button type="button" id="sidebarCollapse" class="col-lg-8 btn btn-info" style="background-color: #FFFFFF; color: #306FA0;">
+                        <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
+                
+                    <div class="col-lg-8 ml-auto mr-auto col-7">
+                        <!-- Just added this form below -->
+                        <form class="ml-5 form-inline">
+                        <div class="col-lg-10 ml-4 input-group input-group-md">
+                            <input class="col-lg-12 col-12 form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                            <div class="input-group-append">
+                            <button class="btn btn-navbar" type="submit">
+                            <i class="fas fa-search"></i>
+                            </button>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Right side of nav -->
+                    <div class="col-lg-1 col-3" >
+                       <div class="row">
+
+
+                        <!-- Notification Icon and information -->
+                        <div class="dropdown" >
+                            <a class="nav-link" data-toggle="dropdown" href="#">
+                            <span style="color: white;"><i class="fas fa-bell"></i></span>
+    <!--                        <span class="badge badge-warning navbar-badge text-center">15</span>-->
+                            </a>
+                            <div class="dropdown-menu">
+                                <li><a href="#">Notif 1</a></li>
+                                <li><a href="#">Notif 2</a></li>
+                            </div>  
+                        </div>
+                        </div>
+                    </div>
+     
+                </div>
+            </nav>
             
-
-<!--  Navigation on top of the pages -->
-
-
-<div id="main">
-    <div id="mySidebar" class="sidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" style='background-color:transparent'>&times;</a>
-
-        <a class="mt-5" href="#"><span style="font-size: 20px;">&#128104;</span> Profile</a>
-    <!--    <div style="background-color:white;"><hr> </div>-->
-        <a class='' href="../main/index.php"><span class='ml-1' style="font-size: 20px;">&#8962;</span> <span id='sidebar_txt' class="ml-2">Home</span></a>
-        <a href="../pages/placement.php"><span style="font-size: 20px;">&#x1F3E2;</span> <span id='sidebar_txt' class="ml-1">Placement</span></a>
-        <a href="../pages/reporting.php"><span style="font-size: 20px;">&#9873;</span> <span id='sidebar_txt' class="ml-2">Reporting</span></a>
-        <a href="../pages/logbook.php"><span style="font-size: 20px;">&#128366;</span><span id='sidebar_txt' class="ml-1">Logbook</span></a>
-        <a href="#"><span style="font-size: 20px;">&#9742;</span> <span id='sidebar_txt' class="ml-1">Contacts</span></a>
-
-        <a href="#" id='settings_btn'><span style="font-size: 20px;">&#9881;</span> <span id='sidebar_txt' class="ml-2">Settings</span></a>
-    </div>
-
-<!--    <button class="openbtn mt-3" onclick="openNav()">&#9776;</button>-->
-    
-    <style> 
-
-    .sidebar {
-        margin-top:80px;
-        height: 100%; /* 100% Full-height */
-        width: 0px; /* 0 width - change this with JavaScript */
-        position: fixed; /* Stay in place */
-        z-index: 1; /* Stay on top */
-        top: 0;
-        left: 0;
-        background-color: #112637; /* Black*/
-        overflow-x: hidden; /* Disable horizontal scroll */
-        padding-top: 60px; /* Place content 60px from the top */
-        /* transition: 0.5s;  */
-        /* 0.5 second transition effect to slide in the sidebar */
-    }
-
-/* The sidebar links */
-    .sidebar a {
-        padding: 8px 8px 8px 32px;
-        text-decoration: none;
-        font-size: 15px;
-        color: #919191;
-        display: block;
-        /* transition: 0.3s; */
-    }
-        
-/*
-    .sidebar a:link, a:visited{
-        background-color: #EEEEEE;
-        color: black;
-    }
-*/
-        
-/* setting at the bottom of the sidebar
-    .sidebar #settings_btn{
-        position: absolute;
-        bottom: 0;
-    }
-*/
-        
-/*
-        .sidebar a #sidebar_txt{
-            
-        }
-*/
-
-/* When you mouse over the navigation links, change their color */
-    .sidebar a:hover {
-        color: #f1f1f1;
-        background-color: #306FA0;
-    }    
-        
-/*
-    .sidebar a:last-child:hover {
-        background-color: transparent;
-    }
-*/
-
-/* Position and style the close button (top right corner) */
-    .sidebar .closebtn {
-        position: absolute;
-        top: 0;
-        right: 25px;
-        font-size: 36px;
-        margin-left: 50px;
-    }
-
-/* The button used to open the sidebar */
-    .openbtn {
-        position: fixed;
-        font-size: 20px;
-        cursor: pointer;
-        background-color: #111;
-        color: white;
-        padding: 10px 15px;
-        border: none;
-    }
-
-    .openbtn:hover {
-        background-color: #444;
-    }
-
-/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-    #main {
-        transition: margin-left .5s; /* If you want a transition effect */
-        padding: 20px;
-    }
-
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-    @media screen and (max-height: 450px) {
-        .sidebar {padding-top: 15px;}
-        .sidebar a {font-size: 14px;}
-    }
-    
-        
-/*    Style the header */
-
-        
-        
-    </style>
-    
-    
-<script>
-function openNav() {
-    document.getElementById("mySidebar").style.width = "200px";
-//    document.getElementById("main").style.marginLeft = "250px";
-}
-
-/* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
-function closeNav() {
-    document.getElementById("mySidebar").style.width = "0";
-//    document.getElementById("main").style.marginLeft = "0";
-}
-    
-//var wd = document.getElementById("mySidebar").style.width;
-//    alert (wd);
-//if (wd == "200px"){
-//    function openNav(){
-//        document.getElementById("mySidebar").style.width = "0";
-//    }
-//}
-
-</script>
-    
-    
-
-    
-    
-    
+        </div>
+           

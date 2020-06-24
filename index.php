@@ -122,16 +122,16 @@
                     
                     
                 <div class="col-lg-10 col-12 mt-2" id="WrongPassword" style="color: red; visibility: hidden; display:none; font-size:14px;">
-                    <p> Incorrect Registration Number or Password </p>
+                    <p><span class='mr-2' style="font-size:17px; font-weight: bold;">&#10071;</span> Incorrect Reg. Number or Password </p>
                     </div>
                     
                 <div class="col-lg-10 col-12 mt-2" id="AccntLogout" style="color: green; visibility: hidden; display:none; font-size:14px;">
-                    <p> Logged out Successfully </p>
-                    </div>
+                    <p><span class='mr-2' style="font-size:17px; font-weight: bold;">&#10003;</span>Logged out Successfully </p>
+                </div>
                     
                 <div class="col-lg-10 col-12 mt-3">
                     <button type="submit" id="input1" class="btn col-12" style="background-color: #306FA0; color:white" name="login"> LOG IN</button>
-                    </div>
+                </div>
                 
                 <?php
                     //Incorrect Password
@@ -150,6 +150,15 @@
                             document.getElementById('WrongPassword').style.display = 'block';
                             document.getElementById('WrongPassword').style.visibility = 'visible';
                             document.getElementById('input1').style.marginTop = '-30px';
+                            
+                            setTimeout(function(){
+                                document.getElementById('WrongPassword').style.display = 'none';
+                            document.getElementById('WrongPassword').style.visibility = 'hidden';
+                            
+                            document.getElementById('input1').style.marginTop = '0px';
+
+                            }, 4000);
+                            
                             </script>";
                     }
                         }
@@ -182,7 +191,7 @@
                             
                              
                             
-                            }, 5000);
+                            }, 4000);
                             
                             </script>";
 //                        $goback2 = ltrim($urlComponents2[2], '?1');

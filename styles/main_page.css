@@ -136,33 +136,6 @@ a[data-toggle="collapse"] {
     font-size:15px;
 }
 
-/*#footr{*/    
-/*    From the web  */
-/*
-    clear: both;
-    border: 1px groove #aaaaaa;
-    background: blue;
-    color: White;
-    padding: 0;
-    text-align: center;
-    vertical-align: middle;
-    line-height: normal;
-    margin: 0;
-    position: fixed;
-    bottom: 0px;
-    width: 100%;
-*/
-/*    ends here */
-
-/*
-    background-color: #306FA0; 
-    color: white; 
-    height: 80px;
-    width:100%; 
-    font-size:15px;}
-*/
-/*    margin-top: 20px;*/
-
 @media (max-height:615px){
     #footr{
         background-color: #306FA0; 

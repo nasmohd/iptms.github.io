@@ -1,20 +1,17 @@
-/*
-    DEMO STYLE
-*/
-
-@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+/*@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";*/
 body {
-    font-family: 'Poppins', sans-serif;
-    background: #fafafa;
+/*    font-family: 'Poppins', sans-serif;*/
+    background: #fafafa; /* background of the body contents */
 }
 
 p {
-    font-family: 'Poppins', sans-serif;
+/*    font-family: 'Poppins', sans-serif;*/
     font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
     color: #999;
 }
+
 
 a,
 a:hover,
@@ -24,6 +21,7 @@ a:focus {
     transition: all 0.3s;
 }
 
+/*
 .navbar {
     padding: 15px 10px;
     background: #fff;
@@ -38,8 +36,10 @@ a:focus {
     outline: none !important;
     border: none;
 }
+*/
 
-.line {
+/* Just a line */
+.line { 
     width: 100%;
     height: 1px;
     border-bottom: 1px dashed #ddd;
@@ -51,14 +51,15 @@ a:focus {
 ----------------------------------------------------- */
 
 #sidebar {
-    width: 250px;
+    width: 200px;
+/*    margin-top: 13vh;*/
     position: fixed;
     top: 0;
     left: -250px;
     height: 100vh;
     z-index: 999;
-    background: #7386D5;
-    color: #fff;
+    background: #DDDDDD;
+    color: #000000;
     transition: all 0.3s;
     overflow-y: scroll;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
@@ -68,24 +69,28 @@ a:focus {
     left: 0;
 }
 
+/* ID for the arrow to undo the sidebar */
 #dismiss {
     width: 35px;
     height: 35px;
     line-height: 35px;
     text-align: center;
-    background: #7386D5;
+    background: transparent;
     position: absolute;
     top: 10px;
     right: 10px;
+    border-radius: 20px;
     cursor: pointer;
     -webkit-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s;
 }
 
+/* Upon hover on the back button */
 #dismiss:hover {
-    background: #fff;
-    color: #7386D5;
+    border-radius: 20px;
+    background: #306FA0;
+    color: #FFFFFF;
 }
 
 .overlay {
@@ -98,41 +103,60 @@ a:focus {
     opacity: 0;
     transition: all 0.5s ease-in-out;
 }
+
 .overlay.active {
     display: block;
     opacity: 1;
 }
 
+.content.active {
+    display: block;
+    opacity: 1;
+}
+
+/*
 #sidebar .sidebar-header {
     padding: 20px;
     background: #6d7fcc;
 }
+*/
 
+/*
 #sidebar ul.components {
     padding: 20px 0;
-    border-bottom: 1px solid #47748b;
+    border-bottom: 1px solid #1C425F;
 }
+*/
 
 #sidebar ul p {
     color: #fff;
     padding: 10px;
 }
 
+/* Each of the items in the sidebar */
 #sidebar ul li a {
     padding: 10px;
-    font-size: 1.1em;
+    font-size: 0.9em;
     display: block;
 }
 
+
 #sidebar ul li a:hover {
-    color: #7386D5;
-    background: #fff;
+    color: #FFFFFF;
+    background: #306FA0;
 }
 
+/* When any item in sidebar is selected, active */
+/*
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
-    color: #fff;
-    background: #6d7fcc;
+    color: #FFFFFF;
+    background: #2C6693;
+}
+*/
+
+#sidebar ul li a #sidebar_link{
+    font-size: 13px;
 }
 
 a[data-toggle="collapse"] {
@@ -166,26 +190,62 @@ ul.CTAs a {
 }
 
 a.download {
-    background: #fff;
-    color: #7386D5;
+    background: #FFFFFF;
+    color: #306FA0;
 }
 
 a.article,
 a.article:hover {
-    background: #6d7fcc !important;
-    color: #fff !important;
+    background: #306FA0 !important;
+    color: #FFFFFF !important;
 }
 
 /* ---------------------------------------------------
     CONTENT STYLE
 ----------------------------------------------------- */
 
-#content {
+/*
+#content2 {
+    background-color: #306FA0;
     width: 100%;
-    padding: 20px;
-    min-height: 100vh;
+    padding-left: 10px;
+    padding-top: 13px;
+    min-height: 13vh; vh means viewport (user's visible area) 
     transition: all 0.3s;
-    position: absolute;
+    position: relative;
     top: 0;
     right: 0;
 }
+*/
+
+/*For phone*/
+@media (max-width: 991px){
+    #content2 {
+    background-color: #306FA0;
+    width: 100%;
+    margin-left: -22px;
+    padding-top: 10px;
+    min-height: 13vh; /*vh means viewport (user's visible area) */
+    transition: all 0.3s;
+    position: relative;
+    top: 0;
+    right: 0;
+}
+}
+
+
+/*For laptop*/
+@media (min-width: 991px){
+    #content2 {
+    background-color: #306FA0;
+    width: 100%;
+    padding-left: 10px;
+    padding-top: 13px;
+    min-height: 13vh; /*vh means viewport (user's visible area) */
+    transition: all 0.3s;
+    position: relative;
+    top: 0;
+    right: 0;
+}
+}
+
