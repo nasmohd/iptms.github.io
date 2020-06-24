@@ -80,7 +80,7 @@
                 
                 <li>
                     <a href="../pages/logbook.php"><span class="ml-3">
-                    <i class="nav-icon fas fa-book"></i></span>
+                    <i class="mr-1 nav-icon fas fa-book"></i></span>
                     <span class="ml-2" id="sidebar_lnk">Logbook</span>
                     </a>
                 </li>
@@ -123,7 +123,7 @@
             </ul>
         
         </nav>
-
+    <div class="overlay"></div>
         <!-- All the Page Contents go inside here  -->
     <div class="content">
         <div id="content2">
@@ -131,7 +131,7 @@
                 <div class="container-fluid">
                     <div class="col-lg-1 col-2">
                         <button type="button" id="sidebarCollapse" class="col-lg-8 btn btn-info" style="background-color: #FFFFFF; color: #306FA0;">
-                        <i class="fas fa-bars"></i>
+                        <span style="font-weight:bold;"><i class="fas fa-bars"></i></span>
                         </button>
                     </div>
                 
@@ -156,8 +156,8 @@
 
                         <!-- Notification Icon and information -->
                         <div class="dropdown" >
-                            <a class="nav-link" data-toggle="dropdown" href="#">
-                            <span style="color: white;"><i class="fas fa-bell"></i></span>
+                            <a class="nav-link" data-toggle="dropdown" href="#" style="background-color:white; border-radius:20px;">
+                            <span style="background-color:white; color: #306FA0;"><i class="fas fa-bell"></i></span>
     <!--                        <span class="badge badge-warning navbar-badge text-center">15</span>-->
                             </a>
                             <div class="dropdown-menu">
