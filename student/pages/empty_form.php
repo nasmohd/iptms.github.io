@@ -23,7 +23,17 @@
                                 $y = 1;
                                 
                                 while ($y <= $x){
-                                    echo "<a class='dropdown-item' href='?".$y."'>".$y."</a>";
+                                    $fill_status = "SELECT entry_status FROM logbook_entries WHERE weekNumber = $y AND userID = '$current_user'";
+                                    $res_status = $conn -> query ($fill_status);
+                                    $row_status = $res_status -> fetch_assoc();
+                                    
+                                    if ($row_status['entry_status'] == '1'){
+                                        echo "<a class='dropdown-item' href='?".$y."' style='background-color:#5EFF5E;'>".$y."</a>";
+                                    }
+                                    if ($row_status['entry_status'] != '1'){
+                                        echo "<a class='dropdown-item' href='?".$y."'>".$y."</a>";
+                                    }
+//                                    echo "<a class='dropdown-item' href='?".$y."'>".$y."</a>";
                                     $y = $y + 1;
                                 }
   

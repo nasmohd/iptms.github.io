@@ -2,18 +2,15 @@
                             $sql_student = "SELECT * FROM logbook_entries WHERE userID ='$selected_ID'";
                             $res = $conn -> query($sql_student);
                             $row4 = $res -> fetch_assoc();
-
-                            $_SESSION ['ind_verify_status'] = $row4['indSup_verifystatus'];
-//                            echo $_SESSION ['ind_verify_status'];
 //                            echo $row4['weekStart'];
                             
                             echo "
                             <div class='row mt-3' style='font-size:14px;' id='dayinput'>
-                                <div class='col-lg-2 col-4 mb-3'>
+                                <div class='col-lg-4 col-4 mb-3'>
                                         <label for='exampleFormControlTextarea1'>Select a Student: </label>
                                     <div class='dropdown'>
-                                            <button class='btn btn-secondary dropdown-toggle col-lg-9' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-                                                <span class='float-left'> Pick <span>
+                                            <button class='btn btn-secondary dropdown-toggle' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                                                <span> Pick anyone<span>
                                             </button>";
                             echo "     
                                     <div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>";
@@ -41,17 +38,11 @@
                                         </div>
                                     </div>   
                                 </div>
-                    <div class='col-lg-2'>
-                    
-                    </div>
-                    
                     <div class='col-lg-8 pr-4'> 
                         <label for='exampleFormControlTextarea1'>Selected Student: </label>
                         <textarea placeholder='Selected Student' name='selection' class='form-control col-lg-9' id='exampleFormControlTextarea1' rows='1' maxlength='250' readonly> ".$_SESSION['SelectedStudent_FName']." ".$_SESSION['SelectedStudent_LName']."</textarea>
                                 
                     </div>
-                    
-                    
                                 
                     <div class='col-lg-2 col-4'>
                         <label for='exampleFormControlTextarea1'>Week Number: </label>
@@ -163,25 +154,15 @@
                     </div>";
                     }
                     
-                    if ($_SESSION ['ind_verify_status'] == 1){
-                        echo "
-                        <div class='col-lg-12 mt-2 mb-3'>
-                        <div class='form-check'>
-                            <label class='form-check-label' for='exampleCheck1' style='color: green; font-weight: bold;'><span style='font-size: 18px;' class='mr-2'>&#10003;</span>Already Verified</label>
-                        </div>
-                    </div>
-                        ";
-                    }else {
-                        echo "
+                    
+                    echo "
                     <div class='col-lg-12 mt-2 mb-3'>
                         <div class='form-check'>
                             <input type='checkbox' name='check_verifyStatus' class='form-check-input' id='exampleCheck1'>
                             <label class='form-check-label' for='exampleCheck1'>Check the box to verify these entries</label>
                         </div>
-                    </div>";
-                    }
-
-                    echo "
+                    </div>
+                    
                     <div class='col-lg-5 mt-3 text-center mb-3 ml-auto mr-auto'>
                         <span title='Click this button if verification is done'>
                             <button type='submit' class='btn btn-success col-lg-5' name='daily_upload' style='width:100%; color: white;'>

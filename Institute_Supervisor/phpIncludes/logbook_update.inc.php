@@ -13,19 +13,21 @@ if (isset($check_status)){
 //    echo $user_ID;
 //    $sqlInsert = "INSERT INTO logbook_entries (indSup_comments, indSup_verifystatus) VALUES ('$ind_sup_comments', 1) WHERE userID = '$user_ID'";
     
-    $sqlInsert = "UPDATE logbook_entries SET indSup_comments = '$ind_sup_comments', indSup_verifystatus = '1' WHERE userID = '$user_ID'";
+    $sqlInsert = "UPDATE logbook_entries SET indSup_comments = '$ind_sup_comments', indSup_verifystatus = 1 WHERE userID = '$user_ID'";
     
     $res = $conn -> query($sqlInsert);
     
-    $urlx = $_SESSION['prev_url'];
-    header ('Location: '.$urlx);
-    
+    $urlx = '../pages/logbook_review.php';
+    header ('Location'.$urlx);
     
 //    $row5 = $res -> fetch_assoc();
 //    header('Location');
     
 }
-    
+
+
+
+
 ?>
 
 

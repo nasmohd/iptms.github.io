@@ -23,7 +23,20 @@
                                 $y = 1;
                                 
                                 while ($y <= $x){
-                                    echo "<a class='dropdown-item' href='?".$y."'>".$y."</a>";
+                                    //fill status
+                                    $fill_status = "SELECT entry_status FROM logbook_entries WHERE weekNumber = $y AND userID = '$current_user'";
+                                    $res_status = $conn -> query ($fill_status);
+                                    $row_status = $res_status -> fetch_assoc();
+                                    
+                                    if ($row_status['entry_status'] == '1'){
+                                        echo "<a class='dropdown-item' href='?".$y."' style='background-color:#5EFF5E;'>".$y."</a>";
+                                    }
+                                    if ($row_status['entry_status'] != '1'){
+                                        echo "<a class='dropdown-item' href='?".$y."'>".$y."</a>";
+                                    }
+                                    
+                                    
+//                                    echo "<a class='dropdown-item' href='?".$y."'>".$y."</a>";
                                     $y = $y + 1;
                                 }
   
@@ -87,7 +100,7 @@
                     
                     <div class='col-lg-10 mt-2'>
                         <span title='SATURDAY'>
-                            <textarea placeholder='Saturday Entry' name='satEntry' class='form-control' id='exampleFormControlTextarea1' rows='1' maxlength='250'>".$getRow['satEntry']."</textarea>
+                            <textarea placeholder='Saturday Entry (Enter &quot;none&quot; if not applicable)' name='satEntry' class='form-control' id='exampleFormControlTextarea1' rows='1' maxlength='250'>".$getRow['satEntry']."</textarea>
                         </span>
                     </div>                    
                                                 
@@ -132,7 +145,7 @@
                     
                     <script> //Gets the file name only
                         $('#inputGroupFile01').on('change',function(){
-                            var fileName = $(this).val();
+                            var fileName = $(this).val(); //val() used to return value of attribute for the selected elements
                             $(this).next('.custom-file-label').html(fileName);
                         })
                     </script>

@@ -48,6 +48,20 @@
         $updateQuery = "UPDATE logbook_entries SET weekStart='$startDate', weekEnds='$endDate', monEntry='$monEntry', tueEntry='$tueEntry', wedEntry='$wedEntry', thurEntry='$thurEntry', friEntry='$friEntry', satEntry='$satEntry', week_Entry='$weekEntry', week_picture='$db_picName' WHERE userID ='$userID' AND weekNumber = '$weekNumber'";
         
         $res2 = $conn -> query ($updateQuery);
+        //after updating, check fields, if all are full, change entry_status to 1
+        
+        $check_status = "SELECT * FROM logbook_entries WHERE userID = '$userID' AND weekNumber = '$weekNumber'";
+        $status_run = $conn -> query ($check_status);
+        $status_row = $status_run -> fetch_assoc();
+        if (($status_row['weekStart'] != '') && ($status_row['weekEnds'] != '') && ($status_row['monEntry'] != '') && ($status_row['tueEntry'] != '') && ($status_row['wedEntry'] != '') && ($status_row['thurEntry'] != '') && ($status_row['friEntry'] != '') && ($status_row['satEntry'] != '') && ($status_row['week_Entry'] != '') && ($status_row['week_picture'] != '')){
+            $update_status = "UPDATE logbook_entries SET entry_status = '1'";
+            $run_update = $conn -> query ($update_status);
+//            $update_row = $run_update -> fetch_assoc();
+        }else {
+            $update_status = "UPDATE logbook_entries SET entry_status = '0' WHERE userID = '$userID' AND weekNumber = '$weekNumber'";
+            $run_update = $conn -> query ($update_status);
+        }
+        
         
     }
 
@@ -55,6 +69,19 @@
         $logbookInsert = "INSERT INTO logbook_entries (userID, weekNumber, weekStart, weekEnds, monEntry, tueEntry, wedEntry, thurEntry, friEntry, satEntry, week_Entry, week_picture) VALUES ('$userID' , '$weekNumber', '$startDate', '$endDate', '$monEntry', '$tueEntry', '$wedEntry', '$thurEntry', '$friEntry', '$satEntry', '$weekEntry', '$db_picName')";
         
         $resultInsert = $conn -> query($logbookInsert);
+        
+        $check_status = "SELECT * FROM logbook_entries WHERE userID = '$userID' AND weekNumber = '$weekNumber'";
+        $status_run = $conn -> query ($check_status);
+        $status_row = $status_run -> fetch_assoc();
+        if (($status_row['weekStart'] != '') && ($status_row['weekEnds'] != '') && ($status_row['monEntry'] != '') && ($status_row['tueEntry'] != '') && ($status_row['wedEntry'] != '') && ($status_row['thurEntry'] != '') && ($status_row['friEntry'] != '') && ($status_row['satEntry'] != '') && ($status_row['week_Entry'] != '') && ($status_row['week_picture'] != '')){
+            $update_status = "UPDATE logbook_entries SET entry_status = '1'";
+            $run_update = $conn -> query ($update_status);
+//            $update_row = $run_update -> fetch_assoc();
+        }
+        else {
+            $update_status = "UPDATE logbook_entries SET entry_status = '0' WHERE userID = '$userID' AND weekNumber = '$weekNumber'";
+            $run_update = $conn -> query ($update_status);
+        }
         
     }
     

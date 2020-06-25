@@ -5,7 +5,7 @@
                                         <label for='exampleFormControlTextarea1'>Select a Student: </label>
                                         <div class='dropdown'>
                                             <button class='btn btn-secondary dropdown-toggle' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-                                                Pick
+                                                Pick anyone
                                             </button>
                             
                             <div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>";

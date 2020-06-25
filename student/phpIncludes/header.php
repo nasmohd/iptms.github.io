@@ -48,11 +48,17 @@
             <ul class="list-unstyled components mt-5">
 <!--                <p>Logged User</p>-->
                
+               
                 <li style="margin-top: 20vh;">
                    <hr>
                     <a href="../main/index.php"><span class="ml-3">
                     <i class="nav-icon fas fa-user"></i></span>
-                    <span class="ml-1" id="sidebar_lnk">Nassor Mohamed</span>
+                    
+                    <?php
+                    echo "
+                    <span class='ml-1' id='sidebar_lnk'>".$_SESSION['FirstName']." ".$_SESSION['LastName']."</span>";
+                        
+                    ?>
                     </a>      
                 </li>
                 <hr>
@@ -101,8 +107,8 @@
                 
                 <li>
                     <a href="#"><span class="ml-3">
-                    <i class="nav-icon fas fa-phone" style="transform: rotate(90deg);"></i></span>
-                    <span class="ml-2" id="sidebar_lnk">Contacts</span>
+                    <i class="nav-icon fas fa-question-circle"></i></span>
+                    <span class="ml-2" id="sidebar_lnk">How to Use</span>
                     </a>
                 </li>
                     
@@ -142,7 +148,7 @@
                             <input class="col-lg-12 col-12 form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
                             <div class="input-group-append">
                             <button class="btn btn-navbar" type="submit">
-                            <i class="fas fa-search"></i>
+                            <span style="color: #306FA0; background-color: #FFFFFF;"><i class="fas fa-search"></i></span>
                             </button>
                             </div>
                         </div>

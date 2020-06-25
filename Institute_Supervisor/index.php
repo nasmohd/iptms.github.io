@@ -18,9 +18,7 @@
     
     <!-- Add tab icon -->
     <link rel="icon" href="../img/logo.png">
-    
-    
-    
+
     <link rel="stylesheet" href="../css/bootstrap.min.css">    
     
 <!--    <link rel="stylesheet" href="bootstrap-4.1.3-dist/css/bootstrap.css" type="text/css">-->
@@ -35,11 +33,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    
-    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>  
     </head>
-
 
 <body>
     
@@ -65,7 +60,7 @@
 <!--        <div class="col-lg-7 col-12 ml-auto mr-auto">-->
         <div class="col-lg-4 col-10 mr-auto ml-auto" style="color:white; background-color: #306FA0; height: 60px; border-top-left-radius: 8px; border-top-right-radius: 8px;">
             <div class="text-center pt-3" style="font-size: 17px;">
-                <p> INSTITUTE SUPERVISOR LOGIN </p>
+                <p> INDUSTRIAL SUPERVISOR LOGIN </p>
                     
             </div>
                         
@@ -84,122 +79,122 @@
                                 
                 <div class="row d-flex justify-content-center">
 
-                <div class="col-lg-10 col-12 mt-5">
-                    <input type="text" class="form-control" id="input" aria-describedby="emailHelp" name="ins_username" placeholder="Username" value="wr64">
+                    <div class="col-lg-10 col-12 mt-5">
+                        <input type="text" class="form-control" id="input" aria-describedby="emailHelp" name="ind_username" placeholder="Username" value="albinstein879">
                     </div>
-                
-                <div class="col-lg-10 col-12 mt-3">
-                    <input type="password" class="form-control input-sm" id="input" name="pwd" placeholder="Password" value="1234">
+
+                    <div class="col-lg-10 col-12 mt-3">
+                        <input type="password" class="form-control input-sm" id="input" name="pwd" placeholder="Password" value="1234">
                     </div>
-                    <!-- delete the value attribute here and above -->
-                    
-                    
-                <div class="col-lg-10 col-12 mt-2" id="WrongPassword" style="color: red; visibility: hidden; display:none; font-size:14px;">
-                    <p> Incorrect Registration Number or Password </p>
+                        <!-- delete the value attribute here and above -->
+
+
+                    <div class="col-lg-10 col-12 mt-2" id="WrongPassword" style="color: red; visibility: hidden; display:none; font-size:14px;">
+                        <p> Incorrect Registration Number or Password </p>
                     </div>
-                    
-                <div class="col-lg-10 col-12 mt-2" id="AccntLogout" style="color: green; visibility: hidden; display:none; font-size:14px;">
-                    <p> Logged out Successfully </p>
+
+                    <div class="col-lg-10 col-12 mt-2" id="AccntLogout" style="color: green; visibility: hidden; display:none; font-size:14px;">
+                        <p> Logged out Successfully </p>
                     </div>
-                    
-                <div class="col-lg-10 col-12 mt-3">
-                    <button type="submit" id="input1" class="btn col-12" style="background-color: #306FA0; color:white" name="login"> LOG IN</button>
-                    </div>
-                
-                <?php
-                    //Incorrect Password
-                    $requestUrl = $_SERVER ['REQUEST_URI'];
-                    $urlComponents = explode ('/', $requestUrl);
-                     
-                    $dot = explode ('.', $urlComponents[2]);
-                    $dot_len = count($dot);
-                    
-                    if ($dot_len > 1){
-                        $lenurl = strlen($dot[1]);
-                        $last = $lenurl - 1;
-                    
-                        if (($lenurl >3) && ($dot[1][$last] == '?')){
-                        echo "<script>
-                            document.getElementById('WrongPassword').style.display = 'block';
-                            document.getElementById('WrongPassword').style.visibility = 'visible';
-                            document.getElementById('input1').style.marginTop = '-30px';
-                            </script>";
-                    }
+
+                    <div class="col-lg-10 col-12 mt-3">
+                        <button type="submit" id="input1" class="btn col-12" style="background-color: #306FA0; color:white" name="login"> LOG IN</button>
+                        </div>
+
+                    <?php
+                        //Incorrect Password
+                        $requestUrl = $_SERVER ['REQUEST_URI'];
+                        $urlComponents = explode ('/', $requestUrl);
+
+                        $dot = explode ('.', $urlComponents[3]);
+                        $dot_len = count($dot);
+
+                        if ($dot_len > 1){
+                            $lenurl = strlen($dot[1]);
+                            $last = $lenurl - 1;
+
+                            if (($lenurl >3) && ($dot[1][$last] == '?')){
+                            echo "<script>
+                                document.getElementById('WrongPassword').style.display = 'block';
+                                document.getElementById('WrongPassword').style.visibility = 'visible';
+                                document.getElementById('input1').style.marginTop = '-30px';
+                                </script>";
                         }
-                ?>                
-                    
-                <?php 
-                    //Logout Successful
-                    $requestUrl2 = $_SERVER ['REQUEST_URI'];
-                    $urlComponents2 = explode ('/', $requestUrl2);
-                     
-                    $dot2 = explode ('.', $urlComponents2[2]);
-                    $dot_len2 = count($dot2);
-                    
-                    if ($dot_len2 > 1){
-                        $lenurl2 = strlen($dot2[1]);
-                        $last2 = $lenurl2 - 1;
-                        $pen = $lenurl2 - 2;
-                        
-                        if (($lenurl2 >4) && ($dot2[1][$last2] == '1')){
-                        echo "<script>
-                            document.getElementById('AccntLogout').style.display = 'block';
-                            document.getElementById('AccntLogout').style.visibility = 'visible';
-                            document.getElementById('input1').style.marginTop = '-30px';
-                            
-                            setTimeout(function(){
-                                document.getElementById('AccntLogout').style.display = 'none';
-                            document.getElementById('AccntLogout').style.visibility = 'hidden';
-                            
-                            document.getElementById('input1').style.marginTop = '0px';
-                            
-                             
-                            
-                            }, 5000);
-                            
-                            </script>";
-//                        $goback2 = ltrim($urlComponents2[2], '?1');
-//                        header ('Location: '.$urlComponents2[2]);
-                        }   
-                    }
-                ?>
-                
-                    
-                <div class="col-lg-10">
-                    <div class="row" id="loginlinks" style="color:#306FA0;" >
-                        <div class="col-lg-12 mt-3">
-                            <ul class="nav float-right">
-                                <li class="nav-item dropdown">
-                                    <a href="#" class="nav-link dropdown-toggle" id="lnk" data-toggle="dropdown" style="margin-right:-13px;"> Log in as a different user </a>
-                                    
-                                    <div class="dropdown-menu" style="background-color: #306FA0">
-                                        <a href="../index.php" class="dropdown-item"> Student </a>
-                                        <a href="../Industrial_Supervisor/index.php" class="dropdown-item"> Industrial Supervisor </a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        
-                        <style>
-                            .nav:hover{
-                                text-decoration: underline;
                             }
-                            
-                            .dropdown-toggle::after {
-                                margin-left: 0px;
-                            }
-                        </style>
-                        
-                        <div class="col-lg-12 mb-0">
-                            <a href="pages/signup.php" class="float-right" id="lnk" style="margin-top:-8px;"> Sign Up (Create Account) </a>
+                    ?>                
+
+                    <?php 
+                        //Logout Successful
+                        $requestUrl2 = $_SERVER ['REQUEST_URI'];
+                        $urlComponents2 = explode ('/', $requestUrl2);
+
+                        $dot2 = explode ('.', $urlComponents2[3]);
+                        $dot_len2 = count($dot2);
+
+                        if ($dot_len2 > 1){
+                            $lenurl2 = strlen($dot2[1]);
+                            $last2 = $lenurl2 - 1;
+                            $pen = $lenurl2 - 2;
+
+                            if (($lenurl2 >4) && ($dot2[1][$last2] == '1')){
+                            echo "<script>
+                                document.getElementById('AccntLogout').style.display = 'block';
+                                document.getElementById('AccntLogout').style.visibility = 'visible';
+                                document.getElementById('input1').style.marginTop = '-30px';
+
+                                setTimeout(function(){
+                                    document.getElementById('AccntLogout').style.display = 'none';
+                                document.getElementById('AccntLogout').style.visibility = 'hidden';
+
+                                document.getElementById('input1').style.marginTop = '0px';
+
+
+
+                                }, 5000);
+
+                                </script>";
+    //                        $goback2 = ltrim($urlComponents2[2], '?1');
+    //                        header ('Location: '.$urlComponents2[2]);
+                            }   
+                        }
+                    ?>
+
+
+                    <div class="col-lg-10">
+                        <div class="row" id="loginlinks" style="color:#306FA0;" >
+                            <div class="col-lg-12 mt-3">
+                                <ul class="nav float-right">
+                                    <li class="nav-item dropdown">
+                                        <a href="#" class="nav-link dropdown-toggle" id="lnk" data-toggle="dropdown" style="margin-right:-13px;"> Log in as a different user </a>
+
+                                        <div class="dropdown-menu" style="background-color: #306FA0">
+                                            <a href="../index.php" class="dropdown-item"> Student </a>
+                                            <a href="../Institute_Supervisor/index.php" class="dropdown-item"> Institute Supervisor </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <style>
+                                .nav:hover{
+                                    text-decoration: underline;
+                                }
+
+                                .dropdown-toggle::after {
+                                    margin-left: 0px;
+                                }
+                            </style>
+
+                            <div class="col-lg-12 mb-0">
+                                <a href="pages/signup.php" class="float-right" id="lnk" style="margin-top:-8px;"> Sign Up (Create Account) </a>
+                            </div>
+
+                            <div class="col-lg-12 mb-3" id="lnk">
+                                <a href="#" id="lnk" class="float-right"> Forgot Password </a>
+                            </div>
+
                         </div>
-                        
-                        <div class="col-lg-12 mb-3" id="lnk">
-                            <a href="#" id="lnk" class="float-right"> Forgot Password </a>
-                        </div>
-                            
                     </div>
-                </div>
                 </div>
             </div>
             </form>

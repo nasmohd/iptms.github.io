@@ -6,7 +6,8 @@
 <!--<div id="content">-->
 <div class="container-fluid">
     <div class="row mt-4">
-        <div class="col-lg-8 col-12 ml-auto mr-auto" style="border: 1px solid #306FA0; border-radius:10px;">
+        <div class="col-lg-9 col-12 ml-auto mr-auto" style="border: 1px solid #306FA0; border-radius:10px;">
+            <form method='post' action='../phpIncludes/logbook_update.inc.php'>
             <?php
                     $requestUrl = $_SERVER ['REQUEST_URI'];
                     $urlComponents = explode ('/', $requestUrl);
@@ -22,29 +23,27 @@
                     
                     
                     if ($dot[1] == 'php'){
-                        //empty form goes in here
+                        //If no user is selected
                         include 'empty_form.php';
                         
-                        
                     }else{
-                        //form with the selected week number goes in here
-                        $current_userID = $_SESSION ['StudentID'];
-                        $selected_no = $get_no[1];
-                        $_SESSION['student_weekSelection'] = $selected_no;
-                        $getEntries = "SELECT * FROM logbook_entries WHERE userID = '$current_userID' AND weekNumber = '$selected_no'";
-                        $getRes = $conn -> query($getEntries);
-                        $getRow = $getRes -> fetch_assoc();
-                        
+                        //If a certain user is selected
+                        $selected_ID = $get_no[1];
+                        $getName = "SELECT * FROM student_info WHERE StudentID = '$selected_ID'";
+                        $runQuery = $conn -> query ($getName);
+                        $getSelectedStudent = $runQuery -> fetch_assoc();
+                        $_SESSION['SelectedStudent_FName'] = $getSelectedStudent ['FirstName'];
+                        $_SESSION['SelectedStudent_LName'] = $getSelectedStudent ['LastName'];
+                           
+//                        echo $selected_ID;
                         include 'filled_form.php';
                         
-                        
-//                        echo $selected_no;
-                    } 
+                    }
+                    
             ?>
-
+               </form>
         </div>
     </div>    
-</div>
 </div>
 <!--</div>-->
 <!--</div>-->
