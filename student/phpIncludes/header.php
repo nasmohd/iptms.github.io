@@ -49,14 +49,20 @@
 <!--                <p>Logged User</p>-->
                
                
-                <li style="margin-top: 20vh;">
+                <li style="margin-top: 13vh;">
                    <hr>
-                    <a href="../main/index.php"><span class="ml-3">
-                    <i class="nav-icon fas fa-user"></i></span>
+                    <a href="../pages/profile.php"><span class="">
+                    <?php
+                        echo "
+                    <img class='img-fluid rounded-circle' src='../profile_pictures/".$_SESSION ['ProfilePic_Name']."' width='60vw'>
+                        ";
+                    ?>
+<!--                    <i class="nav-icon fas fa-user"></i>-->
+                    </span>
                     
                     <?php
                     echo "
-                    <span class='ml-1' id='sidebar_lnk'>".$_SESSION['FirstName']." ".$_SESSION['LastName']."</span>";
+                    <span class='ml-1' id='sidebar_lnk' style='font-size:13px;'>".$_SESSION['FirstName']." ".$_SESSION['LastName']."</span>";
                         
                     ?>
                     </a>      

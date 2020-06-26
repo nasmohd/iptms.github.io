@@ -22,6 +22,7 @@ if (isset($_POST['login']) && !empty($_POST['regNo']) && !empty($_POST['pwd'])){
         $_SESSION ['FirstName'] = $row['FirstName'];
         $_SESSION ['LastName'] = $row ['LastName'];
         $_SESSION ['ProfilePic_Name'] = $row ['ProfilePicture'];
+        $_SESSION ['Reg_Number'] = $row ['RegistrationNumber'];
 //        $_SESSION ['UserProfile'] = $row['ProfilePicture'];
         
 //        echo $row['ProfilePicture'];
