@@ -1,56 +1,265 @@
 <?php
     include '../phpIncludes/header.php';
+    $current_userID = $_SESSION ['StudentID'];
+    $sql_logbook = "SELECT * FROM logbook_entries WHERE userID = '$current_userID'";
+    $run = $conn -> query($sql_logbook);
+    $logbook_number_rows = mysqli_num_rows ($run);
+//echo $logbook_rows;
+    $logbook_row = $run -> fetch_assoc();
 
+    //we have filled an entry but it is not verified
+    $sql_statusCheck = "SELECT * FROM logbook_entries WHERE userID = '$current_userID' AND indSup_verifystatus = '0' OR indSup_verifystatus = '' AND entry_status = '1'"; 
+    $run_statusCheck = $conn -> query ($sql_statusCheck);
+    $status_notVerified = mysqli_num_rows ($run_statusCheck); //not verified
 
 
 ?>
-        <div class="mt-5" id="content">
+        <div class='' id="content">
             <div class="container-fluid">
-                <div class="row pr-2 pl-2">
-                    <div class="col-lg-12 col-12 ml-auto mr-auto">
+                <div class="row pr-2">
+                    <div class="col-lg-12 col-12 ml-auto mr-auto" >
+                       
                         <div class="row">
-                            <div class="col-lg-11 col-12 ml-auto mr-auto table-responsive" style="border: 1px solid #306FA0;">
-                                <table class="table table-hover text-nowrap">
-                  <thead>
+                            <div class="col-lg-12 ml-auto mt-3">
+                            <p class="ml-lg-3" style="font-size: 25px; font-weight: bold; color:#343A40;">Dashboard </p>
+                            </div>
+                           <!-- change the col-lg below to change the table size -->
+                            <div class="col-lg-6 col-12 table-responsive ml-auto mr-auto" style="border: 2px solid #17A2B8; border-radius: 15px;">
+                               <p style="color:black; font-weight:500;" class="mt-3"> <span id='btn_txt'>LOGBOOK INFORMATION: </span>
+                               <button class='ml-3 btn' style='background-color: #6C757D'>
+                               
+                               <?php
+                                   echo"
+                               <p style='color:white; font-size:14px;'>".$logbook_number_rows." weeks submitted, ".$status_notVerified." weeks verified</p>
+                               
+                               ";?>
+<!--                               <p style='color:white;'>X weeks verified</p>-->
+                               </button>
+                               </p>
+                                <table class="table table-hover text-nowrap table-bordered table-striped text-center" style="border: 2px solid #306FA0; font-size: 13px; border-radius: 20px;">
+                  <thead style='background-color: #306FA0; color:white;'>
                     <tr>
-                      <th>ID</th>
-                      <th>User</th>
-                      <th>Date</th>
-                      <th>Status</th>
-                      <th>Reason</th>
+<!--                      <th>S/N</th>-->
+                      <th><span id='hd_txt'>Week</span></th>
+                      <th><span id='hd_txt'>Week Ending</span></th>
+<!--                      <th>Status</th>-->
+                      <th><span id='hd_txt'>Industrial Sup</span></th>
+                      <th><span id='hd_txt'>Comments</span></th>
+                      <th><span id='hd_txt'>Institute Sup</span></th>
                     </tr>
                   </thead>
-                  <tbody>
+                  
+                   <tbody> <!-- table body begins here, <tr> tag then <td> tag-->
+                   <?php
+                       $loop = 1;
+                       while ($loop <= $logbook_number_rows){
+                           $get_specific_week = "SELECT * FROM logbook_entries WHERE userID = '$current_userID' AND weekNumber = '$loop'";
+                           $run_query = $conn -> query ($get_specific_week);
+                           $run_res = $run_query -> fetch_assoc();
+//                           <td>".$loop."</td>
+                           echo "
+                           <tr>
+                              
+                              <td>".$run_res['weekNumber']."</td>
+                              <td>".$run_res['weekEnds']."</td>";
+                           if ($run_res['indSup_verifystatus'] == '1'){
+                               echo "<td><button class='btn btn-success'><span id='btn_txt'>Verified</span></button></td>";
+                               
+                           }
+                           if (($run_res['indSup_verifystatus'] == '0') || ($run_res['indSup_verifystatus'] == '')) {
+                               echo "<td>
+                               <div class='dropdown'>
+                                    <button class='btn btn-danger dropdown-toggle' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                                    <span id='btn_txt' class='mr-3'>Not verified</span>
+                                    </button>
+                                    <div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>
+                                    <a class='dropdown-item' href='#'><span id='btn_txt'>Request verification</span></a>
+                                    </div>
+                                    </div>
+                               
+                               </td>";
+                               
+                           }
+                           
+                           
+                           if ($run_res['indSup_comments'] == ''){
+                               echo"<td><button class='btn btn-danger' readonly><span id='btn_txt'>None</span></button></td>";
+                               
+                           }
+                           if ($run_res['indSup_comments'] != ''){
+                               echo"<td><button class='btn btn-info'><span id='btn_txt'>View</span></button></td>";
+                           }
+                           
+                           if ($run_res['instSup_verifystatus'] == '1'){
+                               echo"<td><button class='btn btn-success'><span id='btn_txt'>Verified</span></button></td>";
+                               
+                           }
+                           
+                           if (($run_res['instSup_verifystatus'] == '0') || ($run_res['instSup_verifystatus'] == '')) {
+                               echo"<td><button class='btn btn-danger'><span id='btn_txt'>Not verified</span></button></td>";
+                               
+                           }
+
+                           $loop = $loop + 1;
+                       }
+                    ?>
+                   
+<!--
                     <tr>
-                      <td>183</td>
+                      <td>1</td>
                       <td>John Doe</td>
                       <td>11-7-2014</td>
-                      <td><span class="tag tag-success">Approved</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                      <td><button class="btn btn-success">Approved</button></td>
+                      <td><button class="btn btn-info"> View comments </button></td>
+                      <td><button class="btn btn-danger">Not Approved</button> </td>
                     </tr>
-                    <tr>
-                      <td>219</td>
-                      <td>Alexander Pierce</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-warning">Pending</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                    <tr>
-                      <td>657</td>
-                      <td>Bob Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-primary">Approved</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                    <tr>
-                      <td>175</td>
-                      <td>Mike Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-danger">Denied</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
+-->
+                    
+                    <style>
+                        .table {
+                            border: 0.5px solid #000000;
+                        }
+                        .table-bordered > thead > tr > th,
+                        .table-bordered > tbody > tr > th,
+                        .table-bordered > tfoot > tr > th,
+                        .table-bordered > thead > tr > td,
+                        .table-bordered > tbody > tr > td,
+                        .table-bordered > tfoot > tr > td {
+/*                            border: 0.5px solid #17A2B8;*/
+                        }
+                        
+                        #btn_txt {
+                            font-size: 14px;
+                        }
+                        
+                        #hd_txt{
+                            font-size: 14px;
+                        }
+                          
+                    </style>
+                    
                   </tbody>
                 </table>
+                            
+                        
+                            </div>
+                            
+                    <!-- TASKS TABLE -->  
+                        <div class="col-lg-5 col-12 table-responsive mr-auto ml-auto col-mt-5" style="border: 2px solid #17A2B8; border-radius: 15px;">
+                               <p style="color:black; font-weight:500;" class="mt-3"> <span id='btn_txt'>TASKS:
+                               <button class='ml-3 btn' style='background-color: #6C757D'>
+                               
+                               <?php
+                                   echo"
+                               <p style='color:white; font-size:14px;'>".$logbook_number_rows." weeks submitted, ".$status_notVerified." weeks verified</p>
+                               
+                               ";?>
+<!--                               <p style='color:white;'>X weeks verified</p>-->
+                               </button>
+                                <table class="table table-hover text-nowrap table-bordered table-striped text-center" style="border: 2px solid #306FA0; font-size: 13px; border-radius: 20px;">
+                  <thead style='background-color: #306FA0; color:white; border: 2px solid #306FA0;'>
+                    <tr>
+<!--                      <th>S/N</th>-->
+                      <th><span id='hd_txt'>Week</span></th>
+                      <th><span id='hd_txt'>Deadline</span></th>
+<!--                      <th>Status</th>-->
+                      <th><span id='hd_txt'>Tasks</span></th>
+                      <th><span id='hd_txt'>Status</span></th>
+                    </tr>
+                  </thead>
+                  
+                   <tbody> <!-- table body begins here, <tr> tag then <td> tag-->
+                   <?php
+                       $loop = 1;
+                       while ($loop <= $logbook_number_rows){
+                           $get_specific_week = "SELECT * FROM logbook_entries WHERE userID = '$current_userID' AND weekNumber = '$loop'";
+                           $run_query = $conn -> query ($get_specific_week);
+                           $run_res = $run_query -> fetch_assoc();
+//                           <td>".$loop."</td>
+                           echo "
+                           <tr>
+                              
+                              <td>".$run_res['weekNumber']."</td>
+                              <td>".$run_res['weekEnds']."</td>";
+                           if ($run_res['indSup_verifystatus'] == '1'){
+                               echo "<td><button class='btn btn-success'><span id='btn_txt'>Verified</span></button></td>";
+                               
+                           }
+                           if (($run_res['indSup_verifystatus'] == '0') || ($run_res['indSup_verifystatus'] == '')) {
+                               echo "<td>
+                               <div class='dropdown' id='task_toggle'>
+                                    <button class='btn btn-danger dropdown-toggle' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                                    <span id='btn_txt' class='mr-3'>Waiting</span>
+                                    </button>
+                                    
+                                    <div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>
+                                    <a class='dropdown-item' href='#'><span id='btn_txt'>Done</span></a>
+                                    </div>
+                                </div>
+                               
+                               </td>";
+                               
+                           }
+                           
+                           
+                           if ($run_res['indSup_comments'] == ''){
+                               echo"<td><button class='btn btn-danger' readonly><span id='btn_txt'>None</span></button></td>";
+                               
+                           }
+                           if ($run_res['indSup_comments'] != ''){
+                               echo"<td><button class='btn btn-info'><span id='btn_txt'>View</span></button></td>";
+                           }
+
+                           $loop = $loop + 1;
+                       }
+                    ?>
+                   
+<!--
+                    <tr>
+                      <td>1</td>
+                      <td>John Doe</td>
+                      <td>11-7-2014</td>
+                      <td><button class="btn btn-success">Approved</button></td>
+                      <td><button class="btn btn-info"> View comments </button></td>
+                      <td><button class="btn btn-danger">Not Approved</button> </td>
+                    </tr>
+-->
+                    
+                    <style>
+                        .table {
+                            border: 0.5px solid #000000;
+                        }
+                        .table-bordered > thead > tr > th,
+                        .table-bordered > tbody > tr > th,
+                        .table-bordered > tfoot > tr > th,
+                        .table-bordered > thead > tr > td,
+                        .table-bordered > tbody > tr > td,
+                        .table-bordered > tfoot > tr > td {
+/*                            border: 0.5px solid #17A2B8;*/
+                        }
+                        
+                        #btn_txt {
+                            font-size: 14px;
+                        }
+                        
+                        #hd_txt{
+                            font-size: 14px;
+                        }
+                        
+                        @media (min-width: 992px){
+                            #task_toggle .dropdown-toggle{
+                            margin-right: -20px;
+                        } 
+                        }
+                        
+                          
+                    </style>
+                    
+                  </tbody>
+                </table>
+                         
+                           <div class="col-lg-2 ml-auto mr-auto">
+                        <button class=" btn btn-success mb-3"> SUBMIT </button></div>
                             
                         
                             </div>
@@ -64,34 +273,9 @@
 
     <div class="overlay"></div>
 
-    <!-- jQuery CDN - Slim version (=without AJAX) -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <!-- Popper.JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-    <!-- jQuery Custom Scroller CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#sidebar").mCustomScrollbar({
-                theme: "minimal"
-            });
+<?php
+    include '../phpIncludes/footer2.php';
 
-            $('#dismiss, .overlay').on('click', function () {
-                $('#sidebar').removeClass('active');
-                $('.overlay').removeClass('active');
-            });
 
-            $('#sidebarCollapse').on('click', function () {
-                $('#sidebar').addClass('active');
-                $('.overlay').addClass('active');
-                $('.collapse.in').toggleClass('in');
-                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-            });
-        });
-    </script>
-</body>
-
-</html>
+?>
