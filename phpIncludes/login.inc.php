@@ -23,6 +23,11 @@ if (isset($_POST['login']) && !empty($_POST['regNo']) && !empty($_POST['pwd'])){
         $_SESSION ['LastName'] = $row ['LastName'];
         $_SESSION ['ProfilePic_Name'] = $row ['ProfilePicture'];
         $_SESSION ['Reg_Number'] = $row ['RegistrationNumber'];
+        $_SESSION ['EmailAddress'] = $row ['EmailAddress'];
+        $_SESSION ['PhoneNumber'] = $row ['PhoneNumber'];
+        $_SESSION ['course'] = $row ['course'];
+        $_SESSION ['year_of_study'] = $row ['year_of_study'];
+        $_SESSION ['ipt_weeks'] = $row ['ipt_weeks'];
 //        $_SESSION ['UserProfile'] = $row['ProfilePicture'];
         
 //        echo $row['ProfilePicture'];

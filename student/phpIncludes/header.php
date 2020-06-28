@@ -98,7 +98,7 @@
                 </li>
                     
                 <li>
-                    <a href="#"><span class="ml-3">
+                    <a href="../pages/tasks.php"><span class="ml-3">
                     <i class="nav-icon fas fa-list-alt"></i></span>
                     <span class="ml-2" id="sidebar_lnk">Tasks</span>
                     </a>

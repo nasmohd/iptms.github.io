@@ -12,6 +12,19 @@
     $run_statusCheck = $conn -> query ($sql_statusCheck);
     $status_notVerified = mysqli_num_rows ($run_statusCheck); //not verified
 
+    
+    //GET TASKS FROM THE DATABASE
+    $sql_taskCheck = "SELECT * FROM task_info WHERE StudentID = '1'"; 
+    $run_taskStatus = $conn -> query ($sql_taskCheck);
+    $row_tasks = $run_taskStatus -> fetch_assoc();
+    $number_tasks = mysqli_num_rows ($run_taskStatus);
+
+    //tasks not done
+    $sql_taskCheck_status = "SELECT * FROM task_info WHERE StudentID = '1' AND task_status = '0'"; 
+    $run_taskStatus_not = $conn -> query ($sql_taskCheck_status);
+    $row_tasks_status = $run_taskStatus_not -> fetch_assoc();
+    $number_tasks_notDone = mysqli_num_rows ($run_taskStatus_not); //get the number of tasks, 3
+
 
 ?>
         <div class='' id="content">
@@ -140,6 +153,9 @@
                     
                   </tbody>
                 </table>
+                           <div class="col-lg-2 ml-auto mr-auto">
+                        <button class=" btn btn-success mb-3" onclick="window.location.href='../pages/logbook.php';"> View Logbook Page </button>
+                           </div>
                             
                         
                             </div>
@@ -151,66 +167,65 @@
                                
                                <?php
                                    echo"
-                               <p style='color:white; font-size:14px;'>".$logbook_number_rows." weeks submitted, ".$status_notVerified." weeks verified</p>
-                               
+                               <p style='color:white; font-size:14px;'>".$number_tasks." tasks assigned, ".$number_tasks_notDone." not completed</p>
                                ";?>
-<!--                               <p style='color:white;'>X weeks verified</p>-->
                                </button>
+                               
                                 <table class="table table-hover text-nowrap table-bordered table-striped text-center" style="border: 2px solid #306FA0; font-size: 13px; border-radius: 20px;">
                   <thead style='background-color: #306FA0; color:white; border: 2px solid #306FA0;'>
                     <tr>
 <!--                      <th>S/N</th>-->
-                      <th><span id='hd_txt'>Week</span></th>
+                      <th><span id='hd_txt'>Task </span></th>
                       <th><span id='hd_txt'>Deadline</span></th>
 <!--                      <th>Status</th>-->
-                      <th><span id='hd_txt'>Tasks</span></th>
+                      <th><span id='hd_txt' style=''>Tasks</span></th>
                       <th><span id='hd_txt'>Status</span></th>
                     </tr>
                   </thead>
                   
                    <tbody> <!-- table body begins here, <tr> tag then <td> tag-->
                    <?php
-                       $loop = 1;
-                       while ($loop <= $logbook_number_rows){
-                           $get_specific_week = "SELECT * FROM logbook_entries WHERE userID = '$current_userID' AND weekNumber = '$loop'";
-                           $run_query = $conn -> query ($get_specific_week);
-                           $run_res = $run_query -> fetch_assoc();
+                       $loop2 = 1;
+                       $show = 0;
+//                       $number_tasks
+//$row_tasks
+                       while ($loop2 <= $number_tasks){
+                           $get_task = "SELECT * FROM task_info WHERE StudentID = '$current_userID' AND task_id ='$loop2' ORDER BY deadline";
+                           $run_task_query = $conn -> query ($get_task);
+                           $res_tasks = $run_task_query -> fetch_assoc();
+//                           print_r ($res_tasks);
+                           //task_id, week, deadline, tasks, task_status
 //                           <td>".$loop."</td>
                            echo "
                            <tr>
                               
-                              <td>".$run_res['weekNumber']."</td>
-                              <td>".$run_res['weekEnds']."</td>";
-                           if ($run_res['indSup_verifystatus'] == '1'){
-                               echo "<td><button class='btn btn-success'><span id='btn_txt'>Verified</span></button></td>";
-                               
-                           }
-                           if (($run_res['indSup_verifystatus'] == '0') || ($run_res['indSup_verifystatus'] == '')) {
-                               echo "<td>
-                               <div class='dropdown' id='task_toggle'>
-                                    <button class='btn btn-danger dropdown-toggle' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-                                    <span id='btn_txt' class='mr-3'>Waiting</span>
-                                    </button>
-                                    
-                                    <div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>
-                                    <a class='dropdown-item' href='#'><span id='btn_txt'>Done</span></a>
-                                    </div>
-                                </div>
-                               
-                               </td>";
-                               
-                           }
+                              <td>".$loop2."</td>
+                              <td>".$res_tasks['deadline']."</td>"
+//                              <td>".$res_tasks['tasks']."</td>"
+                               ;
                            
-                           
-                           if ($run_res['indSup_comments'] == ''){
-                               echo"<td><button class='btn btn-danger' readonly><span id='btn_txt'>None</span></button></td>";
+                           if ((strlen($res_tasks['tasks'])) < 30){
+                               echo "<td>".$res_tasks['tasks']."</td>";
+                           }else {
                                
-                           }
-                           if ($run_res['indSup_comments'] != ''){
-                               echo"<td><button class='btn btn-info'><span id='btn_txt'>View</span></button></td>";
+                               echo "<td style='width: 200px; overflow:hidden; display:inline-block; text-overflow: ellipsis; white-space: nowrap;'>".$res_tasks['tasks']."</td>";
                            }
 
-                           $loop = $loop + 1;
+                           
+                           if ($res_tasks['task_status'] == '1'){
+                               echo "<td><button class='btn btn-success'><span id='btn_txt'>Done</span></button></td>";   
+                           }
+                           
+                           if (($res_tasks['task_status'] == '0') || ($res_tasks['task_status'] == '')) {
+                               echo "<td>
+                               <button class='btn btn-danger'><span id='btn_txt'>Waiting</span></button>
+                               
+                               </td>";  
+                           }
+                           
+                           
+                           $loop2 = $loop2 + 1;
+                           $show = $show + 1;
                        }
                     ?>
                    
@@ -259,7 +274,8 @@
                 </table>
                          
                            <div class="col-lg-2 ml-auto mr-auto">
-                        <button class=" btn btn-success mb-3"> SUBMIT </button></div>
+                        <button class=" btn btn-success mb-3" onclick="window.location.href='../pages/tasks.php';"> View Tasks Page </button>
+                           </div>
                             
                         
                             </div>
