@@ -21,14 +21,40 @@
         <div class="col-lg-12 col-12 ml-auto mr-auto" >
 <!--            style="border: 1px solid #306FA0; border-radius:10px;"-->
              <div class="col-lg-10 col-12 table-responsive mr-auto ml-auto col-mt-5" style="border: 2px solid #17A2B8; border-radius: 15px;">
-                               <p style="color:black; font-weight:500;" class="mt-3"> <span id='btn_txt'>TASKS:
+                            <div class="row"><div class="col-lg-6">
+                            <p style="color:black; font-weight:500;" class="mt-3"> <span id='btn_txt'>TASKS: </span>
                                <button class='ml-3 btn' style='background-color: #6C757D'>
                                
                                <?php
                                    echo"
                                <p style='color:white; font-size:14px;'>".$number_tasks." tasks assigned, ".$number_tasks_notDone." not completed</p>
                                ";?>
-                               </button>
+                               </button></p>
+                                 </div>
+                               
+                               <div class='col-2 dropdown mt-4 ml-auto'>
+                                    <button class='btn btn-info dropdown-toggle col-10' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                                    <span id='btn_txt' class='select_taskView float-left'>All</span>
+                                    </button>
+                                    <div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>
+                                    <a class='dropdown-item' href='#' onclick="item_val('All')"><span id='btn_txt'>All</span></a>
+                                    <a class='dropdown-item' href='#' onclick="item_val('Done')"><span id='btn_txt'>Done</span></a>
+                                    <a class='dropdown-item' href='#' onclick="item_val('Not Done')"><span id='btn_txt'>Not Done</span></a>
+                                    </div>
+                                </div>
+                                
+                                <script type="text/javascript"> 
+                                    function item_val(x){
+                                        $('.select_taskView').text(x);
+                                    }
+                                    
+                                    
+                                    
+//                                    var selected_val = $(".dropdown-menu").val(); //takes value selected from dropdown menu
+//                                    $("#btn_text").text(selected_val);         //changes the value to the one selected
+                                </script> 
+                            </div>
+                               
                                
                                 <table class="table table-hover text-nowrap table-bordered table-striped text-center" style="border: 2px solid #306FA0; font-size: 13px; border-radius: 20px;">
                   <thead style='background-color: #306FA0; color:white; border: 2px solid #306FA0;'>
@@ -76,10 +102,54 @@
                            }
                            
                            if (($res_tasks['task_status'] == '0') || ($res_tasks['task_status'] == '')) {
-                               echo "<td>
-                               <button class='btn btn-danger'><span id='btn_txt'>Waiting</span></button>
+//                               echo "<td>
+//                               <button class='btn btn-danger'><span id='btn_txt'>Waiting</span></button>
+//                               
+//                               </td>";  
                                
-                               </td>";  
+                               echo "<td>
+                               <div class='dropdown'>
+                                    <button class='btn btn-danger dropdown-toggle btn".$loop2." col-6' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                                    <span id='btn_txt' class='done_txt".$loop2." mr-3'>Not Done</span>
+                                    </button>
+                                    <div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>
+                                                                        
+                                    
+                                   
+                                    <a class='dropdown-item' href='#' onclick='select_taskDone(\"Done, \"".$loop2.")'><span id='btn_txt'>Done</span></a>
+                                    <a class='dropdown-item' href='#' onclick='select_taskDone(\"Not Done, \"".$loop2.")'><span id='btn_txt'>Not Done</span></a>
+                                    ";
+                               ?>
+
+                                                                        
+                        <?php
+                               echo"
+                                    </div>
+                                    </div>
+                               
+                               </td>
+                               <script type='text/javascript'>
+                                function select_taskDone(y, z){
+                                var text_concat = '.done_txt'+z;
+                                $(text_concat).text(y);
+                                
+                                if (y == 'Done'){
+                                var btn_concat = '.btn'+z;
+                                    $(btn_concat).removeClass('btn-danger');
+                                    $(btn_concat).addClass('btn-success');
+                                }
+                                
+                                if (y == 'Not Done'){
+                                var btn_concat = '.btn'+z;
+                                    $(btn_concat).removeClass('btn-danger');
+                                    $(btn_concat).addClass('btn-success');
+                                }
+                                        
+                                    }       
+                               
+                               </script>
+                               
+                               ";  
                            }
                            
                            
@@ -133,7 +203,7 @@
                 </table>
                          
                            <div class="col-lg-2 ml-auto mr-auto">
-                        <button class=" btn btn-success mb-3" onclick="window.location.href='../pages/tasks.php';"> View Tasks Page </button>
+                        <button class=" btn btn-success mb-3" onclick="window.location.href='../pages/tasks.php';"> SUBMIT </button>
                            </div>
                             
                         

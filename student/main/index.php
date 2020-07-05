@@ -83,7 +83,7 @@
                                echo "<td>
                                <div class='dropdown'>
                                     <button class='btn btn-danger dropdown-toggle' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-                                    <span id='btn_txt' class='mr-3'>Not verified</span>
+                                    <span id='btn_txt' class=''>Waiting</span>
                                     </button>
                                     <div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>
                                     <a class='dropdown-item' href='#'><span id='btn_txt'>Request verification</span></a>

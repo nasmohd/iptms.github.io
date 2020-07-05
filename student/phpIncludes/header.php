@@ -72,13 +72,13 @@
                 <li class="active" >
                     <a href="../main/index.php"><span class="ml-3">
                     <i class="nav-icon fas fa-tachometer-alt"></i></span>
-                    <span class="ml-1" id="sidebar_lnk">Dashboard</span>
+                    <span class="ml-2" id="sidebar_lnk">Dashboard</span>
                     </a>
                 </li>
                    
                 <li>
                     <a href="../pages/placement.php"><span class="ml-3">
-                    <i class="nav-icon fas fa-building"></i></span>
+                    <i class="ml-1 nav-icon fas fa-building"></i></span>
                     <span class="ml-2" id="sidebar_lnk">Placement</span>
                     </a>
                 </li>
