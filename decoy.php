@@ -55,7 +55,7 @@
                                 </script> 
                             </div>
                                
-                               <form method="post" action="../phpIncludes/task_submit.inc.php">
+                               
                                 <table class="table table-hover text-nowrap table-bordered table-striped text-center" style="border: 2px solid #306FA0; font-size: 13px; border-radius: 20px;">
                   <thead style='background-color: #306FA0; color:white; border: 2px solid #306FA0;'>
                     <tr>
@@ -72,14 +72,12 @@
                    <?php
                        $loop2 = 1;
                        $show = 0;
-                       $selected_tasks = [];
 //                       $number_tasks
-//$row_tasks        
+//$row_tasks
                        while ($loop2 <= $number_tasks){
                            $get_task = "SELECT * FROM task_info WHERE StudentID = '$current_userID' AND task_id ='$loop2' ORDER BY deadline";
                            $run_task_query = $conn -> query ($get_task);
                            $res_tasks = $run_task_query -> fetch_assoc();
-//                           $_SESSION ['task_id'] = $res_tasks['task_id'];
 //                           print_r ($res_tasks);
                            //task_id, week, deadline, tasks, task_status
 //                           <td>".$loop."</td>
@@ -111,21 +109,16 @@
                                
                                echo "<td>
                                <div class='dropdown'>
-                                    <button class='btn btn-danger dropdown-toggle btn".$loop2." col-6' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-                                    <span id='btn_txt' class='done_txt".$loop2." mr-3' name='done_txt?".$loop2."'>Not Done</span>
+                                    <button class='btn btn-danger dropdown-toggle btn1 col-6' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                                    <span id='btn_txt' class='done_txt mr-3'>Not Done</span>
                                     </button>
-                                    <div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>
-                                    <a class='dropdown-item' href='#' onclick='select_taskDone(\"Done\", ".$loop2.", ".array_push($selected_tasks, $res_tasks['task_id']).")'><span id='btn_txt'>Done</span></a>
-                                    <a class='dropdown-item' href='#' onclick='select_taskDone(\"Not Done\", ".$loop2.", ".array_push($selected_tasks, $res_tasks['task_id']).")'><span id='btn_txt'>Not Done</span></a>
-                                    
-                                    ";
-                               $_SESSION ['selected_tasks'] = $selected_tasks;
+                                    <div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>";
+                               
                                ?>
-<!--
-    <a class='dropdown-item' href='#' onclick='select_taskDone("Done", 1)'><span id='btn_txt'>Done</span></a>
-                                    <a class='dropdown-item' href='#' onclick='select_taskDone("Not Done", 1)'><span id='btn_txt'>Not Done</span></a>
--->
-                                                                        
+                                   
+                                    <a class='dropdown-item' href='#' onclick='select_taskDone("Done")'><span id='btn_txt'>Done</span></a>
+                                    <a class='dropdown-item' href='#' onclick='select_taskDone("Not Done")'><span id='btn_txt'>Not Done</span></a>
+                                    
                         <?php
                                echo"
                                     </div>
@@ -133,23 +126,23 @@
                                
                                </td>
                                <script type='text/javascript'>
-                                function select_taskDone(y, z){
-                                    var text_concat = '.done_txt'+z;
-                                    $(text_concat).text(y);
-
-                                    if (y == 'Done'){
-                                    var btn_concat = '.btn'+z;
-                                        $(btn_concat).removeClass('btn-danger');
-                                        $(btn_concat).addClass('btn-success');
-                                    }
-
-                                    if (y == 'Not Done'){
-                                    var btn_concat = '.btn'+z;
-                                        $(btn_concat).removeClass('btn-success');
-                                        $(btn_concat).addClass('btn-danger');
-                                    }
-                                }       
-                               </script>        
+                                function select_taskDone(y){
+                                $('.done_txt').text(y);
+                                
+                                if (y == 'Done'){
+                                    $('.btn1').removeClass('btn-danger');
+                                    $('.btn1').addClass('btn-success');
+                                }
+                                
+                                if (y == 'Not Done'){
+                                    $('.btn1').removeClass('btn-success');
+                                    $('.btn1').addClass('btn-danger');
+                                }
+                                        
+                                    }       
+                               
+                               </script>
+                               
                                ";  
                            }
                            
@@ -157,7 +150,6 @@
                            $loop2 = $loop2 + 1;
                            $show = $show + 1;
                        }
-//                       $_SESSION ['selected_tasks'] = $selected_tasks;
                     ?>
                    
 <!--
@@ -208,7 +200,7 @@
                         <button class=" btn btn-success mb-3" onclick="window.location.href='../pages/tasks.php';"> SUBMIT </button>
                            </div>
                             
-                 </form>
+                        
                             </div>
             
             
