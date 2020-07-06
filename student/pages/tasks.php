@@ -1,6 +1,32 @@
 <?php
     include '../phpIncludes/header.php';
     $current_userID = $_SESSION ['StudentID'];
+
+    if (isset($_GET['status'])){
+    $requestUrl = $_SERVER ['REQUEST_URI'];
+    $urlComponents = explode ('/', $requestUrl);
+//        echo $urlComponents[4]; //tasks.php?status=f#1
+
+    $dot = explode ('status=', $urlComponents[4]);
+//        print_r ($dot);
+    $f_or_t = explode ('.', $dot[1]); //$dot[1] = f, 1 or t, 1
+//        print_r ($f_or_t);
+    $use_taskID = $f_or_t[1];
+    if ($f_or_t[0] == 't'){ //task set to "Done"
+        $update_tasks = "UPDATE task_info SET task_status = '1' WHERE task_id = '$use_taskID'";
+        $run_taskUpdate = $conn -> query ($update_tasks);
+    }
+
+    if ($f_or_t[0] == 'f'){ //task set to "Not Done"
+        $update_tasks2 = "UPDATE task_info SET task_status = '0' WHERE task_id = '$use_taskID'";
+        $run_taskUpdate2 = $conn -> query ($update_tasks2);
+    }
+//        $dot_len = count($dot);
+//        echo ("SET");
+//        updateTasks();
+}
+
+
     //GET TASKS FROM THE DATABASE
     $sql_taskCheck = "SELECT * FROM task_info WHERE StudentID = '1'"; 
     $run_taskStatus = $conn -> query ($sql_taskCheck);
@@ -13,33 +39,6 @@
     $row_tasks_status = $run_taskStatus_not -> fetch_assoc();
     $number_tasks_notDone = mysqli_num_rows ($run_taskStatus_not);
 
-    function updateTasks(){
-        
-    }
-
-    if (isset($_GET['status'])){
-        $requestUrl = $_SERVER ['REQUEST_URI'];
-        $urlComponents = explode ('/', $requestUrl);
-//        echo $urlComponents[4]; //tasks.php?status=f#1
-
-        $dot = explode ('status=', $urlComponents[4]);
-//        print_r ($dot);
-        $f_or_t = explode ('.', $dot[1]); //$dot[1] = f, 1 or t, 1
-//        print_r ($f_or_t);
-        $use_taskID = $f_or_t[1];
-        if ($f_or_t[0] == 't'){
-            $update_tasks = "UPDATE task_info SET task_status = '1' WHERE task_id = '$use_taskID'";
-            $run_taskUpdate = $conn -> query ($update_tasks);
-        }
-        
-        if ($f_or_t[0] == 'f'){
-            $update_tasks2 = "UPDATE task_info SET task_status = '0' WHERE task_id = '$use_taskID'";
-            $run_taskUpdate2 = $conn -> query ($update_tasks2);
-        }
-//        $dot_len = count($dot);
-//        echo ("SET");
-//        updateTasks();
-    }
 
 ?>
 

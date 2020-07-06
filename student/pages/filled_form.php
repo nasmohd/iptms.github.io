@@ -129,8 +129,9 @@
                         <span title='WEEK ENTRY (PLEASE BE BRIEF AND CLEAR)'>
                             <textarea placeholder='Week Entry' name='week_entry' class='form-control' id='exampleFormControlTextarea1' rows='8' maxlength='1000'>".$getRow['week_Entry']."</textarea>
                         </span>
-                    </div>
-                    
+                    </div>";
+?>
+                    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
                     <div class='col-lg-10 mb-3'>
                         <div class='input-group'>
                           <div class='input-group-prepend'>
@@ -138,17 +139,20 @@
                           </div>
                           <div class='custom-file'>
                             <input name='week_img' type='file' class='custom-file-input' id='inputGroupFile01' aria-describedby='inputGroupFileAddon01'>
-                            <label class='custom-file-label' for='inputGroupFile01'>Choose file</label>
+                            <label class='custom-file-label' for='inputGroupFile01'><span class="">Choose file</span></label>
                           </div>
                         </div>
                     </div>
                     
-                    <script> //Gets the file name only
-                        $('#inputGroupFile01').on('change',function(){
-                            var fileName = $(this).val(); //val() used to return value of attribute for the selected elements
-                            $(this).next('.custom-file-label').html(fileName);
+                    <script type="text/javascript"> //Gets the file name only
+                        $("#inputGroupFile01").on("change",function(){
+                            var fileName = $(this).val().replace('C:\\fakepath\\', " "); //val() used to return value of attribute for the selected elements
+                            $(this).next(".custom-file-label").html(fileName);
                         })
                     </script>
+                    
+                    <?php
+                    echo"
                     
                     <div class='col-lg-10 mb-5'>
                         <span title='YOU CAN ONLY VIEW NOT EDIT'>    
