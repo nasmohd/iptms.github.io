@@ -54,7 +54,7 @@
                                
                                <?php
                                    echo"
-                               <p style='color:white; font-size:14px;'>".$number_tasks." tasks assigned, ".$number_tasks_notDone." not completed</p>
+                               <p style='color:white; font-size:14px;'>".$number_tasks." tasks assigned, ".$number_tasks_notDone." tasks not completed</p>
                                ";?>
                                </button></p>
                                  </div>
@@ -74,11 +74,7 @@
                                     function item_val(x){
                                         $('.select_taskView').text(x);
                                     }
-                                    
-                                    
-                                    
-//                                    var selected_val = $(".dropdown-menu").val(); //takes value selected from dropdown menu
-//                                    $("#btn_text").text(selected_val);         //changes the value to the one selected
+
                                 </script> 
                             </div>
                                

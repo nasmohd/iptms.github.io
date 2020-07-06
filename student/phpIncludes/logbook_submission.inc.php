@@ -14,6 +14,10 @@
     $friEntry = $_POST['friEntry'];
     $satEntry = $_POST['satEntry'];
 
+    if ($_POST['satEntry'] == ''){
+        $satEntry = '-';
+    }
+
     $weekEntry = $_POST['week_entry'];
 //    echo $weekNumber;
 //    $weekpicture = $_POST['week_img'];
@@ -66,7 +70,7 @@
     }
 
     else{
-        $logbookInsert = "INSERT INTO logbook_entries (userID, weekNumber, weekStart, weekEnds, monEntry, tueEntry, wedEntry, thurEntry, friEntry, satEntry, week_Entry, week_picture) VALUES ('$userID' , '$weekNumber', '$startDate', '$endDate', '$monEntry', '$tueEntry', '$wedEntry', '$thurEntry', '$friEntry', '$satEntry', '$weekEntry', '$db_picName')";
+        $logbookInsert = "INSERT INTO logbook_entries (userID, weekNumber, weekStart, weekEnds, monEntry, tueEntry, wedEntry, thurEntry, friEntry, satEntry, week_Entry, week_picture, indSup_comments, indSup_verifystatus) VALUES ('$userID' , '$weekNumber', '$startDate', '$endDate', '$monEntry', '$tueEntry', '$wedEntry', '$thurEntry', '$friEntry', '$satEntry', '$weekEntry', '$db_picName', '', '0')";
         
         $resultInsert = $conn -> query($logbookInsert);
         

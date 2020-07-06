@@ -8,8 +8,9 @@
     <div class="container">
         <div class="row text-center">
             <div class="col-md-12 mt-3">
-            <p class="mt-3" style="color:white;"> &copy; 2020 - IPT Management System </p>
+                <p class="mt-3" style="color:white; font-size:15px;"> &copy; 2020 - IPT Management System </p>
             </div>
+
         </div>
     </div>
 </footer>
