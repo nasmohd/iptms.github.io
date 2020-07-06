@@ -13,6 +13,34 @@
     $row_tasks_status = $run_taskStatus_not -> fetch_assoc();
     $number_tasks_notDone = mysqli_num_rows ($run_taskStatus_not);
 
+    function updateTasks(){
+        
+    }
+
+    if (isset($_GET['status'])){
+        $requestUrl = $_SERVER ['REQUEST_URI'];
+        $urlComponents = explode ('/', $requestUrl);
+//        echo $urlComponents[4]; //tasks.php?status=f#1
+
+        $dot = explode ('status=', $urlComponents[4]);
+//        print_r ($dot);
+        $f_or_t = explode ('.', $dot[1]); //$dot[1] = f, 1 or t, 1
+//        print_r ($f_or_t);
+        $use_taskID = $f_or_t[1];
+        if ($f_or_t[0] == 't'){
+            $update_tasks = "UPDATE task_info SET task_status = '1' WHERE task_id = '$use_taskID'";
+            $run_taskUpdate = $conn -> query ($update_tasks);
+        }
+        
+        if ($f_or_t[0] == 'f'){
+            $update_tasks2 = "UPDATE task_info SET task_status = '0' WHERE task_id = '$use_taskID'";
+            $run_taskUpdate2 = $conn -> query ($update_tasks2);
+        }
+//        $dot_len = count($dot);
+//        echo ("SET");
+//        updateTasks();
+    }
+
 ?>
 
 <!--<div id="content">-->
@@ -68,6 +96,11 @@
                     </tr>
                   </thead>
                   
+                  <script type="text/javascript">
+                    var selected_task = [];                
+                                        
+                </script>
+                  
                    <tbody> <!-- table body begins here, <tr> tag then <td> tag-->
                    <?php
                        $loop2 = 1;
@@ -100,26 +133,28 @@
 
                            
                            if ($res_tasks['task_status'] == '1'){
-                               echo "<td><button class='btn btn-success'><span id='btn_txt'>Done</span></button></td>";   
+//                               echo "<td><button class='btn btn-success'><span id='btn_txt'>Done</span></button></td>";   
+                               echo "<td>
+                               <div class='dropdown'>
+                                    <button class='btn btn-success dropdown-toggle btn".$loop2." col-6' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                                    <span id='btn_txt' class='done_txt".$loop2." mr-3' name='done_txt?".$loop2."'> Done</span>
+                                    </button>
+                                    <div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>
+                                    <a class='dropdown-item' href='?status=t.".$loop2."' onclick='select_taskDone2(\"Done\", ".$loop2.", ".$res_tasks['task_id'].", t)'><span id='btn_txt'>Done</span></a>
+                                    <a class='dropdown-item' href='?status=f.".$loop2."' onclick='select_taskDone2(\"Not Done\", ".$loop2.", ". $res_tasks['task_id'].", f)'><span id='btn_txt'>Not Done</span></a> </div></div></td>                    
+                               ";   
                            }
                            
                            if (($res_tasks['task_status'] == '0') || ($res_tasks['task_status'] == '')) {
-//                               echo "<td>
-//                               <button class='btn btn-danger'><span id='btn_txt'>Waiting</span></button>
-//                               
-//                               </td>";  
-                               
                                echo "<td>
                                <div class='dropdown'>
                                     <button class='btn btn-danger dropdown-toggle btn".$loop2." col-6' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
                                     <span id='btn_txt' class='done_txt".$loop2." mr-3' name='done_txt?".$loop2."'>Not Done</span>
                                     </button>
                                     <div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>
-                                    <a class='dropdown-item' href='#' onclick='select_taskDone(\"Done\", ".$loop2.", ".array_push($selected_tasks, $res_tasks['task_id']).")'><span id='btn_txt'>Done</span></a>
-                                    <a class='dropdown-item' href='#' onclick='select_taskDone(\"Not Done\", ".$loop2.", ".array_push($selected_tasks, $res_tasks['task_id']).")'><span id='btn_txt'>Not Done</span></a>
-                                    
+                                    <a class='dropdown-item' href='?status=t.".$loop2."' onclick='select_taskDone(\"Done\", ".$loop2.", ".$res_tasks['task_id'].", t)'><span id='btn_txt'>Done</span></a>
+                                    <a class='dropdown-item' href='?status=f.".$loop2."' onclick='select_taskDone(\"Not Done\", ".$loop2.", ". $res_tasks['task_id'].", f)'><span id='btn_txt'>Not Done</span></a>                   
                                     ";
-                               $_SESSION ['selected_tasks'] = $selected_tasks;
                                ?>
 <!--
     <a class='dropdown-item' href='#' onclick='select_taskDone("Done", 1)'><span id='btn_txt'>Done</span></a>
@@ -133,8 +168,9 @@
                                
                                </td>
                                <script type='text/javascript'>
-                                function select_taskDone(y, z){
+                                function select_taskDone(y, z, i){
                                     var text_concat = '.done_txt'+z;
+                                    
                                     $(text_concat).text(y);
 
                                     if (y == 'Done'){
@@ -148,7 +184,8 @@
                                         $(btn_concat).removeClass('btn-success');
                                         $(btn_concat).addClass('btn-danger');
                                     }
-                                }       
+                                }
+                                      
                                </script>        
                                ";  
                            }
@@ -159,6 +196,8 @@
                        }
 //                       $_SESSION ['selected_tasks'] = $selected_tasks;
                     ?>
+                    
+                    
                    
 <!--
                     <tr>
