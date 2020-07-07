@@ -80,17 +80,17 @@
                                
                            }
                            if (($run_res['indSup_verifystatus'] == '0') || ($run_res['indSup_verifystatus'] == '')) {
-                               echo "<td>
-                               <div class='dropdown'>
-                                    <button class='btn btn-danger dropdown-toggle col-10' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-                                    <span id='btn_txt' class='float-left'>Waiting</span>
-                                    </button>
-                                    <div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>
-                                    <a class='dropdown-item' href='#'><span id='btn_txt'>Request verification</span></a>
-                                    </div>
-                                    </div>
-                               
-                               </td>";
+                               echo "<td><button class='btn btn-danger'><span id='btn_txt'>Not verified</span></button></td>";
+//                               <div class='dropdown'>
+//                                    <button class='btn btn-danger dropdown-toggle col-10' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+//                                    <span id='btn_txt' class='float-left'>Waiting</span>
+//                                    </button>
+//                                    <div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>
+//                                    <a class='dropdown-item' href='#'><span id='btn_txt'>Request verification</span></a>
+//                                    </div>
+//                                    </div>
+//                               
+//                               </td>";
                                
                            }
                            

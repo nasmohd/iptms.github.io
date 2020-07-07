@@ -49,15 +49,33 @@
                <?php
                     if ($len_lastURL == 1){
                         include 'logbook_entry.php';
+                        $_SESSION['pendingStatus'] = '0';
                     }
                 
                     if ($len_lastURL > 1){
 //                        echo ($get_no[1]);
                         $sep_equal = explode ('=', $get_no[1]);
 //                        print_r ($sep_equal);
+                        $firstname = $_SESSION ['FirstName'];
+                        $lastname = $_SESSION ['LastName'];
+                        $full = $firstname." ".$lastname;
                         
-                        if ($sep_equal[0] == 'request'){
-                            echo "REQUEST"; //REQUEST CODE GOES IN HERE
+                        if ($sep_equal[0] == 'request'){ //http://localhost/UNI_3rd_year/student/pages/logbook.php?request=6
+                            $get_supervisor = "SELECT * FROM supervision_info WHERE studentID = '$current_userID'";
+                            $run_sup = $conn -> query ($get_supervisor);
+                            $get_rows_sup = $run_sup -> fetch_assoc();
+                            $indSup = $get_rows_sup ['industrial_supervisor_ID'];
+                            
+                            $notif = $full." Has requested you verify week ".$sep_equal[1]." in logbook";
+                            
+                            $send_requestQuery = "INSERT INTO notification_info (notification, StudentID, industrial_supervisor_ID, status, logbook_weekNumber) VALUES ('$notif', '$current_userID', '$indSup', '0', '$sep_equal[1]')"; //status = 0 as Pending
+                            $run_request = $conn -> query ($send_requestQuery);
+                            
+                            include 'logbook_entry.php';
+//                            $url4 = "http://localhost/UNI_3rd_year/student/pages/logbook.php";
+//                            header ('Location: '.$url4);
+                            $_SESSION['pendingStatus'] = '1';
+                            $_SESSION['selected_week'] = $sep_equal[1];
                         }
                         
                         if ($sep_equal[0] == 'week'){
@@ -83,6 +101,7 @@
                             echo "
                                 </div></div>
                             ";
+                            $_SESSION['pendingStatus'] = '0';
                         }
                         
 //                        include 'logbook_entry.php';

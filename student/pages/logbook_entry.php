@@ -63,6 +63,22 @@
                                
                            }
                            if (($run_res['indSup_verifystatus'] == '0') || ($run_res['indSup_verifystatus'] == '')) {
+//                                $_SESSION['pendingStatus']
+//                                $_SESSION['selected_week']
+                               $notif_status = "SELECT * FROM notification_info WHERE StudentID = '$current_userID' AND logbook_weekNumber = '$loop'";
+                               $run_notif_query = $conn -> query ($notif_status);
+                               $notif_res = $run_notif_query -> fetch_assoc();
+                               
+                               if ($notif_res['status'] == '0') {
+                                   echo "
+                                <td>
+                                <button class='btn btn-warning col-8' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                                    <span id='btn_txt' class='text-center text-dark'> Pending </span>
+                                </button>
+                               
+                               </td>";
+                                   
+                               }else {
                                echo "<td>
                                <div class='dropdown'>
                                     <button class='btn btn-danger dropdown-toggle col-8' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
@@ -74,6 +90,7 @@
                                     </div>
                                
                                </td>";
+                               }
                                
                            }
                            

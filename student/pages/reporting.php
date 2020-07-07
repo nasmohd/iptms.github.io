@@ -10,8 +10,8 @@
 ?>
 
 <!--<div id="content">-->
-<div class="mt-5" id="content3"> 
-<div class="container-fluid mt-5">
+<div class="mt-2" id="content3"> 
+<div class="container-fluid mt-4">
     <div class="row mt-2">
         <div class="col-lg-7 col-12 mr-auto ml-auto mt-2" style="color:white; background-color: #306FA0; height: 60px; border-top-left-radius: 8px; border-top-right-radius: 8px;">
             <div class="text-center pt-3" style="font-size: 17px;">
@@ -115,11 +115,23 @@
                            <div class="col-lg-10 ml-auto">
                             <span title='EXACT IPT LOCATION, MAP COORDINATES (N/S, E,W)'>
                               <?php
-                               echo "
-                                <textarea type='text' class='form-control mb-2' id='input' aria-describedby='emailHelp' name='loc_coodinates' placeholder='Location Coordinates' value='' rows='2' maxlength='50'>".$ipt_res['locationCoord']."</textarea>
+                                
+                                if ($ipt_res['locationCoord'] == ''){
+                                    echo "
+                                <textarea type='text' class='form-control mb-2 coordValue' id='input' aria-describedby='emailHelp' name='loc_coodinates' placeholder='Location Coordinates' value='' rows='2' maxlength='50'></textarea>
                                     ";
+                                
+                                }
+                                
+                                if ($ipt_res['locationCoord'] != ''){
+                                    echo "
+                                <textarea type='text' class='form-control mb-2 coordValue' id='input' aria-describedby='emailHelp' name='loc_coodinates' placeholder='Location Coordinates' value='' rows='2' maxlength='50'>".$ipt_res['locationCoord']."</textarea>
+                                    ";
+                                }
                                 ?>
+                               
                             </span>
+                            
                         </div>
                            
                         <div class="col-lg-2 ml-auto mt-2">
@@ -130,9 +142,36 @@
                           
                         <div class="col-lg-12 mt-2">
                            <span title="View the coordinates on the map below">
-                                <a class="" href="?1#show_map"><span id='input2'>Click to view Below</span></a>
+                                <a class="" href="#" id="loc_click" onclick="loc(); return false;"><span id='input2' class="chn">Click to view Below</span></a>
                             </span>
                         </div>
+                        
+                        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+                           
+                           
+                        <script> 
+                        function loc(){
+                        $(document).ready(function () { 
+
+                        //This function called when the button is clicked 
+                        $("#loc_click").click(function () { 
+
+                        // val() method is used to get the values from  
+                        // textarea and stored in txt variable 
+                        var txt = $(".coordValue").val();
+                        var loc_separate = txt.split(', ');
+                        var lat = loc_separate[0];
+                        var lon = loc_separate[1];
+
+//                            document.getElementById("#loc_click").href = "?1#show_map";
+//                        alert(txt);
+                        window.location.href = "?1";
+                        }); 
+                        });
+                        }
+                        </script>
+                                
+                        
                         
                         <style>
                             #input2 {
@@ -159,19 +198,83 @@
                         <div class="col-lg-10 col-12" id="show_map">
                             <div id="map" class="mt-3" style="border: 1px solid #306FA0">
                                 <div class="mapouter">
+                                
+                                <?php
+                                    $requestUrl = $_SERVER ['REQUEST_URI'];
+                                    $urlComponents = explode ('/', $requestUrl);
+
+                                    $dot = explode ('.', $urlComponents[4]); //$dot = Array ( [0] => reporting [1] => php?1 )
+//                                    print_r ($dot);
+
+                                    
+                                    if (($dot[1] == 'php') && ($get_row == 0)){ //no results, show normal table
+//                                        $separateCoords = explode (', ', $ipt_res['locationCoord']);
+//                                        $lat = $separateCoords[0];
+//                                        $lon = $separateCoords[1];
+//                                            echo $separateCoords[0];
+
+                                        //-6.815050, 39.279569 || %2C%20 for comma?
+                                        echo "
+                                            <div class='gmap_canvas'><iframe width='600' height='400' id='gmap_canvas' src='https://maps.google.com/maps?q=-6.815050%2C%2039.279569&t=&z=13&ie=UTF8&iwloc=&output=embed' frameborder='0' scrolling='no' marginheight='0' marginwidth='0'></iframe>
+                                            </div>
+                                        ";
+                                    }
+                                    
+                                    if (($dot[1] == 'php') && ($ipt_res['locationCoord'] == '')){ //http://localhost/UNI_3rd_year/student/pages/reporting.php
+//                                        $separateCoords = explode (', ', $ipt_res['locationCoord']);
+//                                        $lat = $separateCoords[0];
+//                                        $lon = $separateCoords[1];
+
+                                       // -6.815050, 39.279569 || %2C%20 for comma?
+                                        echo "
+                                            <div class='gmap_canvas'><iframe width='600' height='400' id='gmap_canvas' src='https://maps.google.com/maps?q=-6.815050%2C%2039.279569&t=&z=13&ie=UTF8&iwloc=&output=embed' frameborder='0' scrolling='no' marginheight='0' marginwidth='0'></iframe>
+                                            </div>
+                                        ";
+                                        
+//                                        echo "
+//                                            <div class='gmap_canvas'><iframe width='600' height='400' id='gmap_canvas' src='https://maps.google.com/maps?q=".$lat."%2C%20".$lon."&t=&z=13&ie=UTF8&iwloc=&output=embed' frameborder='0' scrolling='no' marginheight='0' marginwidth='0'></iframe>
+//                                            </div>
+//                                        ";
+                                    }
+                                    
+                                    if ($dot[1] != 'php'){
+                                        $qn = explode ('?', $dot[1]); //php?1
+                                        
+//                                        if (isset('loc_coodinates')){
+                                        if ($qn[1] != ''){ //link has been pressed
+                                            $changeCoord = "UPDATE student_location_info SET location locationCoord = '' WHERE studentID = $userID";
+                                            
+//                                            echo "True";
+                                            $separateCoords = explode (', ', $ipt_res['locationCoord']);
+                                            $lat = $separateCoords[0];
+                                            $lon = $separateCoords[1]; //HERE
+//                                            echo $separateCoords[0];
+                                            
+                                            //-6.815050, 39.279569 || %2C%20 for comma?
+                                            echo "
+                                                <div class='gmap_canvas'><iframe width='600' height='400' id='gmap_canvas' src='https://maps.google.com/maps?q=".$lat."%2C%20".$lon."&t=&z=13&ie=UTF8&iwloc=&output=embed' frameborder='0' scrolling='no' marginheight='0' marginwidth='0'></iframe>
+                                                </div>
+                                            ";
+                                        }                                     
+//                                        $qn_count = count($qn);
+                                    }
+                                    
+                                ?>
 <!--
                                 <div class="gmap_canvas"><iframe width="600" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=-6.800902%2C%2039.253313&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
                                 </div>
 -->
                                 <!-- -6.815050, 39.279569 || %2C%20 for comma?-->
-<!--
-                                <div class="gmap_canvas"><iframe width="600" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=-6.815050%2C%2039.279569&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+<!--THI BELOW
+                                    <div class='gmap_canvas'><iframe width='600' height='400' id='gmap_canvas' src='https://maps.google.com/maps?q=-6.815050%2C%2039.279569&t=&z=13&ie=UTF8&iwloc=&output=embed' frameborder='0' scrolling='no' marginheight='0' marginwidth='0'></iframe>
 
-                                </div>
+                                    </div>
 -->
                                 <!--                                <a href="https://www.embedgooglemap.net/en/">googlemap.net</a>-->
-                                <style>.mapouter{position:relative;}.gmap_canvas {overflow:hidden;background:none!important;}
-                                </style>
+                                    <style>
+                                        .mapouter{position:relative;}
+                                        .gmap_canvas {overflow:hidden;background:none!important;}
+                                    </style>
                                 </div>
                                 
                                 

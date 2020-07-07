@@ -39,7 +39,7 @@
                 
                 <?php
                 echo "
-                <textarea placeholder='' name='weekNumber' type='text' id='txtinput' readonly class='form-control col-lg-12' style='border: 1px solid #306FA0' rows='1'  style='resize:none;'>".$get_student_res['FirstName']." ".$get_student_res['LastName']."</textarea>
+                <textarea placeholder='' type='text' id='txtinput' readonly class='form-control col-lg-12' style='border: 1px solid #306FA0' rows='1'  style='resize:none;'>".$get_student_res['FirstName']." ".$get_student_res['LastName']."</textarea>
                 ";?>
                 
             </div>
@@ -49,7 +49,7 @@
                 
                 <?php
                 echo "
-                <textarea placeholder='' name='weekNumber' type='text' id='txtinput' readonly class='form-control' style='border: 1px solid #306FA0' rows='1'  style='resize:none;'>".$get_student_res ['RegistrationNumber']."</textarea>
+                <textarea placeholder='' type='text' id='txtinput' readonly class='form-control' style='border: 1px solid #306FA0' rows='1'  style='resize:none;'>".$get_student_res ['RegistrationNumber']."</textarea>
                 ";?>
             </div>
               
@@ -58,7 +58,7 @@
                 
                 <?php
                 echo "
-                <textarea placeholder='' name='weekNumber' type='text' id='txtinput' class='form-control col-lg-12' style='border: 1px solid #306FA0' rows='1'  style='resize:none;' name='course'>".$get_student_res['course']."</textarea>
+                <textarea placeholder='' type='text' id='txtinput' class='form-control col-lg-12' style='border: 1px solid #306FA0' rows='1'  style='resize:none;' name='course'>".$get_student_res['course']."</textarea>
                 ";?>
             </div>
               
@@ -67,7 +67,7 @@
                 
                 <?php
                 echo "
-                <textarea placeholder='' name='weekNumber' type='text' id='txtinput' class='form-control' style='border: 1px solid #306FA0' rows='1'  style='resize:none;' class='pt-2' name='year_of_study'>".$get_student_res['year_of_study']."</textarea>
+                <textarea placeholder='' type='text' id='txtinput' class='form-control' style='border: 1px solid #306FA0' rows='1'  style='resize:none;' class='pt-2' name='year_of_study'>".$get_student_res['year_of_study']."</textarea>
                 ";?>
             </div>
               
@@ -76,7 +76,7 @@
                 
                 <?php
                 echo "
-                <textarea placeholder='' name='weekNumber' type='text' id='txtinput' class='form-control' style='border: 1px solid #306FA0' rows='1'  style='resize:none;' class='pt-2' name='ipt_weeks'>".$get_student_res['ipt_weeks']."</textarea>
+                <textarea placeholder='' type='text' id='txtinput' class='form-control' style='border: 1px solid #306FA0' rows='1'  style='resize:none;' class='pt-2' name='ipt_weeks'>".$get_student_res['ipt_weeks']."</textarea>
                 ";?>
             </div>
                
@@ -85,7 +85,7 @@
                 
                 <?php
                 echo "
-                <textarea placeholder='' name='weekNumber' type='text' id='txtinput' class='form-control' style='border: 1px solid #306FA0' rows='1'  style='resize:none;' class='pt-2' name='email_address'>".$get_student_res['EmailAddress']."</textarea>
+                <textarea placeholder='' type='text' id='txtinput' class='form-control' style='border: 1px solid #306FA0' rows='1'  style='resize:none;' class='pt-2' name='email_address'>".$get_student_res['EmailAddress']."</textarea>
                 ";?>
             </div>
             
@@ -94,7 +94,7 @@
                 
                 <?php
                 echo "
-                <textarea placeholder='' name='weekNumber' type='text' id='txtinput' class='form-control' style='border: 1px solid #306FA0' rows='1'  style='resize:none;' class='pt-2' name='phoneNumber'>".$get_student_res['PhoneNumber']."</textarea>
+                <textarea placeholder='' type='text' id='txtinput' class='form-control' style='border: 1px solid #306FA0' rows='1'  style='resize:none;' class='pt-2' name='phoneNumber'>".$get_student_res['PhoneNumber']."</textarea>
                 ";?>
             </div>
 
@@ -106,7 +106,7 @@
             </style>
             
             <div class="col-lg-4 mt-5 mb-3 ml-auto mr-auto">
-                <button class="btn btn-success">UPDATE DETAILS</button>
+                <button class="btn btn-success">UPDATE PROFILE</button>
             </div>
             
             

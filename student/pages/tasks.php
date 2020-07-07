@@ -79,14 +79,14 @@
                             </div>
                                
                                <form method="post" action="../phpIncludes/task_submit.inc.php">
-                                <table class="table table-hover text-nowrap table-bordered table-striped text-center" style="border: 2px solid #306FA0; font-size: 13px; border-radius: 20px;">
+                                <table class="table table-hover text-nowrap table-bordered table-striped " style="border: 2px solid #306FA0; font-size: 13px; border-radius: 20px;">
                   <thead style='background-color: #306FA0; color:white; border: 2px solid #306FA0;'>
-                    <tr>
+                    <tr class='text-center'>
 <!--                      <th>S/N</th>-->
                       <th><span id='hd_txt'>Task </span></th>
                       <th><span id='hd_txt'>Deadline</span></th>
 <!--                      <th>Status</th>-->
-                      <th><span id='hd_txt' style=''>Tasks</span></th>
+                      <th><span id='hd_txt'>Tasks</span></th>
                       <th><span id='hd_txt'>Status</span></th>
                     </tr>
                   </thead>
@@ -104,9 +104,25 @@
 //                       $number_tasks
 //$row_tasks        
                        while ($loop2 <= $number_tasks){
-                           $get_task = "SELECT * FROM task_info WHERE StudentID = '$current_userID' AND task_id ='$loop2' ORDER BY deadline";
+                           $get_task = "SELECT * FROM task_info WHERE StudentID = '$current_userID' AND task_id ='$loop2'";
                            $run_task_query = $conn -> query ($get_task);
                            $res_tasks = $run_task_query -> fetch_assoc();
+                           
+                           $get_task2 = "SELECT deadline FROM task_info WHERE StudentID = '$current_userID' AND task_id ='$loop2'";
+                           $run_task_query2 = $conn -> query ($get_task2);
+                           $res_tasks2 = $run_task_query2 -> fetch_assoc();
+//                           $res_tasks2 = $res_tasks;
+//                           print_r ($res_tasks2);
+//                           $sorted_array = arsort ($res_tasks2);
+//                            $deadline = array();
+//                           
+//                            foreach ($res_tasks2 as $key => $row)
+//                            {
+//                            $deadline[$key] = $row['deadline'];
+//                            }
+//                            $final = array_multisort($deadline, SORT_ASC, $res_tasks2);
+//                           print_r ($final);
+                           
 //                           $_SESSION ['task_id'] = $res_tasks['task_id'];
 //                           print_r ($res_tasks);
                            //task_id, week, deadline, tasks, task_status
@@ -114,8 +130,8 @@
                            echo "
                            <tr>
                               
-                              <td>".$loop2."</td>
-                              <td>".$res_tasks['deadline']."</td>"
+                              <td class='text-center'>".$loop2."</td>
+                              <td class='text-center'>".$res_tasks['deadline']."</td>"
 //                              <td>".$res_tasks['tasks']."</td>"
                                ;
                            
@@ -123,13 +139,13 @@
                                echo "<td>".$res_tasks['tasks']."</td>";
                            }else {
                                
-                               echo "<td style='width: 200px; overflow:hidden; display:inline-block; text-overflow: ellipsis; white-space: nowrap;'>".$res_tasks['tasks']."</td>";
+                               echo "<td style='width: 200px; '>".$res_tasks['tasks']."</td>";
                            }
 
                            
                            if ($res_tasks['task_status'] == '1'){
 //                               echo "<td><button class='btn btn-success'><span id='btn_txt'>Done</span></button></td>";   
-                               echo "<td>
+                               echo "<td class='text-center'>
                                <div class='dropdown'>
                                     <button class='btn btn-success dropdown-toggle btn".$loop2." col-6' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
                                     <span id='btn_txt' class='done_txt".$loop2." mr-3' name='done_txt?".$loop2."'> Done</span>
@@ -141,7 +157,7 @@
                            }
                            
                            if (($res_tasks['task_status'] == '0') || ($res_tasks['task_status'] == '')) {
-                               echo "<td>
+                               echo "<td class='text-center'>
                                <div class='dropdown'>
                                     <button class='btn btn-danger dropdown-toggle btn".$loop2." col-6' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
                                     <span id='btn_txt' class='done_txt".$loop2." mr-3' name='done_txt?".$loop2."'>Not Done</span>
@@ -238,9 +254,11 @@
                   </tbody>
                 </table>
                          
+<!--
                            <div class="col-lg-2 ml-auto mr-auto">
                         <button class=" btn btn-success mb-3" onclick="window.location.href='../pages/tasks.php';"> SUBMIT </button>
                            </div>
+-->
                             
                  </form>
                             </div>
