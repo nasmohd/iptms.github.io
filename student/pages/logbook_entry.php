@@ -35,7 +35,18 @@
                            $get_specific_week = "SELECT * FROM logbook_entries WHERE userID = '$current_userID' AND weekNumber = '$loop'";
                            $run_query = $conn -> query ($get_specific_week);
                            $run_res = $run_query -> fetch_assoc();
+                           $res_num = mysqli_num_rows($run_query);
+                           if ($res_num == 0){
+                               echo "<tr><td><a href='?week=".$loop."'>".$loop."</a></td>
+                               <td> <span style='font-weight:bold; font-size:16px; color:red;'>  &#x274C; </span></td>
+                               <td> <span style='font-weight:bold; font-size:16px; color:red;'>  &#x274C; </span></td>
+                               <td> <span style='font-weight:bold; font-size:16px; color:red;'>  &#x274C; </span></td>
+                               <td> <span style='font-weight:bold; font-size:16px; color:red;'>  &#x274C; </span></td>
+                               <td> <span style='font-weight:bold; font-size:16px; color:red;'>  &#x274C; </span></td></tr>
+                               ";
+                           }else{
 //                           <td>".$loop."</td>
+                    
                            echo "
                            <tr>
                               
@@ -43,8 +54,6 @@
                               <td>".$run_res['weekEnds']."</td>";
                            
                            if ($run_res['entry_status'] == '1'){
-                               echo "<td> <span style='font-weight:bold; font-size:16px; color:green;'> &#10003; </span></td>";
-                           }else {
                                echo "<td> <span style='font-weight:bold; font-size:16px; color:green;'> &#10003; </span></td>";
                            }
                            
@@ -56,7 +65,7 @@
                            if (($run_res['indSup_verifystatus'] == '0') || ($run_res['indSup_verifystatus'] == '')) {
                                echo "<td>
                                <div class='dropdown'>
-                                    <button class='btn btn-danger dropdown-toggle col-7' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                                    <button class='btn btn-danger dropdown-toggle col-8' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
                                     <span id='btn_txt' class='float-left'>Not Verified</span>
                                     </button>
                                     <div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>
@@ -86,9 +95,10 @@
                                echo"<td><button class='btn btn-danger'><span id='btn_txt'>Not verified</span></button></td>";
                                
                            }
-
+                       }
                            $loop = $loop + 1;
                        }
+
                     ?>
                     
                     <script type='text/javascript'>

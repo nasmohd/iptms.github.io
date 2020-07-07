@@ -72,7 +72,12 @@
                             $getEntries = "SELECT * FROM logbook_entries WHERE userID = '$current_userID' AND weekNumber = '$selected_no'";
                             $getRes = $conn -> query($getEntries);
                             $getRow = $getRes -> fetch_assoc();
-
+                            
+                            if ($getRow['week_picture'] == ''){
+                                $pic = 'None';   
+                            }else {
+                                $pic = $getRow['week_picture'];
+                            }
                             include 'filled_form.php';
 
                             echo "

@@ -1,93 +1,117 @@
 <?php
     include '../phpIncludes/header.php';
 
+    $current_user = $_SESSION ['StudentID'];
+    $student_info_query = "SELECT * FROM student_info WHERE StudentID = $current_user";
+    $run_query = $conn -> query($student_info_query);
+    $get_student_res = $run_query -> fetch_assoc();
+
 ?>
 
 <!--<div id="content">-->
 <div class="container-fluid">
     <div class="row mt-4">
-        <div class="col-lg-6 col-12 ml-auto mr-auto" style="border: 2px solid #306FA0; border-radius:10px; background-color: #DDDDDD;">
+        <div class="col-lg-4 col-12 ml-auto mr-auto" style="border: 2px solid #17A2B8; border-radius:10px; background-color: #DDDDDD;">
+         
+          <form method="post" action="../phpIncludes/updateProfile.inc.php">
            <div class="row">
+<!--
             <div class='mt-2 col-lg-9 ml-auto mr-auto text-center'>
+               <img src="logo.jpg" class="img-fluid" style='width:5vw; height:10vh;'>
+                
+            </div>
+-->
+           
+            <div class='mt-2 col-lg-4 ml-auto mr-auto text-center'>
                 <?php
                 echo "
 
-                <img src='../profile_pictures/".$_SESSION ['ProfilePic_Name']."' height='300vh' width='120vw' class='img-fluid' alt='User Image' style='border: 2px solid #306FA0;'>
+                <img src='../profile_pictures/".$get_student_res['ProfilePicture']."' height='300vh' width='120vw' class='img-fluid' alt='User Image' style='border: 2px solid #306FA0;'>
                 ";
                 ?>
             </div>
             
-            <div class='col-lg-12' style=''><hr style='border-top: 2px solid #333333;'></div>
+            <div class='col-lg-12' style=''><hr style='border-top: 2px solid #17A2B8;'></div>
            
            
-            <div class="col-lg-5">
+            <div class="col-lg-7">
                 <label for='exampleFormControlTextarea1'>Full Name: </label>
                 
                 <?php
                 echo "
-                <textarea placeholder='' name='weekNumber' type='text' id='txtinput' class='form-control' style='border: 1px solid #306FA0' rows='1'  style='resize:none;'>".$_SESSION['FirstName']." ".$_SESSION['LastName']."</textarea>
+                <textarea placeholder='' name='weekNumber' type='text' id='txtinput' readonly class='form-control col-lg-12' style='border: 1px solid #306FA0' rows='1'  style='resize:none;'>".$get_student_res['FirstName']." ".$get_student_res['LastName']."</textarea>
                 ";?>
+                
             </div>
                
-            <div class="col-lg-4 ml-auto">
-                <label for='exampleFormControlTextarea1'>Registration Number: </label>
+            <div class="col-lg-5">
+                <label for='exampleFormControlTextarea1'><span>Registration Number: </span></label>
                 
                 <?php
                 echo "
-                <textarea placeholder='' name='weekNumber' type='text' id='txtinput' class='form-control' style='border: 1px solid #306FA0' rows='1'  style='resize:none;'>".$_SESSION ['Reg_Number']."</textarea>
+                <textarea placeholder='' name='weekNumber' type='text' id='txtinput' readonly class='form-control' style='border: 1px solid #306FA0' rows='1'  style='resize:none;'>".$get_student_res ['RegistrationNumber']."</textarea>
                 ";?>
             </div>
               
-            <div class="col-lg-3">
+            <div class="col-lg-4 mt-3">
                 <label for='exampleFormControlTextarea1'>Course:</label>
                 
                 <?php
                 echo "
-                <textarea placeholder='' name='weekNumber' type='text' id='txtinput' class='form-control' style='border: 1px solid #306FA0' rows='1'  style='resize:none;'>".$_SESSION ['course']."</textarea>
+                <textarea placeholder='' name='weekNumber' type='text' id='txtinput' class='form-control col-lg-12' style='border: 1px solid #306FA0' rows='1'  style='resize:none;' name='course'>".$get_student_res['course']."</textarea>
                 ";?>
             </div>
-               
-            <div class="col-lg-7 mt-2">
-                <label for='exampleFormControlTextarea1' class='pt-2'>Email Address: </label>
-                
-                <?php
-                echo "
-                <textarea placeholder='' name='weekNumber' type='text' id='txtinput' class='form-control' style='border: 1px solid #306FA0' rows='1'  style='resize:none;' class='pt-2'>".$_SESSION ['EmailAddress']."</textarea>
-                ";?>
-            </div>
-            
-            <div class="col-lg-5 ml-auto mt-2">
-                <label for='exampleFormControlTextarea1' class='pt-2'>Phone Number: </label>
-                
-                <?php
-                echo "
-                <textarea placeholder='' name='weekNumber' type='text' id='txtinput' class='form-control' style='border: 1px solid #306FA0' rows='1'  style='resize:none;' class='pt-2'>".$_SESSION ['PhoneNumber']."</textarea>
-                ";?>
-            </div>
-                  
+              
             <div class="col-lg-3 mt-2">
                 <label for='exampleFormControlTextarea1' class='pt-2'>Year:</label>
                 
                 <?php
                 echo "
-                <textarea placeholder='' name='weekNumber' type='text' id='txtinput' class='form-control' style='border: 1px solid #306FA0' rows='1'  style='resize:none;' class='pt-2'>".$_SESSION ['year_of_study']."</textarea>
+                <textarea placeholder='' name='weekNumber' type='text' id='txtinput' class='form-control' style='border: 1px solid #306FA0' rows='1'  style='resize:none;' class='pt-2' name='year_of_study'>".$get_student_res['year_of_study']."</textarea>
                 ";?>
             </div>
-               
-            <div class="col-lg-3 mt-2 mb-3">
+              
+            <div class="col-lg-5 mt-2">
                 <label for='exampleFormControlTextarea1' class='pt-2'>IPT Weeks:</label>
                 
                 <?php
                 echo "
-                <textarea placeholder='' name='weekNumber' type='text' id='txtinput' class='form-control' style='border: 1px solid #306FA0' rows='1'  style='resize:none;' class='pt-2'>".$_SESSION ['ipt_weeks']."</textarea>
+                <textarea placeholder='' name='weekNumber' type='text' id='txtinput' class='form-control' style='border: 1px solid #306FA0' rows='1'  style='resize:none;' class='pt-2' name='ipt_weeks'>".$get_student_res['ipt_weeks']."</textarea>
+                ";?>
+            </div>
+               
+            <div class="col-lg-12 mt-2">
+                <label for='exampleFormControlTextarea1' class='pt-2'>Email Address: </label>
+                
+                <?php
+                echo "
+                <textarea placeholder='' name='weekNumber' type='text' id='txtinput' class='form-control' style='border: 1px solid #306FA0' rows='1'  style='resize:none;' class='pt-2' name='email_address'>".$get_student_res['EmailAddress']."</textarea>
                 ";?>
             </div>
             
-            <div class="col-lg-4 mt-5 mb-3 ml-auto">
+            <div class="col-lg-6 mt-2">
+                <label for='exampleFormControlTextarea1' class='pt-2'>Phone Number: </label>
+                
+                <?php
+                echo "
+                <textarea placeholder='' name='weekNumber' type='text' id='txtinput' class='form-control' style='border: 1px solid #306FA0' rows='1'  style='resize:none;' class='pt-2' name='phoneNumber'>".$get_student_res['PhoneNumber']."</textarea>
+                ";?>
+            </div>
+
+            <style>
+                #txtinput{
+                    font-size: 14px;
+                } 
+                
+            </style>
+            
+            <div class="col-lg-4 mt-5 mb-3 ml-auto mr-auto">
                 <button class="btn btn-success">UPDATE DETAILS</button>
             </div>
             
-            </div>
+            
+            </div></form>
+            
             
             <style>
                 #txtinput{

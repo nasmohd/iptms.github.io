@@ -231,7 +231,7 @@
                         <?php
                             echo"
                         <span title='Uploaded image'>
-                        <textarea placeholder='Industrial Supervisor Comments (Read Only)' name='field_supComments' class='form-control' id='week_img' rows='3' readonly>".$getRow['week_picture']." \n\n(Click to view Previously uploaded image)</textarea>
+                        <textarea placeholder='Industrial Supervisor Comments (Read Only)' name='field_supComments' class='form-control' id='week_img' rows='3' readonly>".$pic." \n\n(Click to view Previously uploaded image)</textarea>
                         </span>                    
                         ";
                         ?>   
@@ -239,7 +239,7 @@
                     
                     <script type="text/javascript"> //Gets the file name only
                         $("#inputGroupFile01").on("change",function(){
-                            var fileName = $(this).val().replace('C:\\fakepath\\', " "); //val() used to return value of attribute for the selected elements
+                            var fileName = $(this).val().replace('C:\\fakepath\\', " ") + " (Selected image)"; //val() used to return value of attribute for the selected elements
                             $(this).next(".custom-file-label").html(fileName);
                             $(".selected_img").text(fileName);
                         })
