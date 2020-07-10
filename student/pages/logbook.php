@@ -12,7 +12,7 @@
     $run_statusCheck = $conn -> query ($sql_statusCheck);
     $status_Verified = mysqli_num_rows ($run_statusCheck); //verified
 
-    $sql_statusCheck2 = "SELECT * FROM logbook_entries WHERE userID = '$current_userID' AND entry_status = '1' AND (indSup_verifystatus = '0' OR indSup_verifystatus = '')"; 
+    $sql_statusCheck2 = "SELECT * FROM logbook_entries WHERE userID = '$current_userID' AND entry_status = '1' OR entry_status ='' AND (indSup_verifystatus = '0' OR indSup_verifystatus = '')"; 
     $run_statusCheck2 = $conn -> query ($sql_statusCheck2);
     $status_notVerified = mysqli_num_rows ($run_statusCheck2); //not verified
 

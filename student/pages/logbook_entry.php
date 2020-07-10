@@ -56,6 +56,10 @@
                            if ($run_res['entry_status'] == '1'){
                                echo "<td> <span style='font-weight:bold; font-size:16px; color:green;'> &#10003; </span></td>";
                            }
+                               
+                            if (($run_res['entry_status'] == '0') || ($run_res['entry_status'] == '')){
+                               echo "<td> <span style='font-weight:bold; font-size:16px; color:red;'> &#x274C; </span></td>";
+                           }
                            
                            
                            if ($run_res['indSup_verifystatus'] == '1'){
