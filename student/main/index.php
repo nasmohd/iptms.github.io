@@ -14,13 +14,13 @@
 
     
     //GET TASKS FROM THE DATABASE
-    $sql_taskCheck = "SELECT * FROM task_info WHERE StudentID = '1'"; 
+    $sql_taskCheck = "SELECT * FROM task_info WHERE StudentID = '$current_userID'"; 
     $run_taskStatus = $conn -> query ($sql_taskCheck);
     $row_tasks = $run_taskStatus -> fetch_assoc();
     $number_tasks = mysqli_num_rows ($run_taskStatus);
 
     //tasks not done
-    $sql_taskCheck_status = "SELECT * FROM task_info WHERE StudentID = '1' AND task_status = '0'"; 
+    $sql_taskCheck_status = "SELECT * FROM task_info WHERE StudentID = '$current_userID' AND task_status = '0'"; 
     $run_taskStatus_not = $conn -> query ($sql_taskCheck_status);
     $row_tasks_status = $run_taskStatus_not -> fetch_assoc();
     $number_tasks_notDone = mysqli_num_rows ($run_taskStatus_not); //get the number of tasks, 3

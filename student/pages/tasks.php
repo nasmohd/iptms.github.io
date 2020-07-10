@@ -7,10 +7,9 @@
     $urlComponents = explode ('/', $requestUrl);
 //        echo $urlComponents[4]; //tasks.php?status=f#1
 
+        
     $dot = explode ('status=', $urlComponents[4]);
-//        print_r ($dot);
     $f_or_t = explode ('.', $dot[1]); //$dot[1] = f, 1 or t, 1
-//        print_r ($f_or_t);
     $use_taskID = $f_or_t[1];
     if ($f_or_t[0] == 't'){ //task set to "Done"
         $update_tasks = "UPDATE task_info SET task_status = '1' WHERE task_id = '$use_taskID'";
@@ -20,23 +19,18 @@
 
     if ($f_or_t[0] == 'f'){ //task set to "Not Done"
         $update_tasks2 = "UPDATE task_info SET task_status = '0' WHERE task_id = '$use_taskID'";
-        $run_taskUpdate2 = $conn -> query ($update_tasks2);
-        
+        $run_taskUpdate2 = $conn -> query ($update_tasks2);   
     }
-//        $dot_len = count($dot);
-//        echo ("SET");
-//        updateTasks();
 }
 
-
     //GET TASKS FROM THE DATABASE
-    $sql_taskCheck = "SELECT * FROM task_info WHERE StudentID = '1'"; 
+    $sql_taskCheck = "SELECT * FROM task_info WHERE StudentID = '$current_userID'"; 
     $run_taskStatus = $conn -> query ($sql_taskCheck);
     $row_tasks = $run_taskStatus -> fetch_assoc();
     $number_tasks = mysqli_num_rows ($run_taskStatus);
 
     //tasks not done
-    $sql_taskCheck_status = "SELECT * FROM task_info WHERE StudentID = '1' AND task_status = '0'"; 
+    $sql_taskCheck_status = "SELECT * FROM task_info WHERE StudentID = '$current_userID' AND task_status = '0'"; 
     $run_taskStatus_not = $conn -> query ($sql_taskCheck_status);
     $row_tasks_status = $run_taskStatus_not -> fetch_assoc();
     $number_tasks_notDone = mysqli_num_rows ($run_taskStatus_not);
@@ -104,6 +98,9 @@
                        $show = 0;
                        $selected_tasks = [];
 //                       $number_tasks
+                       
+                       
+                       
 //$row_tasks        
                        while ($loop2 <= $number_tasks){
                            $get_task = "SELECT * FROM task_info WHERE StudentID = '$current_userID' AND task_id ='$loop2'";
@@ -113,22 +110,7 @@
                            $get_task2 = "SELECT deadline FROM task_info WHERE StudentID = '$current_userID' AND task_id ='$loop2'";
                            $run_task_query2 = $conn -> query ($get_task2);
                            $res_tasks2 = $run_task_query2 -> fetch_assoc();
-//                           $res_tasks2 = $res_tasks;
-//                           print_r ($res_tasks2);
-//                           $sorted_array = arsort ($res_tasks2);
-//                            $deadline = array();
-//                           
-//                            foreach ($res_tasks2 as $key => $row)
-//                            {
-//                            $deadline[$key] = $row['deadline'];
-//                            }
-//                            $final = array_multisort($deadline, SORT_ASC, $res_tasks2);
-//                           print_r ($final);
-                           
-//                           $_SESSION ['task_id'] = $res_tasks['task_id'];
-//                           print_r ($res_tasks);
-                           //task_id, week, deadline, tasks, task_status
-//                           <td>".$loop."</td>
+
                            echo "
                            <tr>
                               
@@ -255,6 +237,13 @@
                     
                   </tbody>
                 </table>
+                        <?php
+                                   if ($number_tasks == '0'){
+                           echo "No tasks Assigned for you";
+                           
+                           
+                       }
+                                   ?>
                          
 <!--
                            <div class="col-lg-2 ml-auto mr-auto">
