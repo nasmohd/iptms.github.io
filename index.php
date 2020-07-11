@@ -123,7 +123,7 @@
                     
                 <div class="col-lg-10 col-12 mt-2" id="WrongPassword" style="color: red; visibility: hidden; display:none; font-size:14px;">
                     <p><span class='mr-2' style="font-size:17px; font-weight: bold;">&#10071;</span> Incorrect Reg. Number or Password </p>
-                    </div>
+                </div>
                     
                 <div class="col-lg-10 col-12 mt-2" id="AccntLogout" style="color: green; visibility: hidden; display:none; font-size:14px;">
                     <p><span class='mr-2' style="font-size:17px; font-weight: bold;">&#10003;</span>Logged out Successfully </p>

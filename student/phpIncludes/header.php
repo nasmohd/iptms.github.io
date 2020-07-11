@@ -77,13 +77,6 @@
                 </li>
                    
                 <li>
-                    <a href="../pages/placement.php"><span class="ml-3">
-                    <i class="ml-1 nav-icon fas fa-building"></i></span>
-                    <span class="ml-2" id="sidebar_lnk">Placement</span>
-                    </a>
-                </li>
-                
-                <li>
                     <a href="../pages/reporting.php"><span class="ml-3">
                     <i class="nav-icon fas fa-flag"></i></span>
                     <span class="ml-2" id="sidebar_lnk">Reporting</span>
@@ -101,6 +94,13 @@
                     <a href="../pages/tasks.php"><span class="ml-3">
                     <i class="nav-icon fas fa-list-alt"></i></span>
                     <span class="ml-2" id="sidebar_lnk">Tasks</span>
+                    </a>
+                </li>
+                  
+                <li>
+                    <a href="../pages/placement.php"><span class="ml-3">
+                    <i class="nav-icon fas fa-building"></i></span>
+                    <span class="ml-2" id="sidebar_lnk">Placement</span>
                     </a>
                 </li>
                    

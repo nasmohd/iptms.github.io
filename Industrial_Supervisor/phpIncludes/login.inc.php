@@ -22,6 +22,7 @@ if (isset($_POST['login']) && !empty($_POST['ind_username']) && !empty($_POST['p
         $_SESSION ['IndustrialSup_ID'] = $row['industrial_sup_ID'];
         $_SESSION ['FirstName'] = $row['firstName'];
         $_SESSION ['LastName'] = $row ['lastName'];
+        $_SESSION ['profile_picture'] = $row ['profile_picture'];
 //        $_SESSION ['UserProfile'] = $row['ProfilePicture'];
         
 //        echo $row['ProfilePicture'];

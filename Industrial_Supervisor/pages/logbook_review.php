@@ -1,7 +1,3 @@
-<?php
-    include '../phpIncludes/header.php';
-
-?>
 
 <!--<div id="content">-->
 <div class="container-fluid">
@@ -29,7 +25,7 @@
                         
                     }else{
                         //If a certain user is selected
-                        $selected_ID = $get_no[1];
+                        $selected_ID = $_SESSION['student_selected'];
                         $_SESSION['prev_url'] = $requestUrl;
                         
                         $_SESSION['selectedID'] = $selected_ID;
@@ -51,12 +47,6 @@
 </div>
 <!--</div>-->
 <!--</div>-->
-
-<?php
-    include '../phpIncludes/footer2.php';
-
-?>
-
 <!--
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
