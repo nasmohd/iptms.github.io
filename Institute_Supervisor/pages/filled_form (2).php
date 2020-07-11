@@ -1,74 +1,60 @@
-<?php   
-                            $selected_week = $_SESSION['selected_week'];
-                            $sql_student = "SELECT * FROM logbook_entries WHERE userID ='$selected_ID' AND weekNumber='$selected_week'";
+<?php
+                            $sql_student = "SELECT * FROM logbook_entries WHERE userID ='$selected_ID'";
                             $res = $conn -> query($sql_student);
                             $row4 = $res -> fetch_assoc();
-
-                            $_SESSION ['ind_verify_status'] = $row4['indSup_verifystatus'];
-//                            echo $_SESSION ['ind_verify_status'];
 //                            echo $row4['weekStart'];
                             
                             echo "
                             <div class='row mt-3' style='font-size:14px;' id='dayinput'>
-                    
-                    
+                                <div class='col-lg-4 col-4 mb-3'>
+                                        <label for='exampleFormControlTextarea1'>Select a Student: </label>
+                                    <div class='dropdown'>
+                                            <button class='btn btn-secondary dropdown-toggle' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                                                <span> Pick anyone<span>
+                                            </button>";
+                            echo "     
+                                    <div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>";
+                            
+                            $userSession = $_SESSION['IndustrialSup_ID'];
+                                    
+//                                    $sqllist = "SELECT * FROM supervision_info WHERE institute_supervisor_ID = '$userSession'";
+                            $sqllist = "SELECT * FROM supervision_info WHERE industrial_supervisor_ID = '$userSession'"; //2, how many students
+
+                            $resultSup = $conn -> query($sqllist);
+//                                    $rowList = $resultSup -> fetch_assoc(); //$rowList['cols] = 3
+
+                            while ($rowList = $resultSup -> fetch_assoc()){
+                                $student_ID = $rowList['studentID'];
+                                $sqlStudent = "SELECT * FROM student_info WHERE StudentID = '$student_ID'";
+                                $res_students = $conn -> query($sqlStudent);
+//                                include 'search_query.inc.php';
+
+                                while ($row_students = $res_students -> fetch_assoc()){
+                                    echo "<a class='dropdown-item' href='?".$row_students['StudentID']."'>".$row_students['FirstName']." ".$row_students['LastName']."</a>"; //$.row_students['StudentID']. passes the student's ID into the URL
+                                }
+                            };
+                            
+                            echo "
+                                        </div>
+                                    </div>   
+                                </div>
                     <div class='col-lg-8 pr-4'> 
                         <label for='exampleFormControlTextarea1'>Selected Student: </label>
                         <textarea placeholder='Selected Student' name='selection' class='form-control col-lg-9' id='exampleFormControlTextarea1' rows='1' maxlength='250' readonly> ".$_SESSION['SelectedStudent_FName']." ".$_SESSION['SelectedStudent_LName']."</textarea>
                                 
                     </div>
-                    
-                    <div class='col-lg-4'></div>
-                    
-             
-                    <div class='col-lg-2 col-4 mt-3'>
-                    <label for='exampleFormControlTextarea1'>Week Number: </label>
-                        <div class='dropdown'>                          
-                            <button class='btn btn-secondary dropdown-toggle col-lg-9' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-                                <span class='float-left'>".$selected_week."</span>
-                            </button>
-
-                            <div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>";
                                 
-                                $current_user = $selected_ID;
-                                
-                                $week_No = "SELECT ipt_weeks FROM student_info WHERE StudentID = '$current_user'";
-                                $res_No = $conn -> query($week_No);
-                                $row_No = $res_No -> fetch_assoc();
-                                
-                                
-                                $x = $row_No['ipt_weeks']; //10
-                                $y = 1;
-                                
-                                while ($y <= $x){
-                                    //fill status
-                                    $fill_status = "SELECT indSup_verifystatus FROM logbook_entries WHERE weekNumber = $y AND userID = '$current_user'";
-                                    $res_status = $conn -> query ($fill_status);
-                                    $row_status = $res_status -> fetch_assoc();
-                                    
-                                    if ($row_status['indSup_verifystatus'] == '1'){
-                                        echo "<a class='dropdown-item' href='?week=".$y."' style='background-color:#5EFF5E;'>".$y."</a>";
-                                    }
-                                    if ($row_status['indSup_verifystatus'] != '1'){
-                                        echo "<a class='dropdown-item' href='?week=".$y."'>".$y."</a>";
-                                    }
-                                    
-                                    
-//                                    echo "<a class='dropdown-item' href='?".$y."'>".$y."</a>";
-                                    $y = $y + 1;
-                                }
-  
-                            echo "
-                            </div>
-                        </div>
+                    <div class='col-lg-2 col-4'>
+                        <label for='exampleFormControlTextarea1'>Week Number: </label>
+                        <textarea placeholder='Week 1 to 10' name='weekNumber' type='text' id='weekinput' class='form-control' style='border: 1px solid #306FA0' rows='1' readonly>".$row4['weekNumber']."</textarea>
                     </div>
                     
-                    <div class='col-lg-3 ml-auto mt-3'>
+                    <div class='col-lg-3 ml-auto'>
                         <label class='' for='exampleFormControlTextarea1'>Date the week starts </label>
                         <input placeholder='' name='weekNumber' type='date' name='startDate' class='form-control' style='border: 1px solid #306FA0' readonly value='".$row4['weekStart']."'>
                     </div>
                     
-                    <div class='col-lg-3 mr-auto mt-3'>
+                    <div class='col-lg-3 mr-auto'>
                         <label class='' for='exampleFormControlTextarea1'>Date the week ends </label>
                         <input placeholder='' name='weekNumber' type='date' name='startDate' class='form-control' style='border: 1px solid #306FA0' readonly value='".$row4['weekEnds']."'>
 
@@ -111,102 +97,18 @@
                     </div>
                     
                     <div class='col-lg-10 mt-2'>
+                        <!--  change col-lg-10 to col-lg-8                  -->
                         <textarea placeholder='Saturday Entry' name='satEntry' class='form-control' id='exampleFormControlTextarea1' rows='1' maxlength='250' readonly>".$row4['satEntry']."</textarea>
                     </div>                    
                                                                 
                     <div class='col-lg-10 mt-2 mb-3'>
                         <textarea placeholder='Week Entry' name='week_entry' class='form-control' id='exampleFormControlTextarea1' rows='8' maxlength='1500' readonly>".nl2br($row4['week_Entry'])."</textarea>
-                    </div>";
-
-?>                   <div id="imgView" class="modal">
-                        <div class="modal-content col-lg-6 ml-auto mr-auto" style='border:1px solid #306FA0;'>
-                            <span class="close mb-2">&times;</span>
-                            
-                            <?php
-                            echo "
-                            <img class='img-responsive' src='../../student/pages/logbook_images/".$row4['week_picture']."' style='width:100%; height:100%; overflow:hidden;'>";
-                            
-                            ?>
-                        </div>
-                    <style>
-                        .modal {
-                        border-radius:7px;
-                        display: none; /* Hidden by default */
-                        position: fixed; /* Stay in place */
-                        z-index: 1; /* Sit on top */
-                        padding-top: 100px; /* Location of the box */
-                        left: 0;
-                        top: 0;
-                        width: 100%; /* Full width */
-                        height: 100%; /* Full height */
-                        overflow: auto; /* Enable scroll if needed */
-                        background-color: rgb(0,0,0); /* Fallback color */
-                        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-                        }
-
-                        /* Modal Content */
-                        .modal-content {
-                        background-color: #fefefe;
-                        margin: auto;
-                        padding: 20px;
-                        border: 1px solid #888;
-                        width: 80%;
-                        height: 80%;
-                        }
-
-                        /* The Close Button */
-                        .close {
-                        color: #306FA0;
-                        float: right;
-                        font-size: 28px;
-                        font-weight: bold;
-                        }
-
-                        .close:hover,
-                        .close:focus {
-                        color: #000;
-                        text-decoration: none;
-                        cursor: pointer;
-                        }
-                           
-                    </style>
-                    
-                    <script>
-                        var modal = document.getElementById("imgView");
-
-                        // Get the <span> element that closes the modal
-                        var span = document.getElementsByClassName("close")[0];
-
-                        // When the user clicks the button, open the modal 
-                        function img_clicked() {
-                            modal.style.display = "block";
-                        }
-
-                        // When the user clicks on <span> (x), close the modal
-                        span.onclick = function() {
-                        modal.style.display = "none";
-                        }
-
-                        // When the user clicks anywhere outside of the modal, close it
-                        window.onclick = function(event) {
-                        if (event.target == modal) {
-                        modal.style.display = "none";
-                        }
-                        }    
-                        
-                        
-                    </script>
-                </div>
-
-                    <div class='col-lg-10 mt-2' onclick="img_clicked()">          
-                        <span title='Uploaded image'>
-                <?php
-                    echo "
-                        <textarea placeholder='Weekly Photo' name='field_supComments' class='form-control' id='week_img' rows='3' readonly>".$row4['week_picture']." \n\n(Click to view Previously uploaded image)</textarea>
-                        </span>                      
                     </div>
-
-
+                    
+                    <div class='col-lg-10'>
+                        <p> Images should go here </p>
+                    </div>
+                    
                     <div class='col-lg-12 font-weight-light'>
                         <hr>
                     </div>
@@ -252,25 +154,15 @@
                     </div>";
                     }
                     
-                    if ($_SESSION ['ind_verify_status'] == 1){
-                        echo "
-                        <div class='col-lg-12 mt-2 mb-3'>
-                        <div class='form-check'>
-                            <label class='form-check-label' for='exampleCheck1' style='color: green; font-weight: bold;'><span style='font-size: 18px;' class='mr-2'>&#10003;</span>Already Verified</label>
-                        </div>
-                    </div>
-                        ";
-                    }else {
-                        echo "
+                    
+                    echo "
                     <div class='col-lg-12 mt-2 mb-3'>
                         <div class='form-check'>
                             <input type='checkbox' name='check_verifyStatus' class='form-check-input' id='exampleCheck1'>
                             <label class='form-check-label' for='exampleCheck1'>Check the box to verify these entries</label>
                         </div>
-                    </div>";
-                    }
-
-                    echo "
+                    </div>
+                    
                     <div class='col-lg-5 mt-3 text-center mb-3 ml-auto mr-auto'>
                         <span title='Click this button if verification is done'>
                             <button type='submit' class='btn btn-success col-lg-5' name='daily_upload' style='width:100%; color: white;'>

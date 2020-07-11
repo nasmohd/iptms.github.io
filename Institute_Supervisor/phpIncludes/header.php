@@ -50,27 +50,40 @@
                
                 <li style="margin-top: 20vh;">
                    <hr>
-                    <a href="../main/index.php"><span class="ml-3">
-                    <i class="nav-icon fas fa-user"></i></span>
-                    <span class="ml-1" id="sidebar_lnk">Nassor Mohamed</span>
-                    </a>      
+                   
+                   
+                    <a href="../main/index.php">
+                    
+                    <?php
+                    
+                    if ($_SESSION ['profile_picture'] == ''){
+                        echo "
+                        <span class='ml-3'><i class='nav-icon fas fa-user'></i></span>
+                        ";
+                    }else{
+                        echo "
+                        <img class='img-fluid rounded-circle' src='../profile_pictures/".$_SESSION['profile_picture']."' width='60vw'>
+                        ";
+                    }
+                    
+                        echo"
+                    <span class='ml-1' id='sidebar_lnk'>".$_SESSION['FirstName']." ".$_SESSION['LastName']."</span>
+                        ";
+                    ?>    
+                    
+                    </a>    
+                    
+                       
                 </li>
                 <hr>
                 
                 <li class="active" >
                     <a href="../main/index.php"><span class="ml-3">
                     <i class="nav-icon fas fa-tachometer-alt"></i></span>
-                    <span class="ml-1" id="sidebar_lnk">Dashboard</span>
+                    <span class="ml-2" id="sidebar_lnk">Dashboard</span>
                     </a>
                 </li>
                    
-                <li>
-                    <a href="../pages/placement.php"><span class="ml-3">
-                    <i class="nav-icon fas fa-building"></i></span>
-                    <span class="ml-2" id="sidebar_lnk">Placement</span>
-                    </a>
-                </li>
-                
                 <li>
                     <a href="../pages/reporting.php"><span class="ml-3">
                     <i class="nav-icon fas fa-flag"></i></span>
@@ -84,25 +97,11 @@
                     <span class="ml-2" id="sidebar_lnk">Logbook</span>
                     </a>
                 </li>
-                    
-                <li>
-                    <a href="#"><span class="ml-3">
-                    <i class="nav-icon fas fa-list-alt"></i></span>
-                    <span class="ml-2" id="sidebar_lnk">Tasks</span>
-                    </a>
-                </li>
-                   
-                <li>
-                    <a href="#"><span class="ml-3">
-                    <i class="mr-1 nav-icon fas fa-file"></i></span>
-                    <span class="ml-2" id="sidebar_lnk">Library</span>
-                    </a>
-                </li>
                 
                 <li>
                     <a href="#"><span class="ml-3">
-                    <i class="nav-icon fas fa-phone" style="transform: rotate(90deg);"></i></span>
-                    <span class="ml-2" id="sidebar_lnk">Contact Us</span>
+                    <i class="nav-icon fas fa-question-circle"></i></span>
+                    <span class="ml-2" id="sidebar_lnk">How to Use</span>
                     </a>
                 </li>
                     
@@ -115,7 +114,7 @@
                    
                 <li style="color: green;">
 <!--                   <div class="dropdown-divider" style="color:black;"></div>-->
-                    <a href="../../phpIncludes/logout.inc.php"><span class="ml-3">
+                    <a href="../phpIncludes/logout.inc.php"><span class="ml-3">
                     <i class="nav-icon fas fa-sign-out-alt"></i></span>
                     <span class="ml-2" id="sidebar_lnk" style="font-weight:bold;">Logout</span>
                     </a>

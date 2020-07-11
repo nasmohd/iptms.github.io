@@ -1,15 +1,12 @@
-<?php
-    include '../phpIncludes/header.php';
-
-?>
 
 <!--<div id="content">-->
 <div class="container-fluid">
     <div class="row mt-4">
-        <div class="col-lg-9 col-12 ml-auto mr-auto" style="border: 1px solid #306FA0; border-radius:10px;">
+        <div class="col-lg-8 col-12 ml-auto mr-auto" style="border: 1px solid #306FA0; border-radius:10px;">
             <form method='post' action='../phpIncludes/logbook_update.inc.php'>
             <?php
                     $requestUrl = $_SERVER ['REQUEST_URI'];
+//                echo $requestUrl;
                     $urlComponents = explode ('/', $requestUrl);
                      
                     $dot = explode ('.', $urlComponents[4]);
@@ -28,7 +25,10 @@
                         
                     }else{
                         //If a certain user is selected
-                        $selected_ID = $get_no[1];
+                        $selected_ID = $_SESSION['student_selected'];
+                        $_SESSION['prev_url'] = $requestUrl;
+                        
+                        $_SESSION['selectedID'] = $selected_ID;
                         $getName = "SELECT * FROM student_info WHERE StudentID = '$selected_ID'";
                         $runQuery = $conn -> query ($getName);
                         $getSelectedStudent = $runQuery -> fetch_assoc();
@@ -47,12 +47,6 @@
 </div>
 <!--</div>-->
 <!--</div>-->
-
-<?php
-    include '../phpIncludes/footer2.php';
-
-?>
-
 <!--
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
