@@ -11,7 +11,7 @@
     $dot_len = count($dot);
     $get_no = explode ('?', $dot[1]); //http://localhost/UNI_3rd_year/student/pages/logbook.php?1
     $len_lastURL = count($get_no); //$get_no = Array ( [0] => php [1] => 1 )
-    echo $len_lastURL;
+//    print_r ($get_no);
 //    echo $len_lastURL;
 //    echo $get_no[1];
     
@@ -20,12 +20,12 @@
     if ($len_lastURL > 1){
 //        $tester = $_SESSION['tester'];
         
-        
-        
         $more_sep = explode ('=', $get_no[1]); //$more_sep = Array ( [0] => week [1] => 1 )
         $res_cnt = count ($more_sep);
     //    print_r ($more_sep);
-        echo $res_cnt;
+        $_SESSION['first'] = $more_sep[0];
+        
+//        echo $res_cnt;
 
 
         if ($more_sep[0] == 'week'){
@@ -122,6 +122,8 @@
 
     if (($len_lastURL >= 2) && ($res_cnt > 1)){
 //ERROR
+    $first = $_SESSION['first'];
+        if ($first != 'week'){
             echo "
     <div class='' id='content'>
             <div class='container-fluid'>
@@ -146,9 +148,8 @@
                     </tr>
                   </thead> 
     ";
-        
+        }
 //        echo $testerNo;
-        
     }
 
 
@@ -227,6 +228,8 @@
     }
 
     if (($len_lastURL >= 2) && ($res_cnt > 1)) {
+        $first = $_SESSION['first'];
+        if ($first != 'week'){
         //ERROR
 //        echo $selected_student;
         $current_userID = $_SESSION['student_selected'];
@@ -244,6 +247,7 @@
         $status_notVerified = mysqli_num_rows ($run_statusCheck2); //not verified
 //        $_SESSION ['selected_student'] = ;
         include 'logbook_entry.php';
+        }
     }
 
 

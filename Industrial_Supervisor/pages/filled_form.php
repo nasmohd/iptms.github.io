@@ -111,7 +111,6 @@
                     </div>
                     
                     <div class='col-lg-10 mt-2'>
-                        <!--  change col-lg-10 to col-lg-8                  -->
                         <textarea placeholder='Saturday Entry' name='satEntry' class='form-control' id='exampleFormControlTextarea1' rows='1' maxlength='250' readonly>".$row4['satEntry']."</textarea>
                     </div>                    
                                                                 
@@ -201,9 +200,9 @@
 
                     <div class='col-lg-10 mt-2' onclick="img_clicked()">          
                         <span title='Uploaded image'>
-<?php
-                echo "
-                        <textarea placeholder='Industrial Supervisor Comments (Read Only)' name='field_supComments' class='form-control' id='week_img' rows='3' readonly>".$row4['week_picture']." \n\n(Click to view Previously uploaded image)</textarea>
+                <?php
+                    echo "
+                        <textarea placeholder='Weekly Photo' name='field_supComments' class='form-control' id='week_img' rows='3' readonly>".$row4['week_picture']." \n\n(Click to view Previously uploaded image)</textarea>
                         </span>                      
                     </div>
 
