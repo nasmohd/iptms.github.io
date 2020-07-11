@@ -154,7 +154,7 @@
                   </tbody>
                 </table>
                            <div class="col-lg-2 ml-auto mr-auto">
-                        <button class=" btn btn-success mb-3" onclick="window.location.href='../pages/logbook.php';"> View Logbook Page </button>
+                        <button class=" btn btn-success mb-3" onclick="window.location.href='../pages/logbook.php';"><span style='font-size:14px;'>View Logbook Page</span>  </button>
                            </div>
                             
                         
@@ -274,7 +274,7 @@
                 </table>
                          
                            <div class="col-lg-2 ml-auto mr-auto">
-                        <button class=" btn btn-success mb-3" onclick="window.location.href='../pages/tasks.php';"> View Tasks Page </button>
+                        <button class=" btn btn-success mb-3" onclick="window.location.href='../pages/tasks.php';"><span style='font-size:14px;'> View Tasks Page</span> </button>
                            </div>
                             
                         
