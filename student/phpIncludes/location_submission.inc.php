@@ -43,7 +43,7 @@
 
         if ($no_res != 0){ 
             //no result means now insert
-            $report_sql2 = "UPDATE student_location_info SET starting_date = '$startDate', ending_date = '$endDate', CompanyName = '$coName', CompanyAddress = '$coAddress' , indSup_name = '$supName', indSup_phoneNumber = '$supPhoneNumber', LocationDescription = '$coLocation_Desc', locationCoord = '$loc_coodinates', studentID = $userID";
+            $report_sql2 = "UPDATE student_location_info SET starting_date = '$startDate', ending_date = '$endDate', CompanyName = '$coName', CompanyAddress = '$coAddress' , indSup_name = '$supName', indSup_phoneNumber = '$supPhoneNumber', LocationDescription = '$coLocation_Desc', locationCoord = '$loc_coodinates' WHERE studentID = '$userID'";
             $run_query2 = $conn -> query ($report_sql2);$url3 = "../pages/reporting.php";
             $url3 = "../pages/reporting.php";
             header ('Location: '.$url3); 
@@ -76,7 +76,7 @@
 
         if ($no_res == 0){ 
             //no result means now insert
-            $report_sql = "INSERT INTO student_location_info (starting_date, ending_date, CompanyName, CompanyAddress, indSup_name, indSup_phoneNumber, LocationDescription, locationCoord, studentID) VALUES ('$startDate', '$endDate', '$coName', '$coAddress', '$supName', '$supPhoneNumber', '$coLocation_Desc', '$loc_coodinates', $userID)";
+            $report_sql = "INSERT INTO student_location_info (starting_date, ending_date, CompanyName, CompanyAddress, indSup_name, indSup_phoneNumber, LocationDescription, locationCoord, studentID, test_location) VALUES ('$startDate', '$endDate', '$coName', '$coAddress', '$supName', '$supPhoneNumber', '$coLocation_Desc', '$loc_coodinates', $userID, '$loc_coodinates')";
             $run_query = $conn -> query ($report_sql);
             $url3 = "../pages/reporting.php#show_map";
             header ('Location: '.$url3);
@@ -84,7 +84,7 @@
 
         if ($no_res != 0){ 
             //if an entry is already present
-            $report_sql2 = "UPDATE student_location_info SET starting_date = '$startDate', ending_date = '$endDate', CompanyName = '$coName', CompanyAddress = '$coAddress' , indSup_name = '$supName', indSup_phoneNumber = '$supPhoneNumber', LocationDescription = '$coLocation_Desc', studentID = $userID, test_location = '$loc_coodinates'";
+            $report_sql2 = "UPDATE student_location_info SET starting_date = '$startDate', ending_date = '$endDate', CompanyName = '$coName', CompanyAddress = '$coAddress' , indSup_name = '$supName', indSup_phoneNumber = '$supPhoneNumber', LocationDescription = '$coLocation_Desc', test_location = '$loc_coodinates' WHERE studentID = '$userID'";
             $run_query2 = $conn -> query ($report_sql2);
             $url3 = "../pages/reporting.php#show_map";
             header ('Location: '.$url3); 

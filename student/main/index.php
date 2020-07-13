@@ -19,6 +19,11 @@
     $row_tasks = $run_taskStatus -> fetch_assoc();
     $number_tasks = mysqli_num_rows ($run_taskStatus);
 
+    $last_task_id = "SELECT MAX(task_id) AS new_id FROM task_info WHERE StudentID = '$current_userID'";
+    $last_task_id = "SELECT MAX(task_id) AS new_id FROM task_info WHERE StudentID = '$current_userID'";
+    $run_last = $conn -> query ($last_task_id);
+    $res_last = $run_last -> fetch_assoc();
+
     //tasks not done
     $sql_taskCheck_status = "SELECT * FROM task_info WHERE StudentID = '$current_userID' AND task_status = '0'"; 
     $run_taskStatus_not = $conn -> query ($sql_taskCheck_status);
@@ -187,19 +192,23 @@
                    <?php
                        $loop2 = 1;
                        $show = 0;
+                       $op = 1;
 //                       $number_tasks
 //$row_tasks
-                       while ($loop2 <= $number_tasks){
+                       while ($loop2 <= $res_last['new_id']){
                            $get_task = "SELECT * FROM task_info WHERE StudentID = '$current_userID' AND task_id ='$loop2' ORDER BY deadline";
                            $run_task_query = $conn -> query ($get_task);
                            $res_tasks = $run_task_query -> fetch_assoc();
+                           $num_res = mysqli_num_rows ($run_task_query);
 //                           print_r ($res_tasks);
                            //task_id, week, deadline, tasks, task_status
 //                           <td>".$loop."</td>
+                           
+                           if ($num_res != 0){
                            echo "
                            <tr>
                               
-                              <td>".$loop2."</td>
+                              <td>".$op."</td>
                               <td>".$res_tasks['deadline']."</td>"
 //                              <td>".$res_tasks['tasks']."</td>"
                                ;
@@ -222,10 +231,12 @@
                                
                                </td>";  
                            }
-                           
-                           
+                               
+                           $op = $op + 1;
+                        }
                            $loop2 = $loop2 + 1;
                            $show = $show + 1;
+                       
                        }
                     ?>
                    

@@ -7,7 +7,7 @@
                         $res_num = mysqli_num_rows($run_query);
 //                        echo $res_num;
                         
-                        if ($res_num == 0){
+                        if ($res_num == 0){ //no results/records present
                             echo "
                             <tr>
                             <td>".$loop3."</td>
@@ -16,12 +16,13 @@
                             <td><span style='font-weight:bold; font-size:16px; color:red;'>  &#x274C; </span></td>
                             <td><span style='font-weight:bold; font-size:16px; color:red;'>  &#x274C; </span></td>
                             <td><span style='font-weight:bold; font-size:16px; color:red;'>  &#x274C; </span></td> 
+                            <td> OK </td>
                             </tr>
                             ";
                             
                             
                         }
-                        if ($res_num == 1) {
+                        if ($res_num == 1) { //results found
                         echo "
                         <tr>
                             <td>".$loop3."</td>
@@ -29,27 +30,33 @@
                             <td>".$run_res['CompanyName']."</td>
                             <td>".$run_res['CompanyAddress']."</td>
                             <td>".$run_res['LocationDescription']."</td> 
-                            <td><button class='btn btn-info' onclick=\"img_clicked()\"> <span style='font-size:13px;'> View Map </span></button></td> 
+                            <td><button class='btn btn-info' onclick=\"img_clicked(".$run_res['locationCoord'].")\"> <span style='font-size:13px;'> View Map </span></button></td> 
+                            <td> OK </td>
                         </tr>
                         ";
                         }
                     ?>
+                    
                     
                     <div id="imgView" class="modal">
                         <div class="modal-content col-lg-6 ml-auto mr-auto" style='border:1px solid #306FA0;'>
                             <span class="close mb-2">&times;</span>
                             <div id="map" class="mt-3" style="border: 1px solid #306FA0">
                                 <div class="mapouter">
+                                  
+                                   <div class='gmap_canvas'>
+                                           <iframe width='600' height='400' id='gmap_canvas' frameborder='0' scrolling='no' marginheight='0' marginwidth='0'></iframe>
+                                    </div>
                                     <?php
 
-                                            $separate_loc = explode (', ', $run_res['locationCoord']);
-                                            $lat = $separate_loc[0];
-                                            $lon = $separate_loc[1];
+//                                            $separate_loc = explode (', ', $run_res['locationCoord']);
+//                                            $lat = $separate_loc[0];
+//                                            $lon = $separate_loc[1];
 //                                            echo $lon;
-                                        echo "
-                                            <div class='gmap_canvas'><iframe width='600' height='400' id='gmap_canvas' src='https://maps.google.com/maps?q=".$lat."%2C%20".$lon."&t=&z=13&ie=UTF8&iwloc=&output=embed' frameborder='0' scrolling='no' marginheight='0' marginwidth='0'></iframe>
-                                            </div>
-                                        ";                                     
+//                                        echo "
+//                                            <div class='gmap_canvas'><iframe width='600' height='400' id='gmap_canvas' src='https://maps.google.com/maps?q=".$lat."%2C%20".$lon."&t=&z=13&ie=UTF8&iwloc=&output=embed' frameborder='0' scrolling='no' marginheight='0' marginwidth='0'></iframe>
+//                                            </div>
+//                                        ";                                  
                                     ?>
 
                                     <style>
@@ -113,8 +120,13 @@
                         var span = document.getElementsByClassName("close")[0];
 
                         // When the user clicks the button, open the modal 
-                        function img_clicked() {
+                        function img_clicked(x, y) {
                             modal.style.display = "block";
+                            var ifrm = document.getElementById("gmap_canvas");
+                            ifrm.src = "https://maps.google.com/maps?q=" + x + "%2C%20" + y + "&t=&z=13&ie=UTF8&iwloc=&output=embed";
+//                            src='https://maps.google.com/maps?q=".$lat."%2C%20".$lon."&t=&z=13&ie=UTF8&iwloc=&output=embed'
+//                            alert (x + " " + y);
+                            
                         }
 
                         // When the user clicks on <span> (x), close the modal
@@ -131,6 +143,9 @@
                         
                         
                     </script>
+                        
+                    
+                    
                     </div>
                     
                     
