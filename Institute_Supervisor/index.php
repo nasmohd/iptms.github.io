@@ -42,11 +42,8 @@
         
 <div class="container-fluid" id="div_nav">
     <div class="row">
-        <div class="col d-flex justify-content-center" style="position:relative;" id="home_link">
-            <a class="" href="#" style="color:white; position:relative;">
-                <img src="../img/logo7.png" class="img-fluid" style="width: 55px; height: 50px;"/>
-                    Management System
-            </a> 
+        <div class="col-lg-2 ml-auto mr-auto d-flex justify-content-center mt-4" style="position:relative;" id="home_link">
+            <img src="../img/logo8.png" class="img-fluid" style="width: 100%; height: 35px;"/>
         </div>
             
     </div>
@@ -60,7 +57,7 @@
 <!--        <div class="col-lg-7 col-12 ml-auto mr-auto">-->
         <div class="col-lg-4 col-10 mr-auto ml-auto" style="color:white; background-color: #306FA0; height: 60px; border-top-left-radius: 8px; border-top-right-radius: 8px;">
             <div class="text-center pt-3" style="font-size: 17px;">
-                <p> INDUSTRIAL SUPERVISOR LOGIN </p>
+                <p> INSTITUTE SUPERVISOR LOGIN </p>
                     
             </div>
                         
@@ -80,7 +77,7 @@
                 <div class="row d-flex justify-content-center">
 
                     <div class="col-lg-10 col-12 mt-5">
-                        <input type="text" class="form-control" id="input" aria-describedby="emailHelp" name="ind_username" placeholder="Username" value="albinstein879">
+                        <input type="text" class="form-control" id="input" aria-describedby="emailHelp" name="ind_username" placeholder="Username" value="wr64">
                     </div>
 
                     <div class="col-lg-10 col-12 mt-3">
@@ -90,11 +87,11 @@
 
 
                     <div class="col-lg-10 col-12 mt-2" id="WrongPassword" style="color: red; visibility: hidden; display:none; font-size:14px;">
-                        <p> Incorrect Registration Number or Password </p>
+                        <p><span class='mr-2' style="font-size:17px; font-weight: bold;">&#10071;</span> Incorrect Reg. Number or Password </p>
                     </div>
 
                     <div class="col-lg-10 col-12 mt-2" id="AccntLogout" style="color: green; visibility: hidden; display:none; font-size:14px;">
-                        <p> Logged out Successfully </p>
+                        <p><span class='mr-2' style="font-size:17px; font-weight: bold;">&#10003;</span>Logged out Successfully </p>
                     </div>
 
                     <div class="col-lg-10 col-12 mt-3">
@@ -169,7 +166,7 @@
 
                                         <div class="dropdown-menu" style="background-color: #306FA0">
                                             <a href="../index.php" class="dropdown-item"> Student </a>
-                                            <a href="../Institute_Supervisor/index.php" class="dropdown-item"> Institute Supervisor </a>
+                                            <a href="../Industrial_Supervisor/index.php" class="dropdown-item"> Industrial Supervisor </a>
                                         </div>
                                     </li>
                                 </ul>

@@ -9,11 +9,11 @@
                         echo "
                         
                         <tr>
-                            <td>".$loop3."</td>
+                            <td>"."$loop3"."</td>
                             <td><a href='?".$loop3."'>".$student_row['FirstName']." ".$student_row['LastName']."</a></td>
                             <td>".$res_num."</td>
                             <td>".$status_Verified."</td>
-                            <td>".$loop3."</td> 
+                            <td>".$run_res['last_submission']."</td> 
                         </tr>
                         ";
                     ?>

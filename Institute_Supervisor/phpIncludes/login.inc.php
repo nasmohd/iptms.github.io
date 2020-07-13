@@ -9,7 +9,7 @@ if (isset($_POST['login']) && !empty($_POST['ind_username']) && !empty($_POST['p
 //    echo $regNo;
 
 //    $sqlQuery1 = "SELECT * FROM student_info WHERE RegistrationNumber = '$regNo' AND StudentPassword = '$pwd'";
-    $sqlQuery1 = "SELECT * FROM industrial_supervisor_info WHERE username = '$ind_sup_username'";
+    $sqlQuery1 = "SELECT * FROM institute_supervisor_info WHERE username = '$ind_sup_username'";
 
     $result = $conn -> query($sqlQuery1);  //Runs the SQL query on the database
     $row = $result -> fetch_assoc();       //Fetches results from the database
@@ -19,7 +19,7 @@ if (isset($_POST['login']) && !empty($_POST['ind_username']) && !empty($_POST['p
 
     if (($row['username'] == $ind_sup_username) && ($row['password']) == $pwd){
         
-        $_SESSION ['IndustrialSup_ID'] = $row['industrial_sup_ID'];
+        $_SESSION ['InstituteSup_ID'] = $row['institute_sup_ID'];
         $_SESSION ['FirstName'] = $row['firstName'];
         $_SESSION ['LastName'] = $row ['lastName'];
         $_SESSION ['profile_picture'] = $row ['profile_picture'];

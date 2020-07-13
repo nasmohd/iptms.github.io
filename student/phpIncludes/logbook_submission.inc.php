@@ -1,6 +1,8 @@
 <?php
     include '../../DBconnection.php';
     session_start();
+
+    $current_date = date("Y/m/d");
     
     $weekNumber = $_SESSION['student_weekSelection'];
     $startDate = $_POST['startDate'];
@@ -57,6 +59,8 @@
         $check_status = "SELECT * FROM logbook_entries WHERE userID = '$userID' AND weekNumber = '$weekNumber'";
         $status_run = $conn -> query ($check_status);
         $status_row = $status_run -> fetch_assoc();
+        
+        //check the entries if full or not
         if (($status_row['weekStart'] != '') && ($status_row['weekEnds'] != '') && ($status_row['monEntry'] != '') && ($status_row['tueEntry'] != '') && ($status_row['wedEntry'] != '') && ($status_row['thurEntry'] != '') && ($status_row['friEntry'] != '') && ($status_row['satEntry'] != '') && ($status_row['week_Entry'] != '') && ($status_row['week_picture'] != '')){
             $update_status = "UPDATE logbook_entries SET entry_status = '1'";
             $run_update = $conn -> query ($update_status);
@@ -70,9 +74,13 @@
     }
 
     else{
-        $logbookInsert = "INSERT INTO logbook_entries (userID, weekNumber, weekStart, weekEnds, monEntry, tueEntry, wedEntry, thurEntry, friEntry, satEntry, week_Entry, week_picture, indSup_comments, indSup_verifystatus) VALUES ('$userID' , '$weekNumber', '$startDate', '$endDate', '$monEntry', '$tueEntry', '$wedEntry', '$thurEntry', '$friEntry', '$satEntry', '$weekEntry', '$db_picName', '', '0')";
-        
+        $logbookInsert = "INSERT INTO logbook_entries (userID, weekNumber, weekStart, weekEnds, monEntry, tueEntry, wedEntry, thurEntry, friEntry, satEntry, week_Entry, week_picture, indSup_comments, indSup_verifystatus, instSup_verifystatus, year_of_study, entry_status) VALUES ('$userID' , '$weekNumber', '$startDate', '$endDate', '$monEntry', '$tueEntry', '$wedEntry', '$thurEntry', '$friEntry', '$satEntry', '$weekEntry', '$db_picName', '', '0', '0', '', '')";
         $resultInsert = $conn -> query($logbookInsert);
+        
+        //change all cols last_submission value
+        $update_lastSub = "UPDATE logbook_entries SET last_submission='$current_date' WHERE userID = '$userID'";
+        $run_update = $conn -> query ($update_lastSub);
+        
         
         $check_status = "SELECT * FROM logbook_entries WHERE userID = '$userID' AND weekNumber = '$weekNumber'";
         $status_run = $conn -> query ($check_status);

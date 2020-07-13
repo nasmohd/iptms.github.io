@@ -9,7 +9,7 @@
 //                            echo $row4['weekStart'];
                             
                             echo "
-                            <div class='row mt-3' style='font-size:14px;' id='dayinput'>
+                    <div class='row mt-3' style='font-size:14px;' id='dayinput'>
                     
                     
                     <div class='col-lg-8 pr-4'> 

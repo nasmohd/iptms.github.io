@@ -38,6 +38,11 @@
             <div id="dismiss"> 
                 <i class="fas fa-arrow-left"></i>
             </div>
+            
+            <div class="mx-3 text-center" style="margin-top:10vh;">
+                <img src="../../img/logo3.png" class="img-fluid" style="height: 10vh;">
+                
+            </div>
 
 <!--
             <div class="sidebar-header">
@@ -45,10 +50,10 @@
             </div>
 -->
 
-            <ul class="list-unstyled components mt-5">
+            <ul class="list-unstyled components">
 <!--                <p>Logged User</p>-->
                
-                <li style="margin-top: 20vh;">
+                <li>
                    <hr>
                    
                    
@@ -84,20 +89,23 @@
                     </a>
                 </li>
                    
-                <li>
-                    <a href="../pages/reporting.php"><span class="ml-3">
-                    <i class="nav-icon fas fa-flag"></i></span>
-                    <span class="ml-2" id="sidebar_lnk">Reporting</span>
-                    </a>
-                </li>
+                
                 
                 <li>
                     <a href="../pages/logbook.php"><span class="ml-3">
                     <i class="mr-1 nav-icon fas fa-book"></i></span>
-                    <span class="ml-2" id="sidebar_lnk">Logbook</span>
+                    <span class="ml-2" id="sidebar_lnk">Assess Logbook</span>
                     </a>
                 </li>
                 
+                <li>
+                    <a href="../pages/locate_students.php"><span class="ml-3">
+                    <i class="nav-icon fas fa-flag"></i></span>
+                    <span class="ml-2" id="sidebar_lnk">Locate Students</span>
+                    </a>
+                </li>
+                
+<!--
                 <li>
                     <a href="#"><span class="ml-3">
                     <i class="nav-icon fas fa-question-circle"></i></span>
@@ -111,6 +119,7 @@
                     <span class="ml-2" id="sidebar_lnk">Settings</span>
                     </a>
                 </li>
+-->
                    
                 <li style="color: green;">
 <!--                   <div class="dropdown-divider" style="color:black;"></div>-->

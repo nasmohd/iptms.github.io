@@ -39,16 +39,20 @@
                 <i class="fas fa-arrow-left"></i>
             </div>
 
+            <div class="mx-3 text-center" style="margin-top:10vh;">
+                <img src="../../img/logo3.png" class="img-fluid" style="height: 10vh;">
+                
+            </div>
 <!--
             <div class="sidebar-header">
                 <h3>Bootstrap Sidebar</h3>
             </div>
 -->
 
-            <ul class="list-unstyled components mt-5">
+            <ul class="list-unstyled components">
 <!--                <p>Logged User</p>-->
                
-                <li style="margin-top: 20vh;">
+                <li>
                    <hr>
                    
                    
@@ -116,6 +120,7 @@
                     </a>
                 </li>
                 
+<!--
                 <li>
                     <a href="#"><span class="ml-3">
                     <i class="nav-icon fas fa-question-circle"></i></span>
@@ -129,6 +134,7 @@
                     <span class="ml-2" id="sidebar_lnk">Settings</span>
                     </a>
                 </li>
+-->
                    
                 <li style="color: green;">
 <!--                   <div class="dropdown-divider" style="color:black;"></div>-->

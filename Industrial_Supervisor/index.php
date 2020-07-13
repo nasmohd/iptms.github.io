@@ -42,11 +42,8 @@
         
 <div class="container-fluid" id="div_nav">
     <div class="row">
-        <div class="col d-flex justify-content-center" style="position:relative;" id="home_link">
-            <a class="" href="#" style="color:white; position:relative;">
-                <img src="../img/logo7.png" class="img-fluid" style="width: 55px; height: 50px;"/>
-                    Management System
-            </a> 
+        <div class="col-lg-2 ml-auto mr-auto d-flex justify-content-center mt-4" style="position:relative;" id="home_link">
+            <img src="../img/logo8.png" class="img-fluid" style="width: 100%; height: 35px;"/>
         </div>
             
     </div>

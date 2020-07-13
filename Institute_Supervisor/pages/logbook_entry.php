@@ -55,17 +55,8 @@
                                $run_notif_query = $conn -> query ($notif_status);
                                $notif_res = $run_notif_query -> fetch_assoc();
                                
+                               echo"<td><button class='btn btn-danger'><span id='btn_txt'>Not verified</span></button></td>";
                                
-                               echo "<td>
-                               <div class='dropdown'><div id='goto".$loop."'>
-                                    <button class='btn btn-danger dropdown-toggle col-8' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-                                    <span id='btn_txt' class='float-left'>Not Verified</span>
-                                    </button>
-                                    <div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>
-                                    <a class='dropdown-item' href='?verify=".$loop."#goto".$loop."'><span id='btn_txt' onclick='select_taskDone(\"Request\", ".$loop.", r)'>Verify</span></a>
-                                    </div>
-                                </div>  </div>                        
-                               </td>"; 
                            }
                                 
                            if ($run_res['indSup_comments'] == ''){
@@ -82,7 +73,18 @@
                            }
                            
                            if (($run_res['instSup_verifystatus'] == '0') || ($run_res['instSup_verifystatus'] == '')) {
-                               echo"<td><button class='btn btn-danger'><span id='btn_txt'>Not verified</span></button></td>";
+//                               echo"<td><button class='btn btn-danger'><span id='btn_txt'>Not verified</span></button></td>";
+                               
+                               echo "<td>
+                               <div class='dropdown'><div id='goto".$loop."'>
+                                    <button class='btn btn-danger dropdown-toggle col-8' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                                    <span id='btn_txt' class='float-left'>Not Verified</span>
+                                    </button>
+                                    <div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>
+                                    <a class='dropdown-item' href='?verify=".$loop."#goto".$loop."'><span id='btn_txt' onclick='select_taskDone(\"Request\", ".$loop.", r)'>Verify</span></a>
+                                    </div>
+                                </div>  </div>                        
+                               </td>"; 
                                
                            }
                        }

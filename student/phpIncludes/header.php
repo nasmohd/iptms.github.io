@@ -38,6 +38,11 @@
             <div id="dismiss"> 
                 <i class="fas fa-arrow-left"></i>
             </div>
+            
+            <div class="mx-3 text-center" style="margin-top:10vh;">
+                <img src="../../img/logo3.png" class="img-fluid" style="height: 10vh;">
+                
+            </div>
 
 <!--
             <div class="sidebar-header">
@@ -45,11 +50,11 @@
             </div>
 -->
 
-            <ul class="list-unstyled components mt-5">
+            <ul class="list-unstyled components">
 <!--                <p>Logged User</p>-->
                
                
-                <li style="margin-top: 13vh;">
+                <li > <!-- style="margin-top: 13vh;" -->
                    <hr>
                     <a href="../pages/profile.php"><span class="">
                     <?php
@@ -92,18 +97,19 @@
                     
                 <li>
                     <a href="../pages/tasks.php"><span class="ml-3">
-                    <i class="nav-icon fas fa-list-alt"></i></span>
+                    <i class="mr-1 nav-icon fas fa-list-alt"></i></span>
                     <span class="ml-2" id="sidebar_lnk">Tasks</span>
                     </a>
                 </li>
                   
                 <li>
                     <a href="../pages/placement.php"><span class="ml-3">
-                    <i class="nav-icon fas fa-building"></i></span>
-                    <span class="ml-2" id="sidebar_lnk">Placement</span>
+                    <i class="mr-1 nav-icon fas fa-building"></i></span>
+                    <span class="ml-2" id="sidebar_lnk">Review</span>
                     </a>
                 </li>
                    
+<!--
                 <li>
                     <a href="#"><span class="ml-3">
                     <i class="mr-1 nav-icon fas fa-file"></i></span>
@@ -124,6 +130,7 @@
                     <span class="ml-2" id="sidebar_lnk">Settings</span>
                     </a>
                 </li>
+-->
                    
                 <li style="color: green;">
 <!--                   <div class="dropdown-divider" style="color:black;"></div>-->
@@ -162,7 +169,7 @@
                     </div>
                     
                     <!-- Right side of nav -->
-                    <div class="col-lg-1 col-3" >
+                    <div class="col-lg-1 col-3">
                        <div class="row">
 
 
@@ -174,9 +181,9 @@
                                 </span>
     <!--                        <span class="badge badge-warning navbar-badge text-center">15</span>-->
                             </a>
-                            <div class="dropdown-menu col-lg-12 text-center">
-                                <li><a href="#">Notif 1</a></li>
-                                <li><a href="#">Notif 2</a></li>
+                            <div class="dropdown-menu col-lg-4 text-center">
+                                <li><a class='ml-2 float-left' href="../pages/notification.php" style="color: #306FA0; font-size:13px; font-weight:bold;">Go to Notifications</a></li>
+<!--                                <li><a href="#">Notif 2</a></li>-->
                             </div>  
                         </div>
                         </div>

@@ -36,14 +36,14 @@
             $_SESSION['selected_week'] = $more_sep[1];
             $weekNo = $_SESSION['selected_week'];
             include 'logbook_review.php';
-
         }
+        
 
         if ($more_sep[0] == 'verify'){
             $selected_student = $_SESSION['student_selected'];
             $testerNo = $more_sep[1];
             $_SESSION['testerNo'] = $testerNo;
-            $update_indStatus = "UPDATE logbook_entries SET indSup_verifystatus = '1' WHERE weekNumber ='$testerNo' AND userID = '$selected_student'";
+            $update_indStatus = "UPDATE logbook_entries SET instSup_verifystatus = '1' WHERE weekNumber ='$testerNo' AND userID = '$selected_student'";
             $run_update = $conn -> query ($update_indStatus);
             
 //            $_SESSION['tester'] = 1;
@@ -57,11 +57,11 @@
 //    echo $selected_student;
 
     //Get Students that are being supervised
-    $current_supervisor = $_SESSION ['IndustrialSup_ID'];
-    $supervision_query = "SELECT * FROM supervision_info WHERE industrial_supervisor_ID = '$current_supervisor'";
+    $current_supervisor = $_SESSION ['InstituteSup_ID'];
+    $supervision_query = "SELECT * FROM supervision_info WHERE institute_supervisor_ID = '$current_supervisor'";
     $run_supervision = $conn -> query ($supervision_query);
     $supervision_res = $run_supervision -> fetch_assoc();
-    $students_supervised = mysqli_num_rows($run_supervision); //$students_supervised = 3
+    $students_supervised = mysqli_num_rows($run_supervision); //$students_supervised = 4
     $_SESSION['total_students'] = $students_supervised;
 
     if ($len_lastURL < 2){
@@ -73,9 +73,10 @@
                        
                         <div class='row''>
 
-                            <div class='col-lg-10 col-12 table-responsive ml-auto mr-auto' style='border: 2px solid #17A2B8; border-radius: 15px;'>
+                            <div class='col-lg-10 col-12 table-responsive ml-auto mr-auto' style='border: 2px solid #17A2B8; border-radius: 15px;' id='page_content'>
+                               <p class='mt-3'><span style='font-size:15px; color:#333333; font-weight:bold;'> LOGBOOK INFORMATION (STUDENTS UNDER YOUR SUPERVISION) <span></p>
                                
-                                <table class='table table-hover text-nowrap table-bordered table-striped text-center mt-5' style='border: 2px solid #306FA0; font-size: 13px; border-radius: 20px;'>
+                                <table class='table table-hover text-nowrap table-bordered table-striped text-center mt-2' style='border: 2px solid #306FA0; font-size: 13px; border-radius: 20px;'>
                   <thead style='background-color: #306FA0; color:white;'>
                     <tr>
 
@@ -85,7 +86,7 @@
 
                       <th><span id='hd_txt'>Weeks Verified</span></th>
                       
-                      <th><span id='hd_txt'>Institute Sup</span></th>
+                      <th><span id='hd_txt'>Last Submission</span></th>
                     </tr>
                   </thead>
                   
@@ -102,7 +103,7 @@
                        
                         <div class='row''>
 
-                            <div class='col-lg-10 col-12 table-responsive ml-auto mr-auto' style='border: 2px solid #17A2B8; border-radius: 15px;'>
+                            <div class='col-lg-10 col-12 table-responsive ml-auto mr-auto' style='border: 2px solid #17A2B8; border-radius: 15px;' id='page_content'>
                                
                                 <table class='table table-hover text-nowrap table-bordered table-striped text-center mt-2' style='border: 2px solid #306FA0; font-size: 13px; border-radius: 20px;'>
                   <thead style='background-color: #306FA0; color:white;'>
@@ -114,7 +115,7 @@
 
                       <th><span id='hd_txt'>Industrial Sup</span></th>
                       <th><span id='hd_txt'>Comments</span></th>
-                      <th><span id='hd_txt'>Institute Sup</span></th>
+                      <th><span id='hd_txt'>Last Submission</span></th>
                     </tr>
                   </thead>
     ";
@@ -132,7 +133,7 @@
                        
                         <div class='row''>
 
-                            <div class='col-lg-10 col-12 table-responsive ml-auto mr-auto' style='border: 2px solid #17A2B8; border-radius: 15px;'>
+                            <div class='col-lg-10 col-12 table-responsive ml-auto mr-auto' style='border: 2px solid #17A2B8; border-radius: 15px;' id='page_content'>
                                
                                 <table class='table table-hover text-nowrap table-bordered table-striped text-center mt-2' style='border: 2px solid #306FA0; font-size: 13px; border-radius: 20px;'>
                   <thead style='background-color: #306FA0; color:white;'>
@@ -144,7 +145,7 @@
 
                       <th><span id='hd_txt'>Industrial Sup</span></th>
                       <th><span id='hd_txt'>Comments</span></th>
-                      <th><span id='hd_txt'>Institute Sup</span></th>
+                      <th><span id='hd_txt'>Last Submission</span></th>
                     </tr>
                   </thead> 
     ";
@@ -155,18 +156,15 @@
 
     $loop3 = 1;
     while ($loop3 <= $students_supervised){ //$students_supervised = 3
-        $supervision_query2 = "SELECT * FROM supervision_info WHERE industrial_supervisor_ID = '$current_supervisor' AND studentID = '$loop3'"; //starts from 1
+        $supervision_query2 = "SELECT * FROM supervision_info WHERE institute_supervisor_ID = '$current_supervisor' AND studentID = '$loop3'"; //starts from 1
         $run_supervision2 = $conn -> query ($supervision_query2);
         $supervision_res2 = $run_supervision2 -> fetch_assoc();
         $students_supervised2 = mysqli_num_rows($run_supervision2); //$students_supervised2
-       
-        
+            
         if ($students_supervised2 != 0){ //If results return true
             $current_userID = $loop3;
             
-            //get entry of the current student, starts from ID 1
-            
-            
+            //get entry of the current student, starts from ID 1 
             //Get individual student, one at a time
             $sql_student = "SELECT * FROM student_info WHERE StudentID = '$current_userID'";
             $run2 = $conn -> query($sql_student);
@@ -175,12 +173,12 @@
             $_SESSION ['ipt_weeks'] = $student_row['ipt_weeks'];
             
             
-            //we have filled an entry but it is not verified, INDUSTRIAL SUPERVISOR STATUS
-            $sql_statusCheck = "SELECT * FROM logbook_entries WHERE userID = '$loop3' AND indSup_verifystatus = '1' AND entry_status = '1'"; 
+            //we have filled an entry but it is not verified, INSTITUTE SUPERVISOR STATUS
+            $sql_statusCheck = "SELECT * FROM logbook_entries WHERE userID = '$loop3' AND instSup_verifystatus = '1' AND entry_status = '1'"; 
             $run_statusCheck = $conn -> query ($sql_statusCheck);
             $status_Verified = mysqli_num_rows ($run_statusCheck); //verified
 
-            $sql_statusCheck2 = "SELECT * FROM logbook_entries WHERE userID = '$loop3' AND entry_status = '1' OR entry_status ='' AND (indSup_verifystatus = '0' OR indSup_verifystatus = '')"; 
+            $sql_statusCheck2 = "SELECT * FROM logbook_entries WHERE userID = '$loop3' AND entry_status = '1' OR entry_status ='' AND (instSup_verifystatus = '0' OR instSup_verifystatus = '')"; 
             $run_statusCheck2 = $conn -> query ($sql_statusCheck2);
             $status_notVerified = mysqli_num_rows ($run_statusCheck2); //not verified
 
@@ -216,13 +214,16 @@
         $logbook_number_rows = mysqli_num_rows ($run);
         $logbook_row = $run -> fetch_assoc();
         
-        $sql_statusCheck = "SELECT * FROM logbook_entries WHERE userID = '$current_userID' AND indSup_verifystatus = '1' AND entry_status = '1'"; 
+        $sql_statusCheck = "SELECT * FROM logbook_entries WHERE userID = '$current_userID' AND instSup_verifystatus = '1' AND entry_status = '1'"; 
         $run_statusCheck = $conn -> query ($sql_statusCheck);
         $status_Verified = mysqli_num_rows ($run_statusCheck); //verified
 
-        $sql_statusCheck2 = "SELECT * FROM logbook_entries WHERE userID = '$current_userID' AND (entry_status = '1' OR entry_status ='') AND (indSup_verifystatus = '0' OR indSup_verifystatus = '')"; 
+        $sql_statusCheck2 = "SELECT * FROM logbook_entries WHERE userID = '$current_userID'  AND (instSup_verifystatus = '0' OR instSup_verifystatus = '') AND entry_status = '1'"; 
         $run_statusCheck2 = $conn -> query ($sql_statusCheck2);
-        $status_notVerified = mysqli_num_rows ($run_statusCheck2); //not verified
+        $status_notVerified = mysqli_num_rows ($run_statusCheck2);
+        //not verified
+//        print_r ($run_statusCheck2);
+        
 //        $_SESSION ['selected_student'] = ;
         include 'logbook_entry.php';
     }
@@ -238,11 +239,11 @@
         $logbook_number_rows = mysqli_num_rows ($run);
         $logbook_row = $run -> fetch_assoc();
         
-        $sql_statusCheck = "SELECT * FROM logbook_entries WHERE userID = '$current_userID' AND indSup_verifystatus = '1' AND entry_status = '1'"; 
+        $sql_statusCheck = "SELECT * FROM logbook_entries WHERE userID = '$current_userID' AND instSup_verifystatus = '1' AND entry_status = '1'"; 
         $run_statusCheck = $conn -> query ($sql_statusCheck);
         $status_Verified = mysqli_num_rows ($run_statusCheck); //verified
 
-        $sql_statusCheck2 = "SELECT * FROM logbook_entries WHERE userID = '$current_userID' AND (entry_status = '1' OR entry_status ='') AND (indSup_verifystatus = '0' OR indSup_verifystatus = '')"; 
+        $sql_statusCheck2 = "SELECT * FROM logbook_entries WHERE userID = '$current_userID' AND (entry_status = '1' OR entry_status ='') AND (instSup_verifystatus = '0' OR instSup_verifystatus = '')"; 
         $run_statusCheck2 = $conn -> query ($sql_statusCheck2);
         $status_notVerified = mysqli_num_rows ($run_statusCheck2); //not verified
 //        $_SESSION ['selected_student'] = ;

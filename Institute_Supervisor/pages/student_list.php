@@ -1,4 +1,5 @@
 <?php
+
                         $total_students = $_SESSION['total_students'];
                         $get_specific_week = "SELECT * FROM logbook_entries WHERE userID = '$loop3'"; //gets weeks submitted by every individual student
                         $run_query = $conn -> query ($get_specific_week);
@@ -13,7 +14,7 @@
                             <td><a href='?".$loop3."'>".$student_row['FirstName']." ".$student_row['LastName']."</a></td>
                             <td>".$res_num."</td>
                             <td>".$status_Verified."</td>
-                            <td>".$loop3."</td> 
+                            <td>".$run_res['last_submission']."</td> 
                         </tr>
                         ";
                     ?>

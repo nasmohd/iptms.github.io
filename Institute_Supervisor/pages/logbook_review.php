@@ -1,5 +1,5 @@
 
-<!--<div id="content">-->
+<div id='content'>
 <div class="container-fluid">
     <div class="row mt-4">
         <div class="col-lg-8 col-12 ml-auto mr-auto" style="border: 1px solid #306FA0; border-radius:10px;">
@@ -42,9 +42,7 @@
                     
             ?>
                </form>
-        </div>
-    </div>    
-</div>
+
 <!--</div>-->
 <!--</div>-->
 <!--
@@ -59,8 +57,6 @@
 -->
 
     
-    </body>
-</html>
 
 
 

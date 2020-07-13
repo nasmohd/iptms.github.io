@@ -4,7 +4,7 @@
                             $res = $conn -> query($sql_student);
                             $row4 = $res -> fetch_assoc();
 
-                            $_SESSION ['ind_verify_status'] = $row4['indSup_verifystatus'];
+                            $_SESSION ['inst_verify_status'] = $row4['instSup_verifystatus'];
 //                            echo $_SESSION ['ind_verify_status'];
 //                            echo $row4['weekStart'];
                             
@@ -42,14 +42,14 @@
                                 
                                 while ($y <= $x){
                                     //fill status
-                                    $fill_status = "SELECT indSup_verifystatus FROM logbook_entries WHERE weekNumber = $y AND userID = '$current_user'";
+                                    $fill_status = "SELECT instSup_verifystatus FROM logbook_entries WHERE weekNumber = $y AND userID = '$current_user'";
                                     $res_status = $conn -> query ($fill_status);
                                     $row_status = $res_status -> fetch_assoc();
                                     
-                                    if ($row_status['indSup_verifystatus'] == '1'){
+                                    if ($row_status['instSup_verifystatus'] == '1'){
                                         echo "<a class='dropdown-item' href='?week=".$y."' style='background-color:#5EFF5E;'>".$y."</a>";
                                     }
-                                    if ($row_status['indSup_verifystatus'] != '1'){
+                                    if ($row_status['instSup_verifystatus'] != '1'){
                                         echo "<a class='dropdown-item' href='?week=".$y."'>".$y."</a>";
                                     }
                                     
@@ -214,7 +214,7 @@
                     
                     <div class='col-lg-10'>
                         <span title='Share some comments with the student or a word of advice'>
-                            <textarea placeholder='Enter your comments here' name='industrial_supComments' class='form-control' id='exampleFormControlTextarea1' rows='2'>".$row4['indSup_comments']."</textarea>
+                            <textarea placeholder='Enter your comments here' name='industrial_supComments' class='form-control' id='exampleFormControlTextarea1' rows='2' readonly>".$row4['indSup_comments']."</textarea>
                         </span>
                     </div>";
                             
@@ -252,7 +252,7 @@
                     </div>";
                     }
                     
-                    if ($_SESSION ['ind_verify_status'] == 1){
+                    if ($_SESSION ['inst_verify_status'] == 1){
                         echo "
                         <div class='col-lg-12 mt-2 mb-3'>
                         <div class='form-check'>

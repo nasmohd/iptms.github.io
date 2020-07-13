@@ -113,7 +113,7 @@
                             <span title='Description on IPT location'>
                                <?php
                                 echo "
-                                <textarea type='text' class='form-control' id='input' aria-describedby='emailHelp' name='coLocation_Desc' placeholder='Location Description' value='' rows='1' maxlength='15'>".$ipt_res['LocationDescription']."</textarea>
+                                <textarea type='text' class='form-control' id='input' aria-describedby='emailHelp' name='coLocation_Desc' placeholder='Location Description' value='' rows='1' maxlength='100'>".$ipt_res['LocationDescription']."</textarea>
                                     ";
                                 ?>
                             </span>

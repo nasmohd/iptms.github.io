@@ -57,11 +57,11 @@
 //    echo $selected_student;
 
     //Get Students that are being supervised
-    $current_supervisor = $_SESSION ['IndustrialSup_ID'];
-    $supervision_query = "SELECT * FROM supervision_info WHERE industrial_supervisor_ID = '$current_supervisor'";
+    $current_supervisor = $_SESSION ['InstituteSup_ID'];
+    $supervision_query = "SELECT * FROM supervision_info WHERE institute_supervisor_ID = '$current_supervisor'";
     $run_supervision = $conn -> query ($supervision_query);
     $supervision_res = $run_supervision -> fetch_assoc();
-    $students_supervised = mysqli_num_rows($run_supervision); //$students_supervised = 3
+    $students_supervised = mysqli_num_rows($run_supervision); //$students_supervised = 4
     $_SESSION['total_students'] = $students_supervised;
 
     if ($len_lastURL < 2){
@@ -72,19 +72,21 @@
                     <div class='col-lg-12 col-12 ml-auto mr-auto mt-4' >
                        
                         <div class='row''>
-                            
+
                             <div class='col-lg-10 col-12 table-responsive ml-auto mr-auto' style='border: 2px solid #17A2B8; border-radius: 15px;' id='page_content'>
                                <p class='mt-3'><span style='font-size:16px; color:#333333; font-weight:bold;'> STUDENTS UNDER YOUR SUPERVISION <span></p>
-                                <table class='table table-hover text-nowrap table-bordered table-striped text-center mt-2 mb-5' style='border: 2px solid #306FA0; font-size: 13px; border-radius: 20px;'>
+                                <table class='table table-hover text-nowrap table-bordered table-striped text-center mt-2' style='border: 2px solid #306FA0; font-size: 13px; border-radius: 20px;'>
                   <thead style='background-color: #306FA0; color:white;'>
                     <tr>
 
                       <th><span id='hd_txt'>SN</span></th>
                       <th><span id='hd_txt'>Name</span></th>
-                      <th><span id='hd_txt'>Tasks Assigned</span></th>
+                      <th><span id='hd_txt'>Company Name</span></th>
 
-                      <th><span id='hd_txt'>Tasks Done</span></th>
-                      <th><span id='hd_txt'>Tasks Not Done</span></th>
+                      <th><span id='hd_txt'>Company Address</span></th>
+                      
+                      <th><span id='hd_txt'>Location Description</span></th>
+                      <th><span id='hd_txt'>View Map</span></th>
                     </tr>
                   </thead>
                   
@@ -103,7 +105,7 @@
 
                             <div class='col-lg-10 col-12 table-responsive ml-auto mr-auto' style='border: 2px solid #17A2B8; border-radius: 15px;' id='page_content'>
                                
-                                <table class='table table-hover text-nowrap table-bordered table-striped text-center mt-2 mb-5' style='border: 2px solid #306FA0; font-size: 13px; border-radius: 20px;'>
+                                <table class='table table-hover text-nowrap table-bordered table-striped text-center mt-2' style='border: 2px solid #306FA0; font-size: 13px; border-radius: 20px;'>
                   <thead style='background-color: #306FA0; color:white;'>
                     <tr>
 
@@ -132,8 +134,8 @@
                         <div class='row''>
 
                             <div class='col-lg-10 col-12 table-responsive ml-auto mr-auto' style='border: 2px solid #17A2B8; border-radius: 15px;' id='page_content'>
-                               <p> Students Under your Supervision </p>
-                                <table class='table table-hover text-nowrap table-bordered table-striped text-center mt-2 mb-5' style='border: 2px solid #306FA0; font-size: 13px; border-radius: 20px;'>
+                               
+                                <table class='table table-hover text-nowrap table-bordered table-striped text-center mt-2' style='border: 2px solid #306FA0; font-size: 13px; border-radius: 20px;'>
                   <thead style='background-color: #306FA0; color:white;'>
                     <tr>
 
@@ -154,7 +156,7 @@
 
     $loop3 = 1;
     while ($loop3 <= $students_supervised){ //$students_supervised = 3
-        $supervision_query2 = "SELECT * FROM supervision_info WHERE industrial_supervisor_ID = '$current_supervisor' AND studentID = '$loop3'"; //starts from 1
+        $supervision_query2 = "SELECT * FROM supervision_info WHERE institute_supervisor_ID = '$current_supervisor' AND studentID = '$loop3'"; //starts from 1
         $run_supervision2 = $conn -> query ($supervision_query2);
         $supervision_res2 = $run_supervision2 -> fetch_assoc();
         $students_supervised2 = mysqli_num_rows($run_supervision2); //$students_supervised2
@@ -174,7 +176,7 @@
             $_SESSION ['ipt_weeks'] = $student_row['ipt_weeks'];
             
             
-            //we have filled an entry but it is not verified, INDUSTRIAL SUPERVISOR STATUS
+            //we have filled an entry but it is not verified, INSTITUTE SUPERVISOR STATUS
             $sql_statusCheck = "SELECT * FROM logbook_entries WHERE userID = '$loop3' AND indSup_verifystatus = '1' AND entry_status = '1'"; 
             $run_statusCheck = $conn -> query ($sql_statusCheck);
             $status_Verified = mysqli_num_rows ($run_statusCheck); //verified
@@ -198,116 +200,71 @@
             
             //No student was selected
             if ($len_lastURL < 2){
-                $total_students = $_SESSION['total_students'];
-                        $get_specific_week = "SELECT * FROM logbook_entries WHERE userID = '$loop3'"; //gets weeks submitted by every individual student
-                        $run_query = $conn -> query ($get_specific_week);
-                        $run_res = $run_query -> fetch_assoc();
-                        
-                        $res_num = mysqli_num_rows($run_query);
-
-                        echo "
-                        
-                        <tr>
-                            <td>"."$loop3"."</td>
-                            <td><a href='?".$loop3."'>".$student_row['FirstName']." ".$student_row['LastName']."</a></td>
-                            <td>".$res_num."</td>
-                            <td>".$status_Verified."</td>
-                            <td>".$loop3."</td> 
-                        </tr>
-                        ";
-                    ?>
-                    
-                    <script type='text/javascript'>
-                        function select_taskDone(y, z, i){
-                        var text_concat = '.done_txt'+z;
-
-                        $(text_concat).text(y);
-
-                        if (y == 'Done'){
-                        var btn_concat = '.btn'+z;
-                        $(btn_concat).removeClass('btn-danger');
-                        $(btn_concat).addClass('btn-success');
-                        }
-
-                        if (y == 'Not Done'){
-                        var btn_concat = '.btn'+z;
-                        $(btn_concat).removeClass('btn-success');
-                        $(btn_concat).addClass('btn-danger');
-                        }
-                        }                 
-                    </script>  
-                   
-<!--
-                    <tr>
-                      <td>1</td>
-                      <td>John Doe</td>
-                      <td>11-7-2014</td>
-                      <td><button class="btn btn-success">Approved</button></td>
-                      <td><button class="btn btn-info"> View comments </button></td>
-                      <td><button class="btn btn-danger">Not Approved</button> </td>
-                    </tr>
--->
-                    
-                    <style>
-                        .table {
-                            border: 0.5px solid #000000;
-                        }
-                        .table-bordered > thead > tr > th,
-                        .table-bordered > tbody > tr > th,
-                        .table-bordered > tfoot > tr > th,
-                        .table-bordered > thead > tr > td,
-                        .table-bordered > tbody > tr > td,
-                        .table-bordered > tfoot > tr > td {
-/*                            border: 0.5px solid #17A2B8;*/
-                        }
-                        
-                        #btn_txt {
-                            font-size: 14px;
-                        }
-                        
-                        #hd_txt{
-                            font-size: 14px;
-                        }
-                          
-                    </style>
-<!--
-                           <div class="col-lg-2 ml-auto mr-auto">
-                        <button class=" btn btn-success mb-3" onclick="window.location.href='../pages/logbook.php';"> View Logbook Page </button>
-                           </div>
--->
-                            
-                        
-                            </div>
-                        
-                        </div>
-                    </div>
-                </div>
-    
-
-            <?php    
-                
-                
+                include 'location_list.php';
                 $_SESSION['pendingStatus'] = '0';
             }
              
     }
         $loop3 = $loop3 + 1; 
     }
-                        
-        echo "
+
+    if (($len_lastURL >= 2) && ($res_cnt == 1)) { //http://localhost/UNI_3rd_year/Industrial_Supervisor/pages/logbook.php?1
+//        echo $len_lastURL;
+        $current_userID = $get_no[1];
+        $_SESSION['student_selected'] = $current_userID;
+        $sql_logbook = "SELECT * FROM logbook_entries WHERE userID = '$current_userID'";
+        $run = $conn -> query($sql_logbook);
+        $logbook_number_rows = mysqli_num_rows ($run);
+        $logbook_row = $run -> fetch_assoc();
+        
+        $sql_statusCheck = "SELECT * FROM logbook_entries WHERE userID = '$current_userID' AND indSup_verifystatus = '1' AND entry_status = '1'"; 
+        $run_statusCheck = $conn -> query ($sql_statusCheck);
+        $status_Verified = mysqli_num_rows ($run_statusCheck); //verified
+
+        $sql_statusCheck2 = "SELECT * FROM logbook_entries WHERE userID = '$current_userID' AND (entry_status = '1' OR entry_status ='') AND (indSup_verifystatus = '0' OR indSup_verifystatus = '')"; 
+        $run_statusCheck2 = $conn -> query ($sql_statusCheck2);
+        $status_notVerified = mysqli_num_rows ($run_statusCheck2); //not verified
+//        $_SESSION ['selected_student'] = ;
+        include 'logbook_entry.php';
+    }
+
+    if (($len_lastURL >= 2) && ($res_cnt > 1)) {
+        $first = $_SESSION['first'];
+        if ($first != 'week'){
+        //ERROR
+//        echo $selected_student;
+        $current_userID = $_SESSION['student_selected'];
+        $sql_logbook = "SELECT * FROM logbook_entries WHERE userID = '$current_userID'";
+        $run = $conn -> query($sql_logbook);
+        $logbook_number_rows = mysqli_num_rows ($run);
+        $logbook_row = $run -> fetch_assoc();
+        
+        $sql_statusCheck = "SELECT * FROM logbook_entries WHERE userID = '$current_userID' AND indSup_verifystatus = '1' AND entry_status = '1'"; 
+        $run_statusCheck = $conn -> query ($sql_statusCheck);
+        $status_Verified = mysqli_num_rows ($run_statusCheck); //verified
+
+        $sql_statusCheck2 = "SELECT * FROM logbook_entries WHERE userID = '$current_userID' AND (entry_status = '1' OR entry_status ='') AND (indSup_verifystatus = '0' OR indSup_verifystatus = '')"; 
+        $run_statusCheck2 = $conn -> query ($sql_statusCheck2);
+        $status_notVerified = mysqli_num_rows ($run_statusCheck2); //not verified
+//        $_SESSION ['selected_student'] = ;
+        include 'logbook_entry.php';
+        }
+    }
+
+
+?>
  </tbody>
 </table>
-<!-- page_content -->
+
 </div>  
 </div>
 </div>
-
     <!-- End of div wrapper -->
 
-    <div class='overlay'></div>
+    <div class="overlay"></div>
 
-";
 
+<?php
     include '../phpIncludes/footer2.php';
 
 

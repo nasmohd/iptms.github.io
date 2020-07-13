@@ -72,10 +72,10 @@
                     <div class='col-lg-12 col-12 ml-auto mr-auto mt-4' >
                        
                         <div class='row''>
-
-                            <div class='col-lg-10 col-12 table-responsive ml-auto mr-auto' style='border: 2px solid #17A2B8; border-radius: 15px;'>
-                               
-                                <table class='table table-hover text-nowrap table-bordered table-striped text-center mt-5' style='border: 2px solid #306FA0; font-size: 13px; border-radius: 20px;'>
+                            
+                            <div class='col-lg-10 col-12 table-responsive ml-auto mr-auto' style='border: 2px solid #17A2B8; border-radius: 15px;' id='page_content'>
+                               <p class='mt-3'><span style='font-size:16px; color:#333333; font-weight:bold;'> STUDENTS UNDER YOUR SUPERVISION <span></p>
+                                <table class='table table-hover text-nowrap table-bordered table-striped text-center mt-2 mb-5' style='border: 2px solid #306FA0; font-size: 13px; border-radius: 20px;'>
                   <thead style='background-color: #306FA0; color:white;'>
                     <tr>
 
@@ -84,7 +84,6 @@
                       <th><span id='hd_txt'>Weeks Submitted</span></th>
 
                       <th><span id='hd_txt'>Weeks Verified</span></th>
-                      
                       <th><span id='hd_txt'>Institute Sup</span></th>
                     </tr>
                   </thead>
@@ -102,9 +101,9 @@
                        
                         <div class='row''>
 
-                            <div class='col-lg-10 col-12 table-responsive ml-auto mr-auto' style='border: 2px solid #17A2B8; border-radius: 15px;'>
+                            <div class='col-lg-10 col-12 table-responsive ml-auto mr-auto' style='border: 2px solid #17A2B8; border-radius: 15px;' id='page_content'>
                                
-                                <table class='table table-hover text-nowrap table-bordered table-striped text-center mt-2' style='border: 2px solid #306FA0; font-size: 13px; border-radius: 20px;'>
+                                <table class='table table-hover text-nowrap table-bordered table-striped text-center mt-2 mb-5' style='border: 2px solid #306FA0; font-size: 13px; border-radius: 20px;'>
                   <thead style='background-color: #306FA0; color:white;'>
                     <tr>
 
@@ -132,9 +131,9 @@
                        
                         <div class='row''>
 
-                            <div class='col-lg-10 col-12 table-responsive ml-auto mr-auto' style='border: 2px solid #17A2B8; border-radius: 15px;'>
-                               
-                                <table class='table table-hover text-nowrap table-bordered table-striped text-center mt-2' style='border: 2px solid #306FA0; font-size: 13px; border-radius: 20px;'>
+                            <div class='col-lg-10 col-12 table-responsive ml-auto mr-auto' style='border: 2px solid #17A2B8; border-radius: 15px;' id='page_content'>
+                               <p> Students Under your Supervision </p>
+                                <table class='table table-hover text-nowrap table-bordered table-striped text-center mt-2 mb-5' style='border: 2px solid #306FA0; font-size: 13px; border-radius: 20px;'>
                   <thead style='background-color: #306FA0; color:white;'>
                     <tr>
 
@@ -228,6 +227,7 @@
     }
 
     if (($len_lastURL >= 2) && ($res_cnt > 1)) {
+        
         $first = $_SESSION['first'];
         if ($first != 'week'){
         //ERROR
@@ -254,10 +254,19 @@
 ?>
  </tbody>
 </table>
-
+<!-- page_content -->
 </div>  
 </div>
 </div>
+<!--
+   <script type="text/javascript">
+var elmnt = document.getElementsByTagName("table");
+alert (elmnt);
+       
+</script>
+-->
+    
+
     <!-- End of div wrapper -->
 
     <div class="overlay"></div>
