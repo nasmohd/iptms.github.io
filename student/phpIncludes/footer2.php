@@ -15,7 +15,29 @@
     </div>
 </footer>
 
+<style>
+    .wrapper {
+        position: relative;
+        min-height: 100vh;
+    }
+    
+    .content{
+        padding-bottom: 100px;
+    }
+    
+    #footr2{
+        background-color: #306FA0;
+         color: white; 
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 80px;
+    }
 
+
+</style>
+
+<!--
 <style>
     #footr2{
         background-color: #306FA0; 
@@ -26,8 +48,9 @@
         font-size:15px;
     }
 </style>
-<!-- For div wrapper from the header -->
-    </div>     
+-->
+
+    </div> <!-- For div wrapper from the header -->
     </div> <!-- end of the content class -->
     </div> <!-- end of the wrapper class -->
 

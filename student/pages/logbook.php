@@ -46,6 +46,7 @@
 ?>
         <div class='' id="content">
             <div class="container-fluid">
+              <div class='row pr-2'>
                <?php
                     if ($len_lastURL == 1){
                         include 'logbook_entry.php';
@@ -135,9 +136,14 @@
                
                
                 
-            </div>  
-        </div>
-    </div>
+            
+    
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
     <!-- End of div wrapper -->
 
     <div class="overlay"></div>

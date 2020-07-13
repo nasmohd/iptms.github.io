@@ -28,6 +28,11 @@
     $run_taskStatus = $conn -> query ($sql_taskCheck);
     $row_tasks = $run_taskStatus -> fetch_assoc();
     $number_tasks = mysqli_num_rows ($run_taskStatus);
+    
+    $last_task_id = "SELECT MAX(task_id) AS new_id FROM task_info WHERE StudentID = '$current_userID'";
+    $last_task_id = "SELECT MAX(task_id) AS new_id FROM task_info WHERE StudentID = '$current_userID'";
+    $run_last = $conn -> query ($last_task_id);
+    $res_last = $run_last -> fetch_assoc();
 
     //tasks not done
     $sql_taskCheck_status = "SELECT * FROM task_info WHERE StudentID = '$current_userID' AND task_status = '0'"; 
@@ -55,6 +60,7 @@
                                </button></p>
                                  </div>
                                
+<!--
                                <div class='col-2 dropdown mt-4 ml-auto'>
                                     <button class='btn btn-info dropdown-toggle col-10' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
                                     <span id='btn_txt' class='select_taskView float-left'>All</span>
@@ -65,6 +71,7 @@
                                     <a class='dropdown-item' href='#' onclick="item_val('Not Done')"><span id='btn_txt'>Not Done</span></a>
                                     </div>
                                 </div>
+-->
                                 
                                 <script type="text/javascript"> 
                                     function item_val(x){
@@ -98,23 +105,27 @@
                        $show = 0;
                        $selected_tasks = [];
 //                       $number_tasks
-                       
+                       $op = 1;
                        
                        
 //$row_tasks        
-                       while ($loop2 <= $number_tasks){
+                       while ($loop2 <= $res_last['new_id']){
                            $get_task = "SELECT * FROM task_info WHERE StudentID = '$current_userID' AND task_id ='$loop2'";
                            $run_task_query = $conn -> query ($get_task);
                            $res_tasks = $run_task_query -> fetch_assoc();
+                           $num_res = mysqli_num_rows ($run_task_query);
                            
+                           //Get deadline
                            $get_task2 = "SELECT deadline FROM task_info WHERE StudentID = '$current_userID' AND task_id ='$loop2'";
                            $run_task_query2 = $conn -> query ($get_task2);
                            $res_tasks2 = $run_task_query2 -> fetch_assoc();
-
+                           
+                           
+                            if ($num_res != 0){
                            echo "
                            <tr>
                               
-                              <td class='text-center'>".$loop2."</td>
+                              <td class='text-center'>".$op."</td>
                               <td class='text-center'>".$res_tasks['deadline']."</td>"
 //                              <td>".$res_tasks['tasks']."</td>"
                                ;
@@ -184,6 +195,9 @@
                                </script>        
                                ";  
                            }
+                                $op = $op + 1;
+                                
+                       }
                            
                            
                            $loop2 = $loop2 + 1;

@@ -3,10 +3,12 @@
                    <p style='color:black; font-weight:500;' class='mt-3'> <span id='btn_txt'>LOGBOOK INFORMATION: </span>
                    <button class='ml-3 btn' style='background-color: #6C757D'>
                        <p style='color:white; font-size:14px;'>".$logbook_number_rows." weeks submitted, ".$status_Verified." weeks verified, ".$status_notVerified." weeks not verified</p>
-                       </button>
+                       </button><br/>
+                    
+                     <textarea placeholder='Selected Student' name='selection' class='form-control col-lg-3 mt-4' id='exampleFormControlTextarea1' rows='1' maxlength='250' readonly style='resize:none; font-size:14px;'> ".$_SESSION['SelectedStudent_FName']." ".$_SESSION['SelectedStudent_LName']."</textarea>
+                       
                    </p>
-                               
-                  
+                   
                    <tbody>";
 
                        $loop = 1;

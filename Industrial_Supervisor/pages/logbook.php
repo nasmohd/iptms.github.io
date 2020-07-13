@@ -64,7 +64,7 @@
     $students_supervised = mysqli_num_rows($run_supervision); //$students_supervised = 3
     $_SESSION['total_students'] = $students_supervised;
 
-    if ($len_lastURL < 2){
+    if ($len_lastURL < 2){ //If a specific student is selected
     echo "
     <div class='' id='content'>
             <div class='container-fluid'>
@@ -84,7 +84,7 @@
                       <th><span id='hd_txt'>Weeks Submitted</span></th>
 
                       <th><span id='hd_txt'>Weeks Verified</span></th>
-                      <th><span id='hd_txt'>Institute Sup</span></th>
+                      <th><span id='hd_txt'>Last Submission Date</span></th>
                     </tr>
                   </thead>
                   
@@ -131,7 +131,7 @@
                        
                         <div class='row''>
 
-                            <div class='col-lg-10 col-12 table-responsive ml-auto mr-auto' style='border: 2px solid #17A2B8; border-radius: 15px;' id='page_content'>
+                        <div class='col-lg-10 col-12 table-responsive ml-auto mr-auto' style='border: 2px solid #17A2B8; border-radius: 15px;' id='page_content'>
                                <p> Students Under your Supervision </p>
                                 <table class='table table-hover text-nowrap table-bordered table-striped text-center mt-2 mb-5' style='border: 2px solid #306FA0; font-size: 13px; border-radius: 20px;'>
                   <thead style='background-color: #306FA0; color:white;'>
@@ -210,6 +210,13 @@
 //        echo $len_lastURL;
         $current_userID = $get_no[1];
         $_SESSION['student_selected'] = $current_userID;
+        
+        $get_student_info = "SELECT * FROM student_info WHERE StudentID = '$current_userID'";
+        $run_student = $conn -> query ($get_student_info);
+        $get_res_student = $run_student -> fetch_assoc();
+        $_SESSION['SelectedStudent_FName'] = $get_res_student['FirstName'];
+        $_SESSION['SelectedStudent_LName'] = $get_res_student['LastName'];
+        
         $sql_logbook = "SELECT * FROM logbook_entries WHERE userID = '$current_userID'";
         $run = $conn -> query($sql_logbook);
         $logbook_number_rows = mysqli_num_rows ($run);

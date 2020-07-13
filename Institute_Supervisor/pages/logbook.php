@@ -86,7 +86,7 @@
 
                       <th><span id='hd_txt'>Weeks Verified</span></th>
                       
-                      <th><span id='hd_txt'>Last Submission</span></th>
+                      <th><span id='hd_txt'>Last Submission Date</span></th>
                     </tr>
                   </thead>
                   
@@ -209,6 +209,13 @@
 //        echo $len_lastURL;
         $current_userID = $get_no[1];
         $_SESSION['student_selected'] = $current_userID;
+        
+        $get_student_info = "SELECT * FROM student_info WHERE StudentID = '$current_userID'";
+        $run_student = $conn -> query ($get_student_info);
+        $get_res_student = $run_student -> fetch_assoc();
+        $_SESSION['SelectedStudent_FName'] = $get_res_student['FirstName'];
+        $_SESSION['SelectedStudent_LName'] = $get_res_student['LastName'];
+        
         $sql_logbook = "SELECT * FROM logbook_entries WHERE userID = '$current_userID'";
         $run = $conn -> query($sql_logbook);
         $logbook_number_rows = mysqli_num_rows ($run);

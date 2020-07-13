@@ -1,6 +1,6 @@
 <?php
     echo "
-    <div class='row pr-2'>
+    
                     <div class='col-lg-12 col-12 ml-auto mr-auto mt-4' >
                        
                         <div class='row''>
@@ -176,8 +176,7 @@
                           
                     </style>
                     
-                  </tbody>
-                </table>
+                  
 <!--
                            <div class="col-lg-2 ml-auto mr-auto">
                         <button class=" btn btn-success mb-3" onclick="window.location.href='../pages/logbook.php';"> View Logbook Page </button>
@@ -185,11 +184,8 @@
 -->
                             
                         
-                            </div>
-                        
-                        </div>
-                    </div>
-                </div>
+                            
+                
     
 
         
