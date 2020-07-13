@@ -16,7 +16,7 @@
                             <td><span style='font-weight:bold; font-size:16px; color:red;'>  &#x274C; </span></td>
                             <td><span style='font-weight:bold; font-size:16px; color:red;'>  &#x274C; </span></td>
                             <td><span style='font-weight:bold; font-size:16px; color:red;'>  &#x274C; </span></td> 
-                            <td> OK </td>
+                            <td><span style='font-weight:bold; font-size:16px; color:red;'>  &#x274C; </span></td>
                             </tr>
                             ";
                             
@@ -30,10 +30,32 @@
                             <td>".$run_res['CompanyName']."</td>
                             <td>".$run_res['CompanyAddress']."</td>
                             <td>".$run_res['LocationDescription']."</td> 
-                            <td><button class='btn btn-info' onclick=\"img_clicked(".$run_res['locationCoord'].")\"> <span style='font-size:13px;'> View Map </span></button></td> 
-                            <td> OK </td>
-                        </tr>
-                        ";
+                            <td><button class='btn btn-info' onclick=\"img_clicked(".$run_res['locationCoord'].")\"> <span style='font-size:13px;'> View Map </span></button></td>";
+                            
+                        if ($run_res['institute_supervision_status'] == '0'){
+                            echo "
+                            <td>
+                            <div class='dropdown'>
+                                    <button class='btn btn-danger dropdown-toggle btn".$loop3." col-11' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                                    <span id='btn_txt' class='done_txt".$loop3." float-left mr-4' name='done_txt?".$loop3."'> Not Assessed</span>
+                                    </button>
+                                    
+                                    <div class='dropdown-menu' aria-labelledby='dropdownMenuButton' id='btn".$loop3."'>
+                                    <a class='dropdown-item' href='?".$loop3."'><span id='btn_txt'>Assessed</span></a>
+                                    </div>
+                            </div>
+                            
+                            </td>
+                            </tr>
+                            ";
+                        }
+                            
+                        if ($run_res['institute_supervision_status'] == '1'){
+                            echo "
+                            <td><button class='btn btn-success'><span style='font-size:13px;'>Assessed </span></button></td>
+                            </tr>
+                            ";
+                        }
                         }
                     ?>
                     

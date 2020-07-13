@@ -5,15 +5,17 @@
     $requestUrl = $_SERVER ['REQUEST_URI'];
     $urlComponents = explode ('/', $requestUrl);
 
-    $dot = explode ('.', $urlComponents[4]); //$urlComponents[4] = logbook.php?1
+    $dot = explode ('.', $urlComponents[4]); //$dot = Array ( [0] => locate_students [1] => php ), $dot_len = 2
 //    echo ($urlComponents[4]);
 //                    echo $urlComponents[4]; //logbook.php?2
     $dot_len = count($dot);
     $get_no = explode ('?', $dot[1]); //http://localhost/UNI_3rd_year/student/pages/logbook.php?1
     $len_lastURL = count($get_no); //$get_no = Array ( [0] => php [1] => 1 )
-//    print_r ($get_no);
-//    echo $len_lastURL;
-//    echo $get_no[1];
+
+    if ($len_lastURL > 1){
+        $updateStatus = "UPDATE student_location_info SET institute_supervision_status = '1' WHERE studentID='$get_no[1]'";
+        $run_update = $conn -> query($updateStatus);
+    }
     
     //http://localhost/UNI_3rd_year/student/pages/logbook.php?request=4
 

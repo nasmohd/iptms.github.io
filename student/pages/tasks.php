@@ -140,14 +140,19 @@
                            
                            if ($res_tasks['task_status'] == '1'){
 //                               echo "<td><button class='btn btn-success'><span id='btn_txt'>Done</span></button></td>";   
-                               echo "<td class='text-center'>
+                               echo "
+                               <td class='text-center'>
                                <div class='dropdown'>
                                     <button class='btn btn-success dropdown-toggle btn".$loop2." col-6' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
                                     <span id='btn_txt' class='done_txt".$loop2." mr-3' name='done_txt?".$loop2."'> Done</span>
                                     </button>
+                                    
                                     <div class='dropdown-menu' aria-labelledby='dropdownMenuButton' id='btn".$loop2."'>
                                     <a class='dropdown-item' href='?status=t.".$loop2."#btn".$loop2."' onclick='select_taskDone2(\"Done\", ".$loop2.", ".$res_tasks['task_id'].", t)'><span id='btn_txt'>Done</span></a>
-                                    <a class='dropdown-item' href='?status=f.".$loop2."#btn".$loop2."' onclick='select_taskDone2(\"Not Done\", ".$loop2.", ". $res_tasks['task_id'].", f)'><span id='btn_txt'>Not Done</span></a> </div></div></td>                    
+                                    <a class='dropdown-item' href='?status=f.".$loop2."#btn".$loop2."' onclick='select_taskDone2(\"Not Done\", ".$loop2.", ". $res_tasks['task_id'].", f)'><span id='btn_txt'>Not Done</span></a> 
+                                    </div>
+                                </div>
+                                </td>                    
                                ";   
                            }
                            
