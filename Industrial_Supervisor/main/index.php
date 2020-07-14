@@ -1,6 +1,17 @@
 <?php
     include '../phpIncludes/header.php';
-    $current_userID = $_SESSION ['StudentID'];
+//    $current_userID = $_SESSION ['StudentID'];
+    $sup_ID = $_SESSION ['IndustrialSup_ID'];
+
+    $getSup_students = "SELECT * FROM supervision_info WHERE institute_supervisor_ID = '$sup_ID'";
+    $run_getSup_students = $conn -> query ($getSup_students);
+    $total_getSup_students = mysqli_num_rows($run_getSup_students);
+    
+    $largest_getSup_students = "SELECT MAX(id) AS new_Supid FROM supervision_info WHERE institute_supervisor_ID = '$sup_ID'";
+    $run_largest_getSup_students = $conn -> query ($largest_getSup_students);
+    $total_largest = mysqli_num_rows($run_largest_getSup_students);
+    echo ($total_largest);
+    
     $sql_logbook = "SELECT * FROM logbook_entries WHERE userID = '$current_userID'";
     $run = $conn -> query($sql_logbook);
     $logbook_number_rows = mysqli_num_rows ($run);
@@ -38,27 +49,19 @@
                             </div>
                            <!-- change the col-lg below to change the table size -->
                             <div class="col-lg-6 col-12 table-responsive ml-auto mr-auto" style="border: 2px solid #17A2B8; border-radius: 15px;">
-                               <p style="color:black; font-weight:500;" class="mt-3"> <span id='btn_txt'>LOGBOOK INFORMATION: </span>
-                               <button class='ml-3 btn' style='background-color: #6C757D'>
+                               <p style="color:black; font-weight:500;" class="mt-3"> <span id='btn_txt'>LOGBOOK INFORMATION </span>
                                
-                               <?php
-                                   echo"
-                               <p style='color:white; font-size:14px;'>".$logbook_number_rows." weeks submitted, ".$status_notVerified." weeks verified</p>
-                               
-                               ";?>
-<!--                               <p style='color:white;'>X weeks verified</p>-->
-                               </button>
                                </p>
                                 <table class="table table-hover text-nowrap table-bordered table-striped text-center" style="border: 2px solid #306FA0; font-size: 13px; border-radius: 20px;">
                   <thead style='background-color: #306FA0; color:white;'>
                     <tr>
 <!--                      <th>S/N</th>-->
-                      <th><span id='hd_txt'>Week</span></th>
-                      <th><span id='hd_txt'>Week Ending</span></th>
+                      <th><span id='hd_txt'>SN</span></th>
+                      <th><span id='hd_txt'>Name</span></th>
 <!--                      <th>Status</th>-->
-                      <th><span id='hd_txt'>Industrial Sup</span></th>
-                      <th><span id='hd_txt'>Comments</span></th>
-                      <th><span id='hd_txt'>Institute Sup</span></th>
+<!--                      <th><span id='hd_txt'>Weeks Submitted</span></th>-->
+                      <th><span id='hd_txt'>Weeks Not Verified</span></th>
+<!--                      <th><span id='hd_txt'>Institute Sup</span></th>-->
                     </tr>
                   </thead>
                   
@@ -154,7 +157,7 @@
                   </tbody>
                 </table>
                            <div class="col-lg-2 ml-auto mr-auto">
-                        <button class=" btn btn-success mb-3" onclick="window.location.href='../pages/logbook.php';"> View Logbook Page </button>
+                        <button class=" btn btn-success mb-3" onclick="window.location.href='../pages/logbook.php';"><span style="font-size:13px;">View Logbook Page </span></button>
                            </div>
                             
                         
@@ -162,24 +165,18 @@
                             
                     <!-- TASKS TABLE -->  
                         <div class="col-lg-5 col-12 table-responsive mr-auto ml-auto col-mt-5" style="border: 2px solid #17A2B8; border-radius: 15px;">
-                               <p style="color:black; font-weight:500;" class="mt-3"> <span id='btn_txt'>TASKS:
-                               <button class='ml-3 btn' style='background-color: #6C757D'>
+                               <p style="color:black; font-weight:500;" class="mt-3"> <span id='btn_txt'>TASK INFORMATION
                                
-                               <?php
-                                   echo"
-                               <p style='color:white; font-size:14px;'>".$number_tasks." tasks assigned, ".$number_tasks_notDone." not completed</p>
-                               ";?>
-                               </button>
                                
                                 <table class="table table-hover text-nowrap table-bordered table-striped text-center" style="border: 2px solid #306FA0; font-size: 13px; border-radius: 20px;">
                   <thead style='background-color: #306FA0; color:white; border: 2px solid #306FA0;'>
                     <tr>
 <!--                      <th>S/N</th>-->
-                      <th><span id='hd_txt'>Task </span></th>
-                      <th><span id='hd_txt'>Deadline</span></th>
+                      <th><span id='hd_txt'>SN </span></th>
+                      <th><span id='hd_txt'>Name</span></th>
 <!--                      <th>Status</th>-->
-                      <th><span id='hd_txt' style=''>Tasks</span></th>
-                      <th><span id='hd_txt'>Status</span></th>
+                      <th><span id='hd_txt' style=''>Tasks Assigned</span></th>
+<!--                      <th><span id='hd_txt'>Status</span></th>-->
                     </tr>
                   </thead>
                   
@@ -274,7 +271,7 @@
                 </table>
                          
                            <div class="col-lg-2 ml-auto mr-auto">
-                        <button class=" btn btn-success mb-3" onclick="window.location.href='../pages/tasks.php';"> View Tasks Page </button>
+                               <button class=" btn btn-success mb-3" onclick="window.location.href='../pages/tasks.php';"><span style="font-size:13px;">View Tasks Page </span></button>
                            </div>
                             
                         

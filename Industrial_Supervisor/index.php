@@ -42,8 +42,8 @@
         
 <div class="container-fluid" id="div_nav">
     <div class="row">
-        <div class="col-lg-2 ml-auto mr-auto d-flex justify-content-center mt-4" style="position:relative;" id="home_link">
-            <img src="../img/logo8.png" class="img-fluid" style="width: 100%; height: 35px;"/>
+        <div class="col-lg-3 mt-4 ml-auto mr-auto" style="position:relative;">
+            <img src="../img/logo8.png" class="img-fluid" style="height: 40px;"/>
         </div>
             
     </div>

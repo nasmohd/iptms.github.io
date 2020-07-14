@@ -26,7 +26,8 @@ if (isset($_POST['login']) && !empty($_POST['ind_username']) && !empty($_POST['p
 //        $_SESSION ['UserProfile'] = $row['ProfilePicture'];
         
 //        echo $row['ProfilePicture'];
-        $url1 = "../main/index.php";
+//        $url1 = "../main/index.php";
+        $url1 = "../pages/logbook.php";
         header ('Location: '.$url1);
     }
     

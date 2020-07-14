@@ -56,7 +56,7 @@
                    <hr>
                    
                    
-                    <a href="../main/index.php">
+                    <a href="#">
                     
                     <?php
                     
@@ -81,12 +81,14 @@
                 </li>
                 <hr>
                 
+<!--
                 <li class="active" >
                     <a href="../main/index.php"><span class="ml-3">
                     <i class="nav-icon fas fa-tachometer-alt"></i></span>
                     <span class="ml-1" id="sidebar_lnk">Dashboard</span>
                     </a>
                 </li>
+-->
                    
 <!--
                 <li>
@@ -157,9 +159,15 @@
                         <span style="font-weight:bold;"><i class="fas fa-bars"></i></span>
                         </button>
                     </div>
+                    
+                    <div class="col-lg-8 col-4 ml-auto mr-auto">
+                       <div class="col-lg-5 col-12 ml-auto mr-auto">
+                        <img src="../../img/logo6.png" class="img-fluid" style="height:5vh; width:20vw;">
+                        </div> 
+                    </div>
                 
+<!--
                     <div class="col-lg-8 ml-auto mr-auto col-7">
-                        <!-- Just added this form below -->
                         <form class="ml-5 form-inline">
                         <div class="col-lg-10 ml-4 input-group input-group-md">
                             <input class="col-lg-12 col-12 form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
@@ -171,6 +179,7 @@
                         </div>
                         </form>
                     </div>
+-->
                     
                     <!-- Right side of nav -->
                     <div class="col-lg-1 col-3" >
@@ -183,10 +192,12 @@
                             <span style="background-color:white; color: #306FA0;"><i class="fas fa-bell"></i></span>
     <!--                        <span class="badge badge-warning navbar-badge text-center">15</span>-->
                             </a>
+<!--
                             <div class="dropdown-menu">
                                 <li><a href="#">Notif 1</a></li>
                                 <li><a href="#">Notif 2</a></li>
                             </div>  
+-->
                         </div>
                         </div>
                     </div>

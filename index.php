@@ -47,14 +47,8 @@
         
 <div class="container-fluid" id="div_nav">
     <div class="row">
-        <div class="col-lg-2 mt-4 ml-auto mr-auto" style="position:relative;">
-            <img src="img/logo8.png" class="img-fluid" style="width: 100%; height: 35px;"/>
-<!--
-            <a class="" href="#" style="color:white; position:relative; font-size:14px; font-decoration: none;">
-                
-                    Management System
-            </a> 
--->
+        <div class="col-lg-3 mt-4 ml-auto mr-auto" style="position:relative;">
+            <img src="img/logo8.png" class="img-fluid" style="height: 40px;"/>
         </div>
             
     </div>
