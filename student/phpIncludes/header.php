@@ -73,7 +73,14 @@
                     </a>      
                 </li>
                 <hr>
-                
+<!--
+                <table>
+                <tr>
+                    <td></td>
+                    
+                    
+                </tr>
+-->
                 <li class="active" >
                     <a href="../main/index.php"><span class="ml-3">
                     <i class="nav-icon fas fa-tachometer-alt"></i></span>
@@ -102,14 +109,12 @@
                     </a>
                 </li>
                   
-<!--
                 <li>
                     <a href="../pages/placement.php"><span class="ml-3">
                     <i class="mr-1 nav-icon fas fa-building"></i></span>
                     <span class="ml-2" id="sidebar_lnk">Review</span>
                     </a>
                 </li>
--->
                    
 <!--
                 <li>
@@ -141,6 +146,7 @@
                     <span class="ml-2" id="sidebar_lnk" style="font-weight:bold;">Logout</span>
                     </a>
                 </li>
+                </table>
             </ul>
         
         </nav>
@@ -184,12 +190,132 @@
 
                         <!-- Notification Icon and information -->
                         <div class="dropdown" >
-                            <a class="nav-link" data-toggle="dropdown" href="#" style="background-color:white; border-radius:20px;">
-                                <span style="background-color:white; color: #306FA0;">
-                                    <i class="fas fa-bell"></i>
+                            <a class="nav-link btn" href="#" style="background-color:white; border-radius:20px;" >
+                            <!-- data-toggle="modal" data-target="#modal-default" -->
+                            <span style="background-color:white; color: #306FA0;"><i class="fas fa-bell"></i>
                                 </span>
     <!--                        <span class="badge badge-warning navbar-badge text-center">15</span>-->
                             </a>
+                            
+                            <form method="post" style="font-size:14px;">
+    <div class="modal fade" id="modal-default">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header" style="background-color: #306FA0; color:white;">
+              <h5 class="modal-title">NOTIFICATIONS</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true" style="color: white;">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col col-md-5 mt-2">
+                      <label>Choose Color:</label>
+                        <select class="form-control" name="color" id="color_select" onclick="add_color('#007BFF')">
+                            <option selected disabled style="background-color:white;"> Select One</option>
+                          <option class='bg-primary text-light' id="option_menu">#007BFF</option>
+                          <option class="bg-warning text-light" onclick="add_color('#FFC107')" id="option_menu">#FFC107</option>
+                          <option class="bg-success text-light" onclick="add_color('#28A745')" id="option_menu">#28A745</option>
+                          <option class="bg-danger text-light" onclick="add_color('#DC3545')" id="option_menu">#DC3545</option>
+                          <option class="bg-dark text-light" onclick="add_color('#6C757D')" id="option_menu">#6C757D</option>
+                          <option class="bg-info text-light" onclick="add_color('#17A2B8')" id="option_menu">#17A2B8</option>
+                           
+                        </select>
+                    </div>
+   
+                    <div class="col col-md-5 mt-2">
+                      <label>Subject:</label>
+                        <select class="form-control" name="subject">
+                          <option>Mathematics</option>
+                          <option>English</option>
+                          <option>Kiswahili</option>
+                          <option>Geography</option>
+                          <option>History</option>
+                          <option>Civics</option>
+                          <option>Chemistry</option>
+                          <option>Physics</option>
+                          <option>Biology</option>
+                          <option>Book Keeping</option>
+                          <option>Commerce</option> 
+                        </select>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col col-md-5 mt-2">
+                      <label>From:</label>
+                      <input type="date" name="from_date" class="form-control" placeholder="From date" style="font-size:14px;" required>
+                    </div>
+                    
+                    <div class="col col-md-5 mt-2">
+                      <label>To:</label>
+                      <input type="date" name="to_date" class="form-control" placeholder="To date" style="font-size:14px;" required>
+                    </div>
+                     
+                  </div>
+                </div>
+                 
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col col-md-5 mt-2">
+                      <label>STARTING TIME:</label>
+<!--                      <label>Hours:</label>-->
+                      <input type="text" name="start_hours" class="form-control" placeholder="Hour (00 to 23)" style="font-size:14px;">
+                    </div>
+                    
+                    <div class="col col-md-5 mt-2 pt-2">
+                     <br/>
+<!--                      <label>Minutes:</label>-->
+                      <input type="text" name="start_minutes" class="form-control" placeholder="Minutes (00 to 60)" style="font-size:14px;">
+                    </div>
+                     
+                  </div>
+                </div>
+                 
+                 <div class="form-group">
+                  <div class="row">
+                    <div class="col col-md-5 mt-2">
+                      <label>ENDING TIME:</label>
+<!--                      <label>Hours:</label>-->
+                      <input type="text" name="end_hours" class="form-control" placeholder="Hour (00 to 23)" style="font-size:14px;">
+                    </div>
+                    
+                    <div class="col col-md-5 mt-2 pt-2">
+                     <br/>
+<!--                      <label>Minutes:</label>-->
+                      <input type="text" name="end_minutes" class="form-control" placeholder="Minutes (00 to 60)" style="font-size:14px;">
+                    </div>
+                     
+                  </div>
+                </div>
+                
+<!--
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col col-md-12 mt-2">
+                      <label>Topics to cover:</label>
+                        <textarea type="text" name="topics" class="form-control" placeholder="Topics to be covered in this time" rows="4" required style="resize:none;" ></textarea>
+                    </div>
+                  </div>
+                </div>
+-->
+                 
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-primary" data-dismiss="modal" style="background-color: #306FA0; color:white;"><span style="font-size:14px;">Close</span></button>
+
+              <button type="submit" name="clear_all" data-dismiss="modal" class="btn btn-primary" style="background-color: #306FA0; color:white;"><span style="font-size:14px;">Clear All</span></button>
+              
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+    </form>
 <!--
                             <div class="dropdown-menu col-lg-4 text-center">
                                 <li><a class='ml-2 float-left' href="../pages/notification.php" style="color: #306FA0; font-size:13px; font-weight:bold;">Go to Notifications</a></li>

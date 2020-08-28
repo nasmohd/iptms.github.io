@@ -15,6 +15,12 @@
     $thurEntry = $_POST['thurEntry'];
     $friEntry = $_POST['friEntry'];
     $satEntry = $_POST['satEntry'];
+    $monhr = $_POST['monhr'];
+    $tuehr = $_POST['tuehr'];
+    $wedhr = $_POST['wedhr'];
+    $thurhr = $_POST['thurhr'];
+    $frihr = $_POST['frihr'];
+    $sathr = $_POST['sathr'];
 
     if ($_POST['satEntry'] == ''){
         $satEntry = '-';
@@ -51,7 +57,8 @@
     $row1 = $res1 -> fetch_assoc();
     
     if ($row1['weekNumber'] == $weekNumber){ //if the week is already present
-        $updateQuery = "UPDATE logbook_entries SET weekStart='$startDate', weekEnds='$endDate', monEntry='$monEntry', tueEntry='$tueEntry', wedEntry='$wedEntry', thurEntry='$thurEntry', friEntry='$friEntry', satEntry='$satEntry', week_Entry='$weekEntry', week_picture='$db_picName' WHERE userID ='$userID' AND weekNumber = '$weekNumber'";
+        
+        $updateQuery = "UPDATE logbook_entries SET weekStart='$startDate', weekEnds='$endDate', monEntry='$monEntry', tueEntry='$tueEntry', wedEntry='$wedEntry', thurEntry='$thurEntry', friEntry='$friEntry', satEntry='$satEntry', monhr='$monhr', tuehr='$tuehr', wedhr='$wedhr', thurhr='$thurhr', frihr='$frihr', sathr='$sathr' , week_Entry='$weekEntry', week_picture='$db_picName' WHERE userID ='$userID' AND weekNumber = '$weekNumber'";
         
         $res2 = $conn -> query ($updateQuery);
         //after updating, check fields, if all are full, change entry_status to 1
@@ -74,7 +81,8 @@
     }
 
     else{
-        $logbookInsert = "INSERT INTO logbook_entries (userID, weekNumber, weekStart, weekEnds, monEntry, tueEntry, wedEntry, thurEntry, friEntry, satEntry, week_Entry, week_picture, indSup_comments, indSup_verifystatus, instSup_verifystatus, year_of_study, entry_status) VALUES ('$userID' , '$weekNumber', '$startDate', '$endDate', '$monEntry', '$tueEntry', '$wedEntry', '$thurEntry', '$friEntry', '$satEntry', '$weekEntry', '$db_picName', '', '0', '0', '', '')";
+        
+        $logbookInsert = "INSERT INTO logbook_entries (userID, weekNumber, weekStart, weekEnds, monEntry, tueEntry, wedEntry, thurEntry, friEntry, satEntry, monhr, tuehr, wedhr, thurhr, frihr, sathr, week_Entry, week_picture, indSup_comments, indSup_verifystatus, instSup_verifystatus, year_of_study, entry_status) VALUES ('$userID' , '$weekNumber', '$startDate', '$endDate', '$monEntry', '$tueEntry', '$wedEntry', '$thurEntry', '$friEntry', '$satEntry', '$monhr', '$tuehr', '$wedhr', '$thurhr', '$frihr', '$sathr' , '$weekEntry', '$db_picName', '', '0', '0', '', '')";
         $resultInsert = $conn -> query($logbookInsert);
         
         //change all cols last_submission value

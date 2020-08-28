@@ -173,10 +173,12 @@
 
                         <!-- Notification Icon and information -->
                         <div class="dropdown" >
-                            <a class="nav-link" data-toggle="dropdown" href="#" style="background-color:white; border-radius:20px;">
+                            <a class="nav-link btn" href="#" style="background-color:white; border-radius:20px;" data-toggle="modal" data-target="#modal-default">
                             <span style="background-color:white; color: #306FA0;"><i class="fas fa-bell"></i></span>
     <!--                        <span class="badge badge-warning navbar-badge text-center">15</span>-->
                             </a>
+                            
+                            
 <!--
                             <div class="dropdown-menu">
                                 <li><a href="#">Notif 1</a></li>

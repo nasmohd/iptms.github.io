@@ -132,7 +132,7 @@
                         <div class='row''>
 
                         <div class='col-lg-10 col-12 table-responsive ml-auto mr-auto' style='border: 2px solid #17A2B8; border-radius: 15px;' id='page_content'>
-                               <p> Students Under your Supervision </p>
+                               
                                 <table class='table table-hover text-nowrap table-bordered table-striped text-center mt-2 mb-5' style='border: 2px solid #306FA0; font-size: 13px; border-radius: 20px;'>
                   <thead style='background-color: #306FA0; color:white;'>
                     <tr>
@@ -272,7 +272,7 @@ alert (elmnt);
        
 </script>
 -->
-    
+
 
     <!-- End of div wrapper -->
 

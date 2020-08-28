@@ -23,7 +23,7 @@ if (isset($_POST['delete_task'])){
 //    echo "OK";
 }
 
-else{
+if (isset($_POST['submitTask'])){
     $week_starting = $_POST['week_starting'];
     $deadline = $_POST['deadline'];
     $tasks = $_POST['tasks'];

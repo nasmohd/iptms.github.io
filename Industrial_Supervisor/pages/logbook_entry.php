@@ -126,6 +126,10 @@
 -->
                     
                     <style>
+                        a #bells1{
+                            display: none:
+                        }
+                        
                         .table {
                             border: 0.5px solid #000000;
                         }

@@ -24,6 +24,39 @@
     }
 ?>
 
+<script type = "text/javascript">
+
+     function showLocation(position) {
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+        var loc = document.getElementById("loc1");
+         
+//        loc.value = latitude + ", " + longitude;
+        alert(latitude + ", " + longitude);
+     }
+
+     function errorHandler(err) {
+        if(err.code == 1) {
+           alert("Error: Access is denied!");
+        } else if( err.code == 2) {
+           alert("Error: Position is unavailable!");
+        }
+     }
+    
+     function getLocation() {
+
+        if(navigator.geolocation) {
+
+           // timeout at 60000 milliseconds (60 seconds)
+           var options = {timeout:60000};
+           navigator.geolocation.getCurrentPosition(showLocation, errorHandler, options);
+        } else {
+           alert("Sorry, browser does not support geolocation!");
+        }
+     }
+          
+
+</script>
 
 <!--<div id="content">-->
 <div class="mt-2" id="content3"> 
@@ -43,6 +76,13 @@
                 <div class="form-group">
                     <div class="row d-flex justify-content-center">
                         
+                        <div class="col-lg-8 col-12 mt-4 ml-auto mr-auto">
+                            <label class='' for='exampleFormControlTextarea1' id='label-text'>Get Location: </label><br/>
+                            <input type = "button" class='btn btn-info' onclick = "getLocation();" value = "Get Location" style='font-size:14px;'/>
+                        </div>
+                          
+                        <div class="col-lg-2"></div>
+                           
                         <div class="col-lg-5 col-12 mt-4">
                             <label class='' for='exampleFormControlTextarea1' id='label-text'>IPT session starts on: </label>
                             <span title='IPT starts on'>
@@ -135,7 +175,7 @@
                                 
                                 if ($ipt_res['locationCoord'] == ''){
                                     echo "
-                                <textarea type='text' class='form-control mb-2 coordValue' id='input' aria-describedby='emailHelp' name='loc_coodinates' placeholder='Location Coordinates' value='' rows='2' maxlength='50'></textarea>
+                                <textarea type='text' class='form-control mb-2 coordValue' id='loc1' aria-describedby='emailHelp' name='loc_coodinates' placeholder='Location Coordinates' rows='2' maxlength='50'></textarea>
                                     ";
                                 
                                 }

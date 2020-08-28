@@ -115,7 +115,7 @@
 
                       <th><span id='hd_txt'>Industrial Sup</span></th>
                       <th><span id='hd_txt'>Comments</span></th>
-                      <th><span id='hd_txt'>Last Submission</span></th>
+                      <th><span id='hd_txt'>Institute Sup</span></th>
                     </tr>
                   </thead>
     ";

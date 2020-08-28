@@ -15,6 +15,8 @@
 //    print_r ($get_no);
 //    echo $len_lastURL;
 //    echo $get_no[1];
+
+
     
     //NOTES:
     //$get_no = Array ([0] => php [1] => 1), $len_lastURL = 1 if http://localhost/UNI_3rd_year/Industrial_Supervisor/pages/tasks.php?1
@@ -133,83 +135,66 @@
                             </div>
                         </div>
                         
-                    <style>
-                        .modal {
-                        border-radius:7px;
-                        display: none; /* Hidden by default */
-                        position: fixed; /* Stay in place */
-                        z-index: 1; /* Sit on top */
-                        padding-top: 100px; /* Location of the box */
-                        left: 0;
-                        top: 0;
-                        width: 100%; /* Full width */
-                        height: 100%; /* Full height */
-                        overflow: auto; /* Enable scroll if needed */
-                        background-color: rgb(0,0,0); /* Fallback color */
-                        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-                        }
-
-                        /* Modal Content */
-                        .modal-content {
-                        background-color: #fefefe;
-                        margin: auto;
-                        padding: 20px;
-                        border: 1px solid #888;
-                        width: 80%;
-                        height: 80%;
-                        }
-
-                        /* The Close Button */
-                        .close {
-                        color: #306FA0;
-                        float: right;
-                        font-size: 28px;
-                        font-weight: bold;
-                        }
-
-                        .close:hover,
-                        .close:focus {
-                        color: #000;
-                        text-decoration: none;
-                        cursor: pointer;
-                        }
-                           
-                    </style>
                     
-                    <script>
-                        var modal = document.getElementById("imgView");
-
-                        // Get the <span> element that closes the modal
-                        var span = document.getElementsByClassName("close")[0];
-
-                        // When the user clicks the button, open the modal 
-                        function img_clicked() {
-                            modal.style.display = "block";
-                        }
-
-                        // When the user clicks on <span> (x), close the modal
-                        span.onclick = function() {
-                        modal.style.display = "none";
-                        }
-
-                        // When the user clicks anywhere outside of the modal, close it
-                        window.onclick = function(event) {
-                        if (event.target == modal) {
-                        modal.style.display = "none";
-                        }
-                        }    
-                        
-                        
-                    </script>
                     </div>
+                    
+                    <form method='post' style='font-size:14px;' action="../phpIncludes/addtasks.inc.php">
+    <div class='modal fade' id='modal-default2'>
+        <div class='modal-dialog'>
+          <div class='modal-content'>
+            <div class='modal-header' style='background-color: #306FA0; color:white;'>
+              <h5 class='modal-title'>ASSIGN TASKS</h5>
+              <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                <span aria-hidden='true' style='color: white;'>&times;</span>
+              </button>
+            </div>
+            <div class='modal-body'>
+                <div class='form-group'>
+                  <div class='row'>
+   
+                    <div class='col col-md-5 mr-auto mt-2'>
+                      <label>Week Starting:</label>
+                        <input class='form-control' type="date" placeholder="Week Starting" name='week_starting' style='font-size:13px;'>
+                    </div>
+                    
+                    <div class='col col-md-5 ml-auto mt-2'>
+                      <label>Deadline:</label>
+                        <input class='form-control' type="date" placeholder="Deadline" name='deadline' style='font-size:13px;'>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class='form-group'>
+                  <div class='row'>
+                    <div class='col col-md-12 mt-2'>
+                      <label class='float-left'>Task:</label>
+                      <textarea name='tasks' class='form-control' placeholder='Task Details' rows='7' style='font-size:14px; resize:none;' required></textarea>
+                    </div>
+                </div>  
+                </div>
+                     
+            </div>
+            <div class='modal-footer justify-content-between'>
+                <input type='hidden' name='company_id' value=''>
+              <button type='button' class='btn btn-primary' data-dismiss='modal' style='background-color: #306FA0; color:white;'><span style='font-size:14px;'>Close</span></button>
+
+              <button class='btn' type='submit' name='submitTask' class='btn btn-primary' style='background-color:#306FA0; color:white;'><span style='font-size:14px;'>ADD TASK</span></button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+    </form>
+                    
        
        <?php
         echo "                  
-                <button class='btn btn-primary float-right mt-4 mb-3 col-lg-2 col-3' onclick=\"img_clicked()\"><span style='font-size:14px;'> Add Tasks </span></button>
+                <button class='btn float-right mt-4 mb-3 col-lg-2 col-3' style='background-color:#306FA0; color:white;' data-toggle='modal' data-target='#modal-default2'><span style='font-size:14px;'> Add Tasks </span></button>
 
                 <textarea placeholder='Selected Student' name='selection' class='form-control col-lg-3 mt-4' id='exampleFormControlTextarea1' rows='1' maxlength='250' readonly style='resize:none; font-size:14px;'>".$_SESSION['Selected_FName']." ".$_SESSION['Selected_LName']."</textarea>
 
-                <table class='table table-hover text-nowrap table-bordered table-striped text-center mt-2 mb-5' style='border: 2px solid #306FA0; font-size: 13px; border-radius: 20px;'>
+                <table class='table table-hover text-nowrap table-bordered table-striped text-center mt-2 mb-5' style='border: 2px solid #306FA0; font-size: 13px; border-radius: 20px;' id='example2'>
                   <thead style='background-color: #306FA0; color:white;'>
                     <tr>
 
@@ -554,3 +539,17 @@
 
 
 ?>
+<!--<script src='../../plugins/jquery.min.js'></script>-->
+<script>
+  $(function () {
+    $("#example1").DataTable();
+      $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+    });
+  });
+</script>

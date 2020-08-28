@@ -74,11 +74,23 @@
                             <textarea placeholder='Monday Entry' name='monEntry' class='form-control' id='exampleFormControlTextarea1' rows='1' maxlength='250'>".$getRow['monEntry']."</textarea>
                         <span>
                     </div>
+                    
+                    <div class='col-lg-2 mt-3'>
+                        <span title='Mon Hours'>
+                            <textarea placeholder='Mon Hours' name='monhr' class='col-lg-12 form-control' id='exampleFormControlTextarea1' rows='1' maxlength='10'>".$getRow['monhr']."</textarea>
+                        <span>
+                    </div>
 
                     <div class='col-lg-10 mt-2'>
                         <span title='TUESDAY'>
                             <textarea placeholder='Tuesday Entry' name='tueEntry' class='form-control' id='exampleFormControlTextarea1' rows='1' maxlength='250'>".$getRow['tueEntry']."</textarea>
                         </span>
+                    </div>
+                    
+                    <div class='col-lg-2 mt-2'>
+                        <span title='Tue Hours'>
+                            <textarea placeholder='Tue Hours' name='tuehr' class='col-lg-12 form-control' id='exampleFormControlTextarea1' rows='1' maxlength='10'>".$getRow['tuehr']."</textarea>
+                        <span>
                     </div>
                     
                     <div class='col-lg-10 mt-2'>
@@ -87,10 +99,22 @@
                         </span>
                     </div>
                     
+                    <div class='col-lg-2 mt-2'>
+                        <span title='Wed Hours'>
+                            <textarea placeholder='Wed Hours' name='wedhr' class='col-lg-12 form-control' id='exampleFormControlTextarea1' rows='1' maxlength='10'>".$getRow['wedhr']."</textarea>
+                        <span>
+                    </div>
+                    
                     <div class='col-lg-10 mt-2'>
                         <span title='THURSDAY'>
                             <textarea placeholder='Thursday Entry' name='thurEntry' class='form-control' id='exampleFormControlTextarea1' rows='1' maxlength='250'>".$getRow['thurEntry']."</textarea>
                         </span>
+                    </div>
+                    
+                    <div class='col-lg-2 mt-2'>
+                        <span title='Thur Hours'>
+                            <textarea placeholder='Thur Hours' name='thurhr' class='col-lg-12 form-control' id='exampleFormControlTextarea1' rows='1' maxlength='10'>".$getRow['thurhr']."</textarea>
+                        <span>
                     </div>
                     
                     <div class='col-lg-10 mt-2'>
@@ -99,17 +123,24 @@
                         </span>
                     </div>
                     
+                    <div class='col-lg-2 mt-2'>
+                        <span title='Fri Hours'>
+                            <textarea placeholder='Fri Hours' name='frihr' class='col-lg-12 form-control' id='exampleFormControlTextarea1' rows='1' maxlength='10'>".$getRow['frihr']."</textarea>
+                        <span>
+                    </div>
+                    
                     <div class='col-lg-10 mt-2'>
                         <span title='SATURDAY'>
                             <textarea placeholder='Saturday Entry (Enter &quot;none&quot; if not applicable)' name='satEntry' class='form-control' id='exampleFormControlTextarea1' rows='1' maxlength='250'>".$getRow['satEntry']."</textarea>
                         </span>
-                    </div>                    
-                                                
-                    <div class='col-lg-2 mt-2 text-center'>
-                        <button type='submit' id='upload_btn' class='btn col-lg-10'>
-                            UPLOAD </button> <!-- Work on the data-toggle attributes -->
                     </div>
                     
+                    <div class='col-lg-2 mt-2'>
+                        <span title='Sat Hours'>
+                            <textarea placeholder='Sat Hours' name='sathr' class='col-lg-12 form-control' id='exampleFormControlTextarea1' rows='1' maxlength='10'>".$getRow['sathr']."</textarea>
+                        <span>
+                    </div>
+
                     
                     <style>
                         div #upload_btn {width:100%; color: white; background-color: #306FA0}
@@ -130,7 +161,13 @@
                         <span title='WEEK ENTRY (PLEASE BE BRIEF AND CLEAR)'>
                             <textarea placeholder='Week Entry' name='week_entry' class='form-control' id='exampleFormControlTextarea1' rows='8' maxlength='1000'>".$getRow['week_Entry']."</textarea>
                         </span>
-                    </div>";
+                    </div>
+                    
+                    <div class='col-lg-2 mt-5 text-center'>
+                        <button type='submit' id='upload_btn' class='btn col-lg-10'>
+                            UPLOAD </button> <!-- Work on the data-toggle attributes -->
+                    </div>
+                    ";
 ?>
                     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
                     <div class='col-lg-10'>
@@ -146,93 +183,40 @@
 
                     </div>
                     
-                    <div id="imgView" class="modal">
-                        <div class="modal-content col-lg-6 ml-auto mr-auto" style='border:1px solid #306FA0;'>
-                            <span class="close mb-2">&times;</span>
-                            
-                            <?php
-                            echo "
-                            <img class='img-responsive' src='logbook_images/".$getRow['week_picture']."' style='width:100%; height:100%; overflow:hidden;'>";
-                            
-                            ?>
-                        </div>
-                        
-                    <style>
-                        .modal {
-                        border-radius:7px;
-                        display: none; /* Hidden by default */
-                        position: fixed; /* Stay in place */
-                        z-index: 1; /* Sit on top */
-                        padding-top: 100px; /* Location of the box */
-                        left: 0;
-                        top: 0;
-                        width: 100%; /* Full width */
-                        height: 100%; /* Full height */
-                        overflow: auto; /* Enable scroll if needed */
-                        background-color: rgb(0,0,0); /* Fallback color */
-                        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-                        }
-
-                        /* Modal Content */
-                        .modal-content {
-                        background-color: #fefefe;
-                        margin: auto;
-                        padding: 20px;
-                        border: 1px solid #888;
-                        width: 80%;
-                        height: 80%;
-                        }
-
-                        /* The Close Button */
-                        .close {
-                        color: #306FA0;
-                        float: right;
-                        font-size: 28px;
-                        font-weight: bold;
-                        }
-
-                        .close:hover,
-                        .close:focus {
-                        color: #000;
-                        text-decoration: none;
-                        cursor: pointer;
-                        }
-                           
-                    </style>
-                    
-                    <script>
-                        var modal = document.getElementById("imgView");
-
-                        // Get the <span> element that closes the modal
-                        var span = document.getElementsByClassName("close")[0];
-
-                        // When the user clicks the button, open the modal 
-                        function img_clicked() {
-                            modal.style.display = "block";
-                        }
-
-                        // When the user clicks on <span> (x), close the modal
-                        span.onclick = function() {
-                        modal.style.display = "none";
-                        }
-
-                        // When the user clicks anywhere outside of the modal, close it
-                        window.onclick = function(event) {
-                        if (event.target == modal) {
-                        modal.style.display = "none";
-                        }
-                        }    
-                        
-                        
-                    </script>
-                    </div>
+                   
                     
                     <div class='col-lg-10 mb-4 mt-2' onclick="img_clicked()">                      
                         <?php
                             echo"
                         <span title='Uploaded image'>
+                        <a href='#' data-toggle='modal' data-target='#modal-default2'>
                         <textarea placeholder='Industrial Supervisor Comments (Read Only)' name='field_supComments' class='form-control' id='week_img' rows='3' readonly>".$pic." \n\n(Click to view Previously uploaded image)</textarea>
-                        </span>                    
+                        </a>
+                        </span>
+                        
+                        
+        <div class='modal fade pb-5' id='modal-default2' style='height:80vh; overflow-y:auto;'>
+        <div class='modal-dialog'>
+          <div class='modal-content'>
+            <div class='modal-header' style='background-color: #306FA0; color:white;'>
+              <h5 class='modal-title'>WEEK PHOTO</h5>
+              <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                <span aria-hidden='true' style='color: white;'>&times;</span>
+              </button>
+            </div>
+            <div class='modal-body'>
+                
+                <img class='img-responsive' src='../../student/pages/logbook_images/".$pic."' style='width:100%; height:55vh; overflow:auto;'>
+                
+                
+                     
+            </div>
+            
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
                         ";
                         ?>   
                     </div>

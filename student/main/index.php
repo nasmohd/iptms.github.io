@@ -8,7 +8,7 @@
     $logbook_row = $run -> fetch_assoc();
 
     //we have filled an entry but it is not verified
-    $sql_statusCheck = "SELECT * FROM logbook_entries WHERE userID = '$current_userID' AND indSup_verifystatus = '0' OR indSup_verifystatus = '' AND entry_status = '1'"; 
+    $sql_statusCheck = "SELECT * FROM logbook_entries WHERE userID = '$current_userID' AND indSup_verifystatus = '1' AND entry_status = '1'"; 
     $run_statusCheck = $conn -> query ($sql_statusCheck);
     $status_notVerified = mysqli_num_rows ($run_statusCheck); //not verified
 

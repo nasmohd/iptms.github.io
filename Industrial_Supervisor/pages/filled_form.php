@@ -93,118 +93,88 @@
                     <div class='col-lg-10 mt-3'>
                         <textarea placeholder='Monday Entry' name='monEntry' class='form-control' id='exampleFormControlTextarea1' rows='1' maxlength='250' readonly>".$row4['monEntry']."</textarea>
                     </div>
+                    
+                    <div class='col-lg-2 mt-3'>
+                        <textarea name='friEntry' class='col-lg-12 form-control' id='exampleFormControlTextarea1' rows='1' maxlength='10' readonly>".$row4['monhr']."</textarea>
+                    </div>
 
                     <div class='col-lg-10 mt-2'>
                         <textarea placeholder='Tuesday Entry' name='tueEntry' class='form-control' id='exampleFormControlTextarea1' rows='1' maxlength='250' readonly>".$row4['tueEntry']."</textarea>
+                    </div>
+                    
+                    <div class='col-lg-2 mt-2'>
+                        <textarea name='friEntry' class='col-lg-12 form-control' id='exampleFormControlTextarea1' rows='1' maxlength='10' readonly>".$row4['tuehr']."</textarea>
                     </div>
                     
                     <div class='col-lg-10 mt-2'>
                         <textarea placeholder='Wednesday Entry' name='wedEntry' class='form-control' id='exampleFormControlTextarea1' rows='1' maxlength='250' readonly>".$row4['wedEntry']."</textarea>
                     </div>
                     
+                    <div class='col-lg-2 mt-2'>
+                        <textarea name='friEntry' class='col-lg-12 form-control' id='exampleFormControlTextarea1' rows='1' maxlength='10' readonly>".$row4['wedhr']."</textarea>
+                    </div>
+                    
                     <div class='col-lg-10 mt-2'>
                         <textarea placeholder='Thursday Entry' name='thurEntry' class='form-control' id='exampleFormControlTextarea1' rows='1' maxlength='250' readonly>".$row4['thurEntry']."</textarea>
+                    </div>
+                    
+                    <div class='col-lg-2 mt-2'>
+                        <textarea name='friEntry' class='col-lg-12 form-control' id='exampleFormControlTextarea1' rows='1' maxlength='10' readonly>".$row4['thurhr']."</textarea>
                     </div>
                     
                     <div class='col-lg-10 mt-2'>
                         <textarea placeholder='Friday Entry' name='friEntry' class='form-control' id='exampleFormControlTextarea1' rows='1' maxlength='250' readonly>".$row4['friEntry']."</textarea>
                     </div>
                     
+                    <div class='col-lg-2 mt-2'>
+                        <textarea name='friEntry' class='col-lg-12 form-control' id='exampleFormControlTextarea1' rows='1' maxlength='10' readonly>".$row4['frihr']."</textarea>
+                    </div>
+                    
                     <div class='col-lg-10 mt-2'>
                         <textarea placeholder='Saturday Entry' name='satEntry' class='form-control' id='exampleFormControlTextarea1' rows='1' maxlength='250' readonly>".$row4['satEntry']."</textarea>
-                    </div>                    
+                    </div>
+                    
+                    <div class='col-lg-2 mt-2'>
+                        <textarea name='friEntry' class='col-lg-12 form-control' id='exampleFormControlTextarea1' rows='1' maxlength='10' readonly>".$row4['sathr']."</textarea>
+                    </div>
                                                                 
                     <div class='col-lg-10 mt-2 mb-3'>
                         <textarea placeholder='Week Entry' name='week_entry' class='form-control' id='exampleFormControlTextarea1' rows='8' maxlength='1500' readonly>".nl2br($row4['week_Entry'])."</textarea>
                     </div>";
 
-?>                   <div id="imgView" class="modal">
-                        <div class="modal-content col-lg-6 ml-auto mr-auto" style='border:1px solid #306FA0;'>
-                            <span class="close mb-2">&times;</span>
-                            
-                            <?php
-                            echo "
-                            <img class='img-responsive' src='../../student/pages/logbook_images/".$row4['week_picture']."' style='width:100%; height:100%; overflow:hidden;'>";
-                            
-                            ?>
-                        </div>
-                    <style>
-                        .modal {
-                        border-radius:7px;
-                        display: none; /* Hidden by default */
-                        position: fixed; /* Stay in place */
-                        z-index: 1; /* Sit on top */
-                        padding-top: 100px; /* Location of the box */
-                        left: 0;
-                        top: 0;
-                        width: 100%; /* Full width */
-                        height: 100%; /* Full height */
-                        overflow: auto; /* Enable scroll if needed */
-                        background-color: rgb(0,0,0); /* Fallback color */
-                        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-                        }
-
-                        /* Modal Content */
-                        .modal-content {
-                        background-color: #fefefe;
-                        margin: auto;
-                        padding: 20px;
-                        border: 1px solid #888;
-                        width: 80%;
-                        height: 80%;
-                        }
-
-                        /* The Close Button */
-                        .close {
-                        color: #306FA0;
-                        float: right;
-                        font-size: 28px;
-                        font-weight: bold;
-                        }
-
-                        .close:hover,
-                        .close:focus {
-                        color: #000;
-                        text-decoration: none;
-                        cursor: pointer;
-                        }
-                           
-                    </style>
-                    
-                    <script>
-                        var modal = document.getElementById("imgView");
-
-                        // Get the <span> element that closes the modal
-                        var span = document.getElementsByClassName("close")[0];
-
-                        // When the user clicks the button, open the modal 
-                        function img_clicked() {
-                            modal.style.display = "block";
-                        }
-
-                        // When the user clicks on <span> (x), close the modal
-                        span.onclick = function() {
-                        modal.style.display = "none";
-                        }
-
-                        // When the user clicks anywhere outside of the modal, close it
-                        window.onclick = function(event) {
-                        if (event.target == modal) {
-                        modal.style.display = "none";
-                        }
-                        }    
-                        
-                        
-                    </script>
-                </div>
+?>                   
 
                     <div class='col-lg-10 mt-2' onclick="img_clicked()">          
                         <span title='Uploaded image'>
                 <?php
                     echo "
-                        <textarea placeholder='Weekly Photo' name='field_supComments' class='form-control' id='week_img' rows='3' readonly>".$row4['week_picture']." \n\n(Click to view Previously uploaded image)</textarea>
+                    <a href='#' data-toggle='modal' data-target='#modal-default2'>
+                        <textarea placeholder='Weekly Photo' name='field_supComments' class='form-control' id='week_img' rows='3' readonly>".$row4['week_picture']." \n\n(Click to view Previously uploaded image)</textarea></a>
                         </span>                      
                     </div>
+                    
+    <div class='modal fade pb-5' id='modal-default2' style='height:80vh; overflow-y:auto;'>
+        <div class='modal-dialog'>
+          <div class='modal-content'>
+            <div class='modal-header' style='background-color: #306FA0; color:white;'>
+              <h5 class='modal-title'>WEEK PHOTO</h5>
+              <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                <span aria-hidden='true' style='color: white;'>&times;</span>
+              </button>
+            </div>
+            <div class='modal-body'>
+                
+                <img class='img-responsive' src='../../student/pages/logbook_images/".$row4['week_picture']."' style='width:100%; height:55vh; overflow:auto;'>
+                
+                
+                     
+            </div>
+            
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
 
 
                     <div class='col-lg-12 font-weight-light'>

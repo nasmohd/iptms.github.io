@@ -1,6 +1,7 @@
 <?php 
     session_start();
     include '../../DBconnection.php';
+    $current_userID = $_SESSION ['IndustrialSup_ID'];
 
 
 ?>
@@ -186,12 +187,86 @@
                        <div class="row">
 
 
-                        <!-- Notification Icon and information -->
-                        <div class="dropdown" >
-                            <a class="nav-link" data-toggle="dropdown" href="#" style="background-color:white; border-radius:20px;">
-                            <span style="background-color:white; color: #306FA0;"><i class="fas fa-bell"></i></span>
-    <!--                        <span class="badge badge-warning navbar-badge text-center">15</span>-->
-                            </a>
+    <!-- Notification Icon and information -->
+    <div class="dropdown">
+        <a class="nav-link btn" href="#" style="background-color:white; border-radius:20px;" data-toggle="modal" data-target="#modal-default" id="bells1">
+        <span style="background-color:white; color: #306FA0;"><i class="fas fa-bell"></i></span>
+<!--                        <span class="badge badge-warning navbar-badge text-center">15</span>-->
+        </a>
+                            
+                            <form method="post" style="font-size:14px;">
+    <div class="modal fade" id="modal-default">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header" style="background-color: #306FA0; color:white;">
+              <h5 class="modal-title">NOTIFICATIONS</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true" style="color: white;">&times;</span>
+              </button>
+            </div>
+            
+            <div class="modal-body" style="height: 70vh; overflow-y:auto;">
+               <table class="table table-striped table-hover" style="border:none;">
+                <?php
+                    $getNotifs = mysqli_query ($conn, "SELECT * FROM notification_info WHERE industrial_supervisor_ID = '$current_userID'");
+                    $get_MAXNotifs = mysqli_query ($conn, "SELECT MAX(notification_id) AS MAX_notif FROM notification_info WHERE industrial_supervisor_ID = '$current_userID'");
+                    $res_Notifs = mysqli_fetch_assoc($getNotifs);
+                    $res_MAXNotifs = mysqli_fetch_assoc($get_MAXNotifs);
+                    $Notifs_COUNT = mysqli_num_rows($getNotifs);
+                
+                
+                    $notif_loop = 1;
+                    $cnt = 1;
+                    while ($notif_loop <= $res_MAXNotifs['MAX_notif']){
+                        $exactNotifs = mysqli_query ($conn, "SELECT * FROM notification_info WHERE industrial_supervisor_ID = '$current_userID' AND notification_id = '$notif_loop'");
+                        $Res_exactNotifs = mysqli_fetch_assoc ($exactNotifs);
+                        $Res_exactNotifsCOUNT = mysqli_num_rows ($exactNotifs);
+                        
+                        if ($Res_exactNotifsCOUNT != 0){
+                            echo "
+                                     
+                    <tr>
+                    <td>".$cnt."</td>
+                    <td><a href='../pages/logbook.php?week=".$Res_exactNotifs['logbook_weekNumber']."'>".$Res_exactNotifs['notification']."</a></td>
+                    </tr>
+                      
+                         
+
+                            ";
+                            $cnt = $cnt + 1;
+                            
+                            
+                        }
+                        $notif_loop = $notif_loop + 1;
+                    }
+                ?>
+                
+<!--
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col col-md-12 mt-2">
+                      <label>Topics to cover:</label>
+                        <textarea type="text" name="topics" class="form-control" placeholder="Topics to be covered in this time" rows="4" required style="resize:none;" ></textarea>
+                    </div>
+                  </div>
+                </div>
+-->
+                 </table>
+            </div>
+<!--
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-primary" data-dismiss="modal" style="background-color: #306FA0; color:white;"><span style="font-size:14px;">Close</span></button>
+
+              <button type="submit" name="clear_all" data-dismiss="modal" class="btn btn-primary" style="background-color: #306FA0; color:white;"><span style="font-size:14px;">Clear All</span></button>
+              
+            </div>
+-->
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+    </form>
 <!--
                             <div class="dropdown-menu">
                                 <li><a href="#">Notif 1</a></li>
@@ -199,6 +274,10 @@
                             </div>  
 -->
                         </div>
+                        
+                        
+                        
+                        
                         </div>
                     </div>
      
